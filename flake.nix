@@ -25,8 +25,8 @@
       specialArgs = {inherit inputs;};
       modules = [
         disko.nixosModules.disko
-        ./nixos/configuration.nix
-        ./nixos/disko-config.nix
+        ./nixos/vostro/configuration.nix
+        ./nixos/vostro/disko-config.nix
         home-manager.nixosModules.home-manager
         {
           home-manager.users.curt = import ./home/home.nix;
@@ -34,15 +34,19 @@
       ];
     };
 
-#    homeConfigurations = {
-#      "curt@vostro" = home-manager.lib.homeManagerConfiguration {
-#        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-#        extraSpecialArgs = {inherit inputs;};
-#        modules = [
-#          ./home/home.nix
-#        ];
-#      };
-#    };
+    nixosConfigurations.workstation = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {inherit inputs;};
+      modules = [
+        disko.nixosModules.disko
+        ./nixos/workstation/configuration.nix
+        ./nixos/workstation/disko-config.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.users.curt = import ./home/home.nix;
+        }
+      ];
+    };
 
   };
 }
