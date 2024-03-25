@@ -95,6 +95,7 @@
     stylua
     nil
     usbutils
+    pciutils
   ];
 
 
