@@ -6,6 +6,10 @@
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -13,13 +17,16 @@
     nixpkgs,
     hyprland,
     home-manager,
+    disko,
     ...
   }: {
     nixosConfigurations.vostro = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
       modules = [
+        disko.nixosModules.disko
         ./nixos/configuration.nix
+        ./nixos/disko-config.nix
         home-manager.nixosModules.home-manager
         {
           home-manager.users.curt = import ./home/home.nix;
