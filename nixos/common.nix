@@ -96,6 +96,7 @@
     nil
     usbutils
     pciutils
+    lshw
   ];
 
 
