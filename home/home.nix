@@ -72,12 +72,16 @@
     sops
     age
 
-    firefox
-    #  thunderbird
-    google-chrome
-
     gh
     pstree
+
+    # desktop
+    firefox
+    google-chrome
+
+    # gnome
+    gnome.gnome-session
+
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -140,6 +144,9 @@
     "org/gnome/desktop/peripherals/keyboard" = {
       repeat-interval = 30;
       delay = 250;
+    };
+    "org/gnome/desktop/input-sources" = {
+      xkb-options = ["terminate:ctrl_alt_bksp" "caps:swapescape"];
     };
   };
 }
