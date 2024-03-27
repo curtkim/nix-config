@@ -77,6 +77,7 @@
     google-chrome
 
     gh
+    pstree
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -134,4 +135,11 @@
   programs.direnv.enable = true;
   programs.starship.enable = true;
   fonts.fontconfig.enable = true;
+
+  dconf.settings = {
+    "org/gnome/desktop/peripherals/keyboard" = {
+      repeat-interval = 30;
+      delay = 250;
+    };
+  };
 }
