@@ -29,7 +29,7 @@
       	inherit inputs;
       };
       modules = [
-        ./nixos/vostro
+        ./host/vostro
         home-manager.nixosModules.home-manager
         {
           home-manager.users.curt = import ./home/home.nix;
@@ -46,7 +46,7 @@
       	inherit inputs;
       };
       modules = [
-        ./nixos/workstation
+        ./host/workstation
         home-manager.nixosModules.home-manager
         {
           home-manager.users.curt = import ./home/home.nix;
