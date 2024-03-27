@@ -22,11 +22,14 @@
   }: {
     nixosConfigurations.vostro = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = {inherit inputs;};
+      specialArgs = {
+        userName = "curt";
+	hostName = "vostro";
+	disko = disko;
+      	inherit inputs;
+      };
       modules = [
-        disko.nixosModules.disko
-        ./nixos/vostro/configuration.nix
-        ./nixos/vostro/disko-config.nix
+        ./nixos/vostro
         home-manager.nixosModules.home-manager
         {
           home-manager.users.curt = import ./home/home.nix;
@@ -36,11 +39,14 @@
 
     nixosConfigurations.workstation = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = {inherit inputs;};
+      specialArgs = {
+        userName = "curt";
+	hostName = "workstation";
+	disko = disko;
+      	inherit inputs;
+      };
       modules = [
-        disko.nixosModules.disko
-        ./nixos/workstation/configuration.nix
-        ./nixos/workstation/disko-config.nix
+        ./nixos/workstation
         home-manager.nixosModules.home-manager
         {
           home-manager.users.curt = import ./home/home.nix;

@@ -2,20 +2,25 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, disko, userName, hostName, ... }:
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      disko.nixosModules.disko
+      ./disko-config.nix
       ./hardware-configuration.nix
+      ../nvidia.nix
       ../common.nix
     ];
 
+
+  # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.efiInstallAsRemovable = true;
 
-  networking.hostName = "vostro"; # Define your hostname.
+  networking.hostName = hostName; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -38,4 +43,13 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  # programs.mtr.enable = true;
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   enableSSHSupport = true;
+  # };
+
 }
