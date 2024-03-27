@@ -32,7 +32,7 @@
         ./host/vostro
         home-manager.nixosModules.home-manager
         {
-          home-manager.users.curt = import ./user/home.nix;
+          home-manager.users.curt = import ./user;
         }
       ];
     };
@@ -49,7 +49,7 @@
         ./host/workstation
         home-manager.nixosModules.home-manager
         {
-          home-manager.users.curt = import ./user/home.nix;
+          home-manager.users.curt = import ./user;
         }
       ];
     };
