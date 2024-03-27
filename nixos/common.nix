@@ -29,6 +29,9 @@
     LC_TELEPHONE = "ko_KR.UTF-8";
     LC_TIME = "ko_KR.UTF-8";
   };
+
+  # tail -f /run/user/1000/kime.err
+  # cat /etc/xdg/kime/config.yaml
   i18n.inputMethod.enabled = "kime";
   i18n.inputMethod.kime.daemonModules = ["Indicator"]; # "Wayland" 
   i18n.inputMethod.kime.iconColor = "White";
