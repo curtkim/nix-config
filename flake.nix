@@ -37,6 +37,23 @@
       ];
     };
 
+    nixosConfigurations."vostro-console" = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {
+        userName = "curt";
+	hostName = "vostro";
+	disko = disko;
+      	inherit inputs;
+      };
+      modules = [
+        ./host/vostro-console
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.users.curt = import ./user;
+        }
+      ];
+    };
+
     nixosConfigurations.workstation = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
