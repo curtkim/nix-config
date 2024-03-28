@@ -11,6 +11,7 @@
       ./disko-config.nix
       ./hardware-configuration.nix
       ../common.nix
+      ../xsever.nix
     ];
 
   boot.loader.grub.enable = true;
@@ -24,19 +25,6 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "kr";
-    xkbVariant = "";
-  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

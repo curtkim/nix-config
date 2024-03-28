@@ -46,6 +46,7 @@
     gnome.eog
     waybar
     wlogout
+    foot
   ];
 
   # Enable CUPS to print documents.
