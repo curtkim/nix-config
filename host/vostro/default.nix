@@ -11,7 +11,7 @@
       ./disko-config.nix
       ./hardware-configuration.nix
       ../common.nix
-      ../xsever.nix
+      ../xserver.nix
     ];
 
   boot.loader.grub.enable = true;
