@@ -145,6 +145,10 @@
       repeat-interval = 30;
       delay = 250;
     };
+    "org/gnome/desktop/peripherals/mouse" = {
+      accel-profile = "flat";
+      speed = -0.17;
+    };
     "org/gnome/desktop/input-sources" = {
       xkb-options = ["terminate:ctrl_alt_bksp" "caps:swapescape"];
     };
