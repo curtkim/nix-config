@@ -1,6 +1,5 @@
 {
   inputs = {
-    hyprland.url = "github:hyprwm/Hyprland";
     nixpkgs.url = "github:NixOS/nixpkgs/23.11";
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
@@ -10,12 +9,25 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprlock = {
+      url = "github:hyprwm/hyprlock";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprpicker = {
+      url = "github:hyprwm/hyprpicker";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
     self,
     nixpkgs,
     hyprland,
+    hyprlock,
+    hyprpicker,
     home-manager,
     disko,
     ...
@@ -43,6 +55,7 @@
         userName = "curt";
 	hostName = "vostro";
 	disko = disko;
+        hyprland = hyprland;
       	inherit inputs;
       };
       modules = [
@@ -52,6 +65,25 @@
           home-manager.users.curt = import ./user;
         }
       ];
+    };
+
+    homeConfigurations.curt = let 
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+    in home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+      modules = [
+        ./user
+        ./modules/hyprland
+      ];
+      extraSpecialArgs = {
+        userName = "curt";
+        username = "curt";
+        hyprland = hyprland;
+        hyprlock = hyprlock;
+        hyprpicker = hyprpicker;
+        system = system;
+      };
     };
 
     nixosConfigurations.workstation = nixpkgs.lib.nixosSystem {

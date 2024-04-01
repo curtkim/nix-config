@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, disko, hostName, ... }:
+{ config, pkgs, disko, hyprland, hostName, userName, ... }:
 
 {
   imports =
@@ -25,29 +25,20 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
 
-#  # Enable the X11 windowing system.
-#  services.xserver.enable = true;
-#
-#  # Enable the GNOME Desktop Environment.
-#  services.xserver.displayManager.gdm.enable = true;
-#  services.xserver.desktopManager.gnome.enable = true;
-#
-#  # Configure keymap in X11
-#  services.xserver = {
-#    layout = "kr";
-#    xkbVariant = "";
-#  };
-  environment.systemPackages = with pkgs; [
-    hyprland
-    cinnamon.nemo
-    libsForQt5.dolphin
-    wofi
-    grim
-    gnome.eog
-    waybar
-    wlogout
-    foot
-  ];
+  programs.hyprland.enable = true;
+  programs.hyprland.package = hyprland.packages."${pkgs.system}".hyprland;
+
+#  environment.systemPackages = with pkgs; [
+#    hyprland
+#    cinnamon.nemo
+#    libsForQt5.dolphin
+#    wofi
+#    grim
+#    gnome.eog
+#    waybar
+#    wlogout
+#    foot
+#  ];
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
