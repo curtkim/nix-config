@@ -10,6 +10,8 @@
     '';
 in
 {
+  home.packages = with pkgs; [wlogout];
+
   home.file = {
     ".config/hypr/hyprland.conf".text = ''
 
