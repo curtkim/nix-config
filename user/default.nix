@@ -150,7 +150,7 @@
       speed = -0.17;
     };
     "org/gnome/desktop/input-sources" = {
-      xkb-options = ["terminate:ctrl_alt_bksp" "caps:swapescape"];
+      xkb-options = ["terminate:ctrl_alt_bksp"]; # "caps:swapescape"
     };
   };
 }
