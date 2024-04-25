@@ -11,19 +11,10 @@
       ../vostro/disko-config.nix
       ../vostro/hardware-configuration.nix
       ../common.nix
+      ../boot.nix
     ];
 
-  boot.loader.grub.enable = true;
-  boot.loader.grub.efiSupport = true;
-  boot.loader.grub.efiInstallAsRemovable = true;
-
   networking.hostName = hostName; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
 
   programs.hyprland.enable = true;
   programs.hyprland.package = hyprland.packages."${pkgs.system}".hyprland;
@@ -39,7 +30,4 @@
 #    wlogout
 #    foot
 #  ];
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
 }

@@ -133,6 +133,12 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+  # Configure network proxy if necessary
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ 80 443 8096 8920 ];
@@ -154,6 +160,9 @@
       defaultNetwork.settings.dns_enabled = true;
     };
   };
+
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
