@@ -15,6 +15,7 @@
       l = "exa -l";
       la = "exa -la";
       ip = "ip --color=auto";
+      nix-search = "nix-search-cli";
     };
 
 #    initExtra = ''

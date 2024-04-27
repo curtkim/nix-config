@@ -40,6 +40,9 @@
     erdtree
     du-dust
     nodejs_20
+    nix-search-cli
+    glow
+    unzip
 
     nethogs
     hwinfo
