@@ -5,8 +5,9 @@
     enable = true;
     autocd = true;
     dotDir = ".config/zsh";
-    #autosuggestion.enable = true;
-    enableAutosuggestions = true;
+    autosuggestion = {
+      enable = true;
+    };
     enableCompletion = true;
     defaultKeymap = "emacs"; 
     shellAliases = {
