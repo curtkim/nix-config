@@ -11,6 +11,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.nftables.enable = true;
 
   # Set your time zone.
   time.timeZone = "Asia/Seoul";
@@ -111,7 +112,7 @@
   users.users.curt = {
     isNormalUser = true;
     description = "curt";
-    extraGroups = [ "networkmanager" "wheel" "input"];
+    extraGroups = [ "networkmanager" "wheel" "input" "incus-admin"];
     packages = with pkgs; [
     ];
   };
@@ -127,6 +128,11 @@
     usbutils
     pciutils
     lshw
+
+    distrobuilder 
+    cdrkit
+    hivex
+    wimlib
   ];
 
 
@@ -159,7 +165,16 @@
       # Required for containers under podman-compose to be able to talk to each other.
       defaultNetwork.settings.dns_enabled = true;
     };
+
+    libvirtd = {
+      enable = true;
+    };
+
+    incus = {
+      enable = true;
+    };
   };
+  programs.virt-manager.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
