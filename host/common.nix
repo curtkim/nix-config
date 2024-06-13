@@ -1,109 +1,16 @@
 { config, pkgs, ... }:
 {
-
-  nix = {
-    settings.experimental-features = [ "nix-command" "flakes" ];
-  };
-
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  
 
-  # Enable networking
-  networking.networkmanager.enable = true;
-  networking.nftables.enable = true;
+  imports = [
+    ./locale.nix
+    ./font.nix
+    ./input-method.nix
+    ./virtualisation.nix
+    ./network.nix
+    ./sound.nix
+  ];
 
-  # Set your time zone.
-  time.timeZone = "Asia/Seoul";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "ko_KR.UTF-8";
-    LC_IDENTIFICATION = "ko_KR.UTF-8";
-    LC_MEASUREMENT = "ko_KR.UTF-8";
-    LC_MONETARY = "ko_KR.UTF-8";
-    LC_NAME = "ko_KR.UTF-8";
-    LC_NUMERIC = "ko_KR.UTF-8";
-    LC_PAPER = "ko_KR.UTF-8";
-    LC_TELEPHONE = "ko_KR.UTF-8";
-    LC_TIME = "ko_KR.UTF-8";
-  };
-
-  # tail -f /run/user/1000/kime.err
-  # cat /etc/xdg/kime/config.yaml
-  i18n.inputMethod.enabled = "kime";
-  i18n.inputMethod.kime.daemonModules = ["Indicator" "Wayland"];
-  i18n.inputMethod.kime.iconColor = "White";
-  i18n.inputMethod.kime.extraConfig = ''
-  log:
-    global_level: DEBUG
-  engine:
-    translation_layer: null
-    default_category: Latin
-    global_category_state: true
-    global_hotkeys:
-      C-Space:
-        behavior: !Toggle
-        - Hangul
-        - Latin
-        result: Consume
-      AltR:
-        behavior: !Toggle
-        - Hangul
-        - Latin
-        result: Consume
-      Hangul:
-        behavior: !Toggle
-        - Hangul
-        - Latin
-        result: Consume
-  '';
-#  i18n.inputMethod = {
-#    enabled = "fcitx5";
-#    fcitx5.addons = with pkgs; [
-#        fcitx5-hangul
-#        fcitx5-gtk
-#    ];
-#  };
-
-  fonts = {
-    enableDefaultPackages = true;
-    packages = with pkgs; [ 
-      ubuntu_font_family
-      nanum
-      nanum-gothic-coding
-      (nerdfonts.override { fonts = ["JetBrainsMono" "Hack"]; })
-      noto-fonts-cjk-sans
-      noto-fonts-cjk-serif
-    ];
-  
-    fontconfig = {
-      defaultFonts = {
-        serif = [ "Ubuntu" ];
-        sansSerif = [ "Ubuntu" ];
-        monospace = [ "JetBrainsMono Nerd Font, Light" ];
-      };
-    };
-  };
-
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -117,7 +24,6 @@
     ];
   };
 
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -129,52 +35,13 @@
     pciutils
     lshw
 
+    # for incus
     distrobuilder 
     cdrkit
     hivex
     wimlib
   ];
 
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [ 80 443 8096 8920 ];
-    allowedUDPPortRanges = [
-      { from = 4000; to = 4007; }
-      { from = 8000; to = 8010; }
-      { from =51413; to = 51413; }  # for transmission
-    ];
-  };
-
-  virtualisation = {
-    podman = {
-      enable = true;
-
-      # Create a `docker` alias for podman, to use it as a drop-in replacement
-      dockerCompat = true;
-
-      # Required for containers under podman-compose to be able to talk to each other.
-      defaultNetwork.settings.dns_enabled = true;
-    };
-
-    libvirtd = {
-      enable = true;
-    };
-
-    incus = {
-      enable = true;
-    };
-  };
-  programs.virt-manager.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

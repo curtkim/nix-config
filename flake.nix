@@ -1,4 +1,8 @@
 {
+  nixConfig = {
+    extra-experimental-features = [ "nix-command" "flakes"];
+  };
+
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/24.05";
     home-manager = {
