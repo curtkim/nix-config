@@ -21,6 +21,7 @@
         };
         size = 13;
       };
+      shell.program = "${pkgs.tmux}/bin/tmux";
     };
   };
 }
