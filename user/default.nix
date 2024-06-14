@@ -106,6 +106,7 @@
     ./nvim.nix
     ./git.nix
     ./brave.nix
+    ./hypr
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

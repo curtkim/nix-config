@@ -96,6 +96,7 @@
         userName = "curt";
 	hostName = "workstation";
 	disko = disko;
+        hyprland = hyprland;
       	inherit inputs;
       };
       modules = [
@@ -104,7 +105,6 @@
         {
           home-manager.users.curt = import ./user;
         }
-        ./user/hypr
       ];
     };
 
