@@ -104,6 +104,7 @@
         {
           home-manager.users.curt = import ./user;
         }
+        ./user/hypr
       ];
     };
 

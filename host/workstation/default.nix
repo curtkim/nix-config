@@ -7,13 +7,14 @@
 {
   imports =
     [
+      ../boot.nix
       disko.nixosModules.disko
       ./disko-config.nix
       ./hardware-configuration.nix
       ../nvidia.nix
       ../common.nix
-      ../xserver.nix
-      ../boot.nix
+      #../xserver.nix
+      ../hyprland.nix
     ];
 
   networking.hostName = hostName; # Define your hostname.
