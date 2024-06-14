@@ -122,7 +122,7 @@ misc {
 # See https://wiki.hyprland.org/Configuring/Keywords/ for more
 $mainMod = SUPER
 
-bind = ALT, Tab, cyclenext,
+bind = $mainMod, Tab, cyclenext,
 
 # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
 bind = $mainMod, Q, exec, kitty

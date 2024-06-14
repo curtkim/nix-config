@@ -101,6 +101,7 @@
       };
       modules = [
         ./host/workstation
+        #hyprland.nixosModules.default
         home-manager.nixosModules.home-manager
         {
           home-manager.users.curt = import ./user;

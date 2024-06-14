@@ -1,7 +1,6 @@
-{ hyprland, pkgs, ...}: {
+{ pkgs, ...}: {
   
   imports = [
-    #hyprland.homeManagerModules.default
     ./config.nix
     ./env.nix
   ];

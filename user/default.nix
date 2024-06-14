@@ -1,6 +1,16 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./alacritty.nix
+    ./zsh.nix
+    ./tmux.nix
+    ./nvim.nix
+    ./git.nix
+    ./brave.nix
+    #./hypr
+  ];
+
   nixpkgs.config.allowUnfree = true;
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -97,16 +107,6 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-  ];
-
-  imports = [
-    ./alacritty.nix
-    ./zsh.nix
-    ./tmux.nix
-    ./nvim.nix
-    ./git.nix
-    ./brave.nix
-    ./hypr
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

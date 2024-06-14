@@ -13,8 +13,8 @@
       ./hardware-configuration.nix
       ../nvidia.nix
       ../common.nix
-      #../xserver.nix
-      ../hyprland.nix
+      ../xserver.nix
+     #../hyprland.nix
     ];
 
   networking.hostName = hostName; # Define your hostname.
