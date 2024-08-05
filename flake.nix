@@ -36,6 +36,23 @@
     disko,
     ...
   }: {
+    nixosConfigurations.um790 = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {
+        userName = "curt";
+	hostName = "um790";
+	disko = disko;
+      	inherit inputs;
+      };
+      modules = [
+        ./host/um790
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.users.curt = import ./user;
+        }
+      ];
+    };
+
     nixosConfigurations.vostro = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
