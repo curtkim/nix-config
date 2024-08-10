@@ -10,8 +10,4 @@
 
   services.xserver.videoDrivers = ["admgpu"]; 
 
-  hardware.hardware.extraPackages = with pkgs; [
-    amdvlk
-  ];
-
 }

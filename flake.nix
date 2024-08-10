@@ -13,25 +13,22 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    hyprland.url = "github:hyprwm/Hyprland";
-    hyprlock = {
-      url = "github:hyprwm/hyprlock";
-      inputs.nixpkgs.follows = "nixpkgs";
+    #    hyprland = {
+    #      url = "github:hyprwm/Hyprland";
+    #      inputs.nixpkgs.follows = "nixpkgs";
+    #    };
+    hyprland = {
+      type = "git";
+      url = "https://github.com/hyprwm/Hyprland";
+      submodules = true;
     };
-
-    hyprpicker = {
-      url = "github:hyprwm/hyprpicker";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = inputs @ {
     self,
     nixpkgs,
     hyprland,
-    hyprlock,
-    hyprpicker,
     home-manager,
     disko,
     ...
@@ -42,6 +39,7 @@
         userName = "curt";
 	hostName = "um790";
 	disko = disko;
+        hyprland = hyprland;
       	inherit inputs;
       };
       modules = [
@@ -101,8 +99,6 @@
         userName = "curt";
         username = "curt";
         hyprland = hyprland;
-        hyprlock = hyprlock;
-        hyprpicker = hyprpicker;
         system = system;
       };
     };
