@@ -1,4 +1,4 @@
-{ hyprland, hyprpicker, pkgs, userName, home-manager, system, ... }: 
+{ hyprland, pkgs, userName, home-manager, system, ... }: 
   let
     startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
       ${pkgs.waybar}/bin/waybar &

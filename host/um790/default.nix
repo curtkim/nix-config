@@ -10,8 +10,10 @@
       disko.nixosModules.disko
       ./disko-config.nix
       ./hardware-configuration.nix
+      ../amd.nix
       ../common.nix
       ../xserver.nix
+      #../hyprland.nix
       ../boot.nix
     ];
 
