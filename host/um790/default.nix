@@ -7,17 +7,13 @@
 {
   imports =
     [
-      #disko.nixosModules.disko
-      #./disko-config.nix
+      disko.nixosModules.disko
+      ./disko-config.nix
       ./hardware-configuration.nix
       ../common.nix
       ../xserver.nix
-      #../boot.nix
+      ../boot.nix
     ];
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = hostName; # Define your hostname.
 }
