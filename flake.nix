@@ -5,6 +5,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/24.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,18 +29,23 @@
   outputs = inputs @ {
     self,
     nixpkgs,
+    nixpkgs-unstable,
     hyprland,
     home-manager,
     disko,
     ...
   }: {
-    nixosConfigurations.um790 = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.um790 = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       specialArgs = {
         userName = "curt";
 	hostName = "um790";
 	disko = disko;
         hyprland = hyprland;
+        pkgs-unstable = import nixpkgs-unstable {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+        };
       	inherit inputs;
       };
       modules = [
@@ -47,6 +53,7 @@
         home-manager.nixosModules.home-manager
         {
           home-manager.users.curt = import ./user;
+          home-manager.extraSpecialArgs = specialArgs;
         }
       ];
     };
