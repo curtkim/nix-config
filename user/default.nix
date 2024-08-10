@@ -58,7 +58,7 @@
     hwinfo
     htop
     gtop
-    nvtop
+    #nvtop
 
     mpv
     fuse
@@ -97,8 +97,8 @@
     gnome.gnome-session
 
     obsidian
-    (ollama.override { acceleration = "cuda"; })
-    (openai-whisper-cpp.override { cudaSupport = true;})
+    #(ollama.override { acceleration = "cuda"; })
+    #(openai-whisper-cpp.override { cudaSupport = true;})
 
     markdownlint-cli
 
