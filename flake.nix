@@ -34,8 +34,7 @@
     home-manager,
     disko,
     ...
-  }: {
-    nixosConfigurations.um790 = nixpkgs.lib.nixosSystem rec {
+  }: let
       system = "x86_64-linux";
       specialArgs = {
         userName = "curt";
@@ -48,6 +47,10 @@
         };
       	inherit inputs;
       };
+    in {
+    nixosConfigurations.um790 = nixpkgs.lib.nixosSystem {
+      system = system;
+      specialArgs = specialArgs // { hostName = "um790"; };
       modules = [
         ./host/um790
         home-manager.nixosModules.home-manager
@@ -59,72 +62,58 @@
     };
 
     nixosConfigurations.vostro = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {
-        userName = "curt";
-	hostName = "vostro";
-	disko = disko;
-      	inherit inputs;
-      };
+      system = system;
+      specialArgs = specialArgs // { hostName = "vostro"; };
       modules = [
         ./host/vostro
         home-manager.nixosModules.home-manager
         {
           home-manager.users.curt = import ./user;
+          home-manager.extraSpecialArgs = specialArgs;
         }
       ];
     };
 
     nixosConfigurations."vostro-console" = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {
-        userName = "curt";
-	hostName = "vostro";
-	disko = disko;
-        hyprland = hyprland;
-      	inherit inputs;
-      };
+      system = system;
+      specialArgs = specialArgs // { hostName = "vostro"; };
       modules = [
         ./host/vostro-console
         home-manager.nixosModules.home-manager
         {
           home-manager.users.curt = import ./user;
+          home-manager.extraSpecialArgs = specialArgs;
         }
       ];
     };
 
-    homeConfigurations.curt = let 
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-      modules = [
-        ./user
-        ./modules/hyprland
-      ];
-      extraSpecialArgs = {
-        userName = "curt";
-        username = "curt";
-        hyprland = hyprland;
-        system = system;
-      };
-    };
+      #    homeConfigurations.curt = let 
+      #      system = "x86_64-linux";
+      #      pkgs = nixpkgs.legacyPackages.${system};
+      #    in home-manager.lib.homeManagerConfiguration {
+      #      inherit pkgs;
+        #      modules = [
+        #        ./user
+      #        ./modules/hyprland
+      #      ];
+      #      extraSpecialArgs = {
+      #        userName = "curt";
+      #        username = "curt";
+      #        hyprland = hyprland;
+      #        system = system;
+      #      };
+      #    };
 
     nixosConfigurations.workstation = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {
-        userName = "curt";
-	hostName = "workstation";
-	disko = disko;
-        hyprland = hyprland;
-      	inherit inputs;
-      };
+      system = system;
+      specialArgs = specialArgs // { hostName = "workstation"; };
       modules = [
         ./host/workstation
         #hyprland.nixosModules.default
         home-manager.nixosModules.home-manager
         {
           home-manager.users.curt = import ./user;
+          home-manager.extraSpecialArgs = specialArgs;
         }
       ];
     };
