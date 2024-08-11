@@ -38,6 +38,7 @@
     virt-manager
     quickemu
 
+    yazi
     bat
     fzf
     ripgrep

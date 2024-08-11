@@ -43,15 +43,14 @@
   #    wlr.enable = true;
   #  };
 
-#  environment.systemPackages = with pkgs; [
-#    hyprland
-#    cinnamon.nemo
-#    libsForQt5.dolphin
-#    wofi
-#    grim
-#    gnome.eog
-#    waybar
-#    wlogout
-#    foot
-#  ];
+  environment.systemPackages = with pkgs; [
+    cinnamon.nemo
+    libsForQt5.dolphin
+    wofi
+    grim
+    gnome.eog
+    waybar
+    wlogout
+    foot
+  ];
 }
