@@ -8,6 +8,6 @@
     driSupport32Bit = true;
   };
 
-  services.xserver.videoDrivers = ["admgpu"]; 
+  #services.xserver.videoDrivers = ["admgpu"]; 
 
 }
