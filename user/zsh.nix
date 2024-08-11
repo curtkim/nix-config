@@ -17,6 +17,7 @@
       la = "exa -la";
       ip = "ip --color=auto";
       nix-search = "nix-search-cli";
+      icat = "kitten icat";
     };
 
 #    initExtra = ''
