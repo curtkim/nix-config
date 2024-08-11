@@ -100,7 +100,9 @@
     #(ollama.override { acceleration = "cuda"; })
     #(openai-whisper-cpp.override { cudaSupport = true;})
 
+    # for neovim
     markdownlint-cli
+    nil # lsp
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -157,10 +159,10 @@
       repeat-interval = 30;
       delay = 250;
     };
-    "org/gnome/desktop/peripherals/mouse" = {
-      accel-profile = "flat";
-      speed = -0.17;
-    };
+    #    "org/gnome/desktop/peripherals/mouse" = {
+    #      accel-profile = "flat";
+    #      speed = -0.17;
+    #    };
     "org/gnome/desktop/input-sources" = {
       xkb-options = ["terminate:ctrl_alt_bksp"]; # "caps:swapescape"
     };
