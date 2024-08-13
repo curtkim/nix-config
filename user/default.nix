@@ -60,6 +60,8 @@
     htop
     gtop
     #nvtop
+    cpufrequtils
+
 
     mpv
     fuse
