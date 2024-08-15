@@ -11,12 +11,21 @@
     enableCompletion = true;
     defaultKeymap = "emacs"; 
     shellAliases = {
-      sl = "exa";
       ls = "exa";
       l = "exa -l";
       la = "exa -la";
       ip = "ip --color=auto";
       icat = "kitten icat";
+      show_path = "echo $PATH | tr ':' '\n'";
+
+      gs = "git status -sb";
+      ga = "git add";
+      gd = "git diff";
+      gcm = "git commit -m";
+
+      #shortcut
+      b = "cd ~/brain/";
+      n = "cd ~/nix-config/";
     };
 
 #    initExtra = ''
