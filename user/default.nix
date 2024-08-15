@@ -2,9 +2,11 @@
 
 {
   imports = [
-    ./alacritty.nix
+    ./kitty.nix
+    #./alacritty.nix
     ./zsh.nix
     ./tmux.nix
+    ./starship.nix
     ./nvim.nix
     ./git.nix
     ./brave.nix
@@ -107,7 +109,10 @@
 
     # for neovim
     markdownlint-cli
-    nil # lsp
+    # lsp
+    nil 
+    lua-language-server
+    pyright
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -154,9 +159,7 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  programs.kitty.enable = true;
   programs.direnv.enable = true;
-  programs.starship.enable = true;
   fonts.fontconfig.enable = true;
 
   dconf.settings = {
