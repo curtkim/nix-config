@@ -15,8 +15,8 @@
     #      confirm_os_window_close = 0;
     #    };
     keybindings = {
-      "ctrl+c" = "copy_and_clear_or_interrupt";
-      "ctrl+v" = "paste_from_clipboard";
+      #"ctrl+c" = "copy_and_clear_or_interrupt";
+      #"ctrl+v" = "paste_from_clipboard";
     };
     theme = "Tokyo Night Storm"; #"Catppuccin-Macchiato"; #"Tomorrow Night"; #"Nord";
   };
