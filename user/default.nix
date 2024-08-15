@@ -7,6 +7,7 @@
     ./zsh.nix
     ./tmux.nix
     ./starship.nix
+    ./zoxide.nix
     ./nvim.nix
     ./git.nix
     ./brave.nix
