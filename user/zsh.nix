@@ -22,6 +22,7 @@
       ga = "git add";
       gd = "git diff";
       gcm = "git commit -m";
+      gp = "git push";
 
       #shortcut
       b = "cd ~/brain/";
