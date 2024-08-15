@@ -82,6 +82,8 @@
     hashcat
 
     xclip
+    wl-clipboard
+
     python311
     python311Packages.debugpy
     python311Packages.isort
