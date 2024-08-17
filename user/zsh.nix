@@ -25,8 +25,9 @@
       gp = "git push";
 
       #shortcut
-      b = "cd ~/brain/";
-      n = "cd ~/nix-config/";
+      b = "cd ~/brain/ && vi .";
+      n = "cd ~/nix-config/ && vi .";
+      v = "cd ~/.config/nvim/ && vi .";
     };
 
 #    initExtra = ''

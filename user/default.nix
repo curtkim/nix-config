@@ -57,6 +57,7 @@
     nix-search-cli
     glow
     unzip
+    unixtools.xxd
 
     nethogs
     hwinfo
