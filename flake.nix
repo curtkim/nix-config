@@ -24,6 +24,10 @@
       submodules = true;
     };
     #hyprland.url = "github:hyprwm/Hyprland";
+    darwin = {
+      url = "github:lnl7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs"; # ...
+    };
   };
 
   outputs = inputs @ {
@@ -33,6 +37,7 @@
     hyprland,
     home-manager,
     disko,
+    darwin,
     ...
   }: let
       system = "x86_64-linux";
@@ -113,6 +118,18 @@
         home-manager.nixosModules.home-manager
         {
           home-manager.users.curt = import ./user;
+          home-manager.extraSpecialArgs = specialArgs;
+        }
+      ];
+    };
+
+    darwinConfigurations."curtg" = darwin.lib.darwinSystem {
+      system = "aarch64-darwin";
+      modules = [ 
+        ./hosts/m2/default.nix 
+        home-manager.darwinModules.home-manager
+        {
+          home-manager.users.curt = import ./user/default_mac.nix;
           home-manager.extraSpecialArgs = specialArgs;
         }
       ];
