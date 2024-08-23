@@ -21,7 +21,7 @@
       gs = "git status -sb";
       ga = "git add";
       gd = "git diff";
-      gcm = "git commit -m";
+      gc = "git commit -m";
       gp = "git push";
 
       #shortcut
