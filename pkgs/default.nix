@@ -4,4 +4,5 @@ pkgs: {
   # example = pkgs.callPackage ./example { };
   ytsub = pkgs.callPackage ./ytsub.nix { };
   ripgrep = pkgs.callPackage ./ripgrep.nix { };
+  vivado-2022_2 = pkgs.callPackage ./vivado-2022_2.nix { };
 }
