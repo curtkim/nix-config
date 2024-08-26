@@ -23,6 +23,7 @@
       gd = "git diff";
       gc = "git commit -m";
       gp = "git push";
+      gl = "git log --oneline --graph --decorate -20";
 
       #shortcut
       b = "cd ~/brain/ && vi .";
