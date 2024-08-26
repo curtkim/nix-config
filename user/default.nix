@@ -112,6 +112,8 @@
 
     # for neovim
     markdownlint-cli
+    stylua
+
     # lsp
     nil 
     lua-language-server

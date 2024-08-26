@@ -45,9 +45,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     wget
-    gcc12
-    stylua
-    nil
     usbutils
     pciutils
     lshw
