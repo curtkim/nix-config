@@ -14,6 +14,7 @@
       ../nvidia.nix
       ../common.nix
       ../xserver.nix
+      ../icestick.nix
      #../hyprland.nix
     ];
 
