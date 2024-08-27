@@ -10,10 +10,9 @@
     ./zoxide.nix
     ./nvim.nix
     ./git.nix
-    ./brave.nix
     #./hypr
     ./hyprland.nix
-    ./chromium.nix
+    #./chromium.nix
     ./google-chrome.nix
   ];
 

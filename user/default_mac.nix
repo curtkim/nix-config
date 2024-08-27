@@ -10,7 +10,6 @@
     ./zoxide.nix
     ./nvim.nix
     ./git.nix
-    ./brave.nix
     #./hypr
   ];
 
