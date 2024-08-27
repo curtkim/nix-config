@@ -13,6 +13,7 @@
     ./brave.nix
     #./hypr
     ./hyprland.nix
+    ./chromium.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
