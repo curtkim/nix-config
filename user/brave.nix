@@ -16,6 +16,9 @@
       # vimium C
       "hfjbmagddngcpeloejdejnfgbamkjaeg"
       "nacjakoppgmdcpemlfnfegmlhipddanj"
+
+      # mouse tooltip translator
+      "hmigninkgibhdckiaphhmbgcghochdjc"
     ];
   };
 }

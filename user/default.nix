@@ -14,6 +14,7 @@
     #./hypr
     ./hyprland.nix
     ./chromium.nix
+    ./google-chrome.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -102,7 +103,7 @@
 
     # desktop
     firefox
-    google-chrome
+    #google-chrome
 
     # gnome
     gnome.gnome-session

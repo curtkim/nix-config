@@ -15,7 +15,6 @@
       ../common.nix
       #../xserver.nix
       ../hyprland.nix
-      ../chromium.nix
     ];
 
   networking.hostName = hostName; # Define your hostname.

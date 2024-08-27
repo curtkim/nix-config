@@ -9,14 +9,16 @@
     commandLineArgs = [
       "--ozone-platform=wayland"
       "--enable-wayland-ime"
+      "--no-default-browser-check"
+      "--restore-last-sesion"
     ];
     extensions = [
       # vimium C
       "hfjbmagddngcpeloejdejnfgbamkjaeg"
       "nacjakoppgmdcpemlfnfegmlhipddanj"
 
-      # malwarebytes browser guard
-      "ihcjicgdanjaechkgeegckofjjedodee"
+      # mouse tooltip translator
+      "hmigninkgibhdckiaphhmbgcghochdjc"
     ];
   };
 }
