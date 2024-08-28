@@ -47,6 +47,7 @@
     bat
     fzf
     ripgrep
+    ripgrep-all
     jq
     tree
     eza
