@@ -166,6 +166,13 @@
     EDITOR = "nvim";
   };
 
+  home.pointerCursor = {
+    gtk.enable = true;
+    name = "Vanilla-DMZ";
+    package = pkgs.vanilla-dmz;
+    size = 64;
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   programs.direnv.enable = true;
