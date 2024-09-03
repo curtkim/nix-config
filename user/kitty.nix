@@ -5,12 +5,13 @@
       name = "JetBrainsMono Nerd Font";
       size = 15;
     };
-    settings = {
-      scrollback_lines = 3000;
-      enable_audio_bell = false;
-      linux_display_server = "wayland";
-      wayland_enable_ime = true;
-    };
+#    settings = {
+#      scrollback_lines = 3000;
+#      enable_audio_bell = false;
+#      linux_display_server = "wayland";
+#      wayland_enable_ime = true;
+#    };
+
     #    settings = {
     #      window_padding_width = "8.0";
     #      wheel_scroll_multiplier = "32.0";
