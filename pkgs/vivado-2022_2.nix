@@ -102,11 +102,49 @@ let
     };
   };
 
+  vitisPackage = stdenv.mkDerivation rec {
+    name = "vitis-2022.2";
+
+    nativeBuildInputs = [ zlib ];
+    buildInputs = [ patchelf procps ncurses makeWrapper ];
+
+    extracted = "${extractedSource}";
+
+    builder = ./vitis-builder-2022_2.sh;
+    inherit ncurses;
+
+    libPath = lib.makeLibraryPath [
+      stdenv.cc.cc
+      ncurses
+      zlib
+      libX11
+      libXrender
+      libxcb
+      libXext
+      libXtst
+      libXi
+      freetype
+      gtk2
+      glib
+      libxcrypt
+      gperftools
+      glibc.dev
+      fontconfig
+      liberation_ttf
+    ];
+
+    meta = {
+      description = "Xilinx Vitis WebPack Edition";
+      homepage = "https://www.xilinx.com/products/design-tools/vivado.html";
+      license = lib.licenses.unfree;
+    };
+  };
 in
   buildFHSUserEnv {
     name = "vivado";
     targetPkgs = _pkgs: [
       vivadoPackage
+      #vitisPackage
     ];
     multiPkgs = pkgs: with pkgs; [
       coreutils
