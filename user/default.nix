@@ -35,6 +35,8 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
+    gnumake
+
     neofetch
     #podman
     #podman-compose
@@ -83,6 +85,9 @@
     nixpkgs-fmt
     
     #blender
+    (blender.override {
+      cudaSupport = true;
+    })
     vulkan-tools
     epr
     chrpath
