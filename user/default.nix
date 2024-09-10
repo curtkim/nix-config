@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable, ... }:
+{ config, pkgs, pkgs-unstable, cudaSupport, ... }:
 
 {
   imports = [
@@ -88,9 +88,6 @@
     nixpkgs-fmt
     
     #blender
-    (blender.override {
-      cudaSupport = true;
-    })
     vulkan-tools
     epr
     chrpath
@@ -132,8 +129,6 @@
     # dap
     gdb
 
-    opensplatWithCuda
-    pkgs-unstable.colmapWithCuda
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -147,6 +142,12 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+  ] ++ lib.optional cudaSupport [
+    opensplatWithCuda
+    pkgs-unstable.colmapWithCuda
+    (blender.override {
+      cudaSupport = true;
+    })
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

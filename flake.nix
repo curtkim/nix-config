@@ -54,8 +54,9 @@
   }: let
       system = "x86_64-linux";
       specialArgs = {
+	hostName = "none";
         userName = "curt";
-	hostName = "um790";
+        cudaSupport = false;
 	disko = disko;
         hyprland = hyprland;
         pkgs-unstable = import nixpkgs-unstable {
@@ -136,7 +137,7 @@
     nixosConfigurations.workstation = nixpkgs.lib.nixosSystem {
       pkgs = pkgs;
       system = system;
-      specialArgs = specialArgs // { hostName = "workstation"; };
+      specialArgs = specialArgs // { hostName = "workstation"; cudaSupport = true;};
       modules = [
         ./host/workstation
         #hyprland.nixosModules.default
