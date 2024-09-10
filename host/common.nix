@@ -23,9 +23,6 @@
     };
   };
 
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.cudaCapabilities = ["8.6"];
-
   imports = [
     ./locale.nix
     ./font.nix

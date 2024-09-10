@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 
 {
   imports = [
@@ -17,6 +17,9 @@
   ];
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "freeimage-unstable-2021-11-01"
+  ];
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -128,6 +131,9 @@
 
     # dap
     gdb
+
+    opensplatWithCuda
+    pkgs-unstable.colmapWithCuda
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
