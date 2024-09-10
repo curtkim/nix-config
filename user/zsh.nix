@@ -29,6 +29,7 @@
       b = "cd ~/brain/ && vi .";
       n = "cd ~/nix-config/ && vi .";
       v = "cd ~/.config/nvim/ && vi .";
+      x = "exit";
     };
 
 #    initExtra = ''
