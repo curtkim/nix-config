@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs,  ... }:
 {
   nix = {
     settings = {
@@ -60,9 +60,16 @@
     wimlib
   ];
 
-
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  services.printing = {
+    enable = true;
+    logLevel = "debug"; # $ journalctl --follow --unit=cups
+    drivers = [ 
+      pkgs.splix 
+      pkgs.samsung-unified-linux-driver 
+      (pkgs.writeTextDir "share/cups/model/Samsung_M2020_Series.ppd" (builtins.readFile ./Samsung_M2020_Series.ppd))
+    ];
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
