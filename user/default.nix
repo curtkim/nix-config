@@ -62,6 +62,7 @@
     erdtree
     du-dust
     nodejs_20
+    yarn
     nix-search-cli
     glow
     unzip
