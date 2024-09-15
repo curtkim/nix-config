@@ -81,6 +81,7 @@
     
     #blender
     vulkan-tools
+    glxinfo
     epr
     chrpath
     hashcat
