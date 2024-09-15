@@ -49,6 +49,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     wget
+    gcc
     usbutils
     pciutils
     lshw
