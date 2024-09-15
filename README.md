@@ -18,3 +18,8 @@ $ cp $largefile $storepath  # copy the file
 $ printf "$storepath\n\n0\n" | nix-store --register-validity --reregister  # register the file in the Nix database
 $ exit  # exit to the original shell where /nix/store is still mounted read-only
 ```
+
+## build packages
+    
+    nix build .#packages.claude-engineer --show-trace --print-build-logs --verbose
+
