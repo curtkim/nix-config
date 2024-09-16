@@ -5,4 +5,5 @@ pkgs: {
   ripgrep = pkgs.callPackage ./ripgrep.nix { };
   vivado-2022_2 = pkgs.callPackage ./vivado-2022_2.nix { };
   claude-engineer = pkgs.callPackage ./claude-engineer.nix { };
+  openxlab = pkgs.callPackage ./openxlab.nix { };
 }
