@@ -22,4 +22,6 @@
   networking.hostName = hostName; # Define your hostname.
 
   services.openssh.enable = true;
+
+  services.hardware.openrgb.enable = true;
 }
