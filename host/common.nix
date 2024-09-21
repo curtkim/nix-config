@@ -36,6 +36,7 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  programs.zsh.enable = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.curt = {
     isNormalUser = true;
@@ -43,6 +44,7 @@
     extraGroups = [ "networkmanager" "wheel" "input" "incus-admin" ];
     packages = with pkgs; [
     ];
+    shell = pkgs.zsh;
   };
 
   # List packages installed in system profile. To search, run:
