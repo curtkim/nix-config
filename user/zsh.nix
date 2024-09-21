@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 
 {
   programs.zsh = {
@@ -9,7 +9,7 @@
       enable = true;
     };
     enableCompletion = true;
-    defaultKeymap = "emacs"; 
+    defaultKeymap = "emacs";
     shellAliases = {
       ls = "exa";
       l = "exa -l";
@@ -32,17 +32,17 @@
       x = "exit";
     };
 
-#    initExtra = ''
-#      bindkey '^ ' autosuggest-accept
-#      AGKOZAK_CMD_EXEC_TIME=5
-#      AGKOZAK_COLORS_CMD_EXEC_TIME='yellow'
-#      AGKOZAK_COLORS_PROMPT_CHAR='magenta'
-#      AGKOZAK_CUSTOM_SYMBOLS=( '⇣⇡' '⇣' '⇡' '+' 'x' '!' '>' '?' )
-#      AGKOZAK_MULTILINE=0
-#      AGKOZAK_PROMPT_CHAR=( ❯ ❯ ❮ )
-#      eval $(thefuck --alias)
-#      autopair-init
-#                              '';
+    #    initExtra = ''
+    #      bindkey '^ ' autosuggest-accept
+    #      AGKOZAK_CMD_EXEC_TIME=5
+    #      AGKOZAK_COLORS_CMD_EXEC_TIME='yellow'
+    #      AGKOZAK_COLORS_PROMPT_CHAR='magenta'
+    #      AGKOZAK_CUSTOM_SYMBOLS=( '⇣⇡' '⇣' '⇡' '+' 'x' '!' '>' '?' )
+    #      AGKOZAK_MULTILINE=0
+    #      AGKOZAK_PROMPT_CHAR=( ❯ ❯ ❮ )
+    #      eval $(thefuck --alias)
+    #      autopair-init
+    #                              '';
 
     plugins = with pkgs; [
       {

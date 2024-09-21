@@ -16,10 +16,10 @@
     enable = true;
     allowedTCPPorts = [ 80 443 631 8096 8920 ];
     allowedUDPPortRanges = [
-      { from = 631;  to = 631; }
+      { from = 631; to = 631; }
       { from = 4000; to = 4007; }
       { from = 8000; to = 8010; }
-      { from =51413; to = 51413; }  # for transmission
+      { from = 51413; to = 51413; } # for transmission
     ];
   };
 

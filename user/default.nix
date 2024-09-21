@@ -57,7 +57,7 @@
     tree
     eza
     fd
-    (nerdfonts.override { fonts = ["JetBrainsMono" "Hack"]; })
+    (nerdfonts.override { fonts = [ "JetBrainsMono" "Hack" ]; })
     tokei
     erdtree
     du-dust
@@ -88,7 +88,7 @@
 
     cargo
     nixpkgs-fmt
-    
+
     #blender
     vulkan-tools
     glxinfo
@@ -125,7 +125,7 @@
     stylua
 
     # lsp
-    nil 
+    nil
     lua-language-server
     pyright
 
@@ -208,7 +208,7 @@
     #      speed = -0.17;
     #    };
     "org/gnome/desktop/input-sources" = {
-      xkb-options = ["terminate:ctrl_alt_bksp"]; # "caps:swapescape"
+      xkb-options = [ "terminate:ctrl_alt_bksp" ]; # "caps:swapescape"
     };
   };
 }

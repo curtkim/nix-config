@@ -15,7 +15,7 @@
       ../common.nix
       ../xserver.nix
       ../icestick.nix
-     #../hyprland.nix
+      #../hyprland.nix
       ../printing.nix
     ];
 

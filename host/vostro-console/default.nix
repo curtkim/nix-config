@@ -19,15 +19,15 @@
   programs.hyprland.enable = true;
   programs.hyprland.package = hyprland.packages."${pkgs.system}".hyprland;
 
-#  environment.systemPackages = with pkgs; [
-#    hyprland
-#    cinnamon.nemo
-#    libsForQt5.dolphin
-#    wofi
-#    grim
-#    gnome.eog
-#    waybar
-#    wlogout
-#    foot
-#  ];
+  #  environment.systemPackages = with pkgs; [
+  #    hyprland
+  #    cinnamon.nemo
+  #    libsForQt5.dolphin
+  #    wofi
+  #    grim
+  #    gnome.eog
+  #    waybar
+  #    wlogout
+  #    foot
+  #  ];
 }

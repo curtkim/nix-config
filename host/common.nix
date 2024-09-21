@@ -1,4 +1,4 @@
-{ config, pkgs,  ... }:
+{ config, pkgs, ... }:
 {
   nix = {
     settings = {
@@ -7,11 +7,11 @@
         "nix-command"
         "flakes"
       ];
-      substituters = [ 
-        "https://hyprland.cachix.org" 
-        "https://cuda-maintainers.cachix.org" 
+      substituters = [
+        "https://hyprland.cachix.org"
+        "https://cuda-maintainers.cachix.org"
       ];
-      trusted-public-keys = [ 
+      trusted-public-keys = [
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
         "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
       ];
@@ -40,7 +40,7 @@
   users.users.curt = {
     isNormalUser = true;
     description = "curt";
-    extraGroups = [ "networkmanager" "wheel" "input" "incus-admin"];
+    extraGroups = [ "networkmanager" "wheel" "input" "incus-admin" ];
     packages = with pkgs; [
     ];
   };
@@ -55,7 +55,7 @@
     lshw
 
     # for incus
-    distrobuilder 
+    distrobuilder
     cdrkit
     hivex
     wimlib

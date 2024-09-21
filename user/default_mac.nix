@@ -48,7 +48,7 @@
     tree
     eza
     fd
-    (nerdfonts.override { fonts = ["JetBrainsMono" "Hack"]; })
+    (nerdfonts.override { fonts = [ "JetBrainsMono" "Hack" ]; })
     tokei
     erdtree
     du-dust
@@ -78,7 +78,7 @@
 
     cargo
     nixpkgs-fmt
-    
+
     #blender
     vulkan-tools
     glxinfo
@@ -113,7 +113,7 @@
     # for neovim
     markdownlint-cli
     # lsp
-    nil 
+    nil
     lua-language-server
     pyright
 
@@ -165,17 +165,17 @@
   programs.direnv.enable = true;
   fonts.fontconfig.enable = true;
 
-#  dconf.settings = {
-#    "org/gnome/desktop/peripherals/keyboard" = {
-#      repeat-interval = 30;
-#      delay = 250;
-#    };
-#    #    "org/gnome/desktop/peripherals/mouse" = {
-#    #      accel-profile = "flat";
-#    #      speed = -0.17;
-#    #    };
-#    "org/gnome/desktop/input-sources" = {
-#      xkb-options = ["terminate:ctrl_alt_bksp"]; # "caps:swapescape"
-#    };
-#  };
+  #  dconf.settings = {
+  #    "org/gnome/desktop/peripherals/keyboard" = {
+  #      repeat-interval = 30;
+  #      delay = 250;
+  #    };
+  #    #    "org/gnome/desktop/peripherals/mouse" = {
+  #    #      accel-profile = "flat";
+  #    #      speed = -0.17;
+  #    #    };
+  #    "org/gnome/desktop/input-sources" = {
+  #      xkb-options = ["terminate:ctrl_alt_bksp"]; # "caps:swapescape"
+  #    };
+  #  };
 }
