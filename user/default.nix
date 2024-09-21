@@ -84,6 +84,7 @@
 
     #qgis
     tldr
+    nix-init
 
     cargo
     nixpkgs-fmt
