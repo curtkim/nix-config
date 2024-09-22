@@ -6,6 +6,10 @@
       name = "JetBrainsMonoNL NFM ExtraLight";
       size = 15;
     };
+
+    settings = {
+      scrollback_lines = 5000;
+    };
     #    settings = {
     #      scrollback_lines = 3000;
     #      enable_audio_bell = false;
