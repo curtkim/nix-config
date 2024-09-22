@@ -78,9 +78,10 @@
 
     mpv
     fuse
-    youtube-tui
     termusic
     alsa-utils
+    youtube-tui
+    yt-dlp
 
     #qgis
     tldr
