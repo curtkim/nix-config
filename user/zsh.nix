@@ -12,7 +12,7 @@
     defaultKeymap = "emacs";
     shellAliases = {
       ls = "exa";
-      l = "exa -l";
+      l = "exa -l --time-style iso";
       la = "exa -la";
       ip = "ip --color=auto";
       icat = "kitten icat";
