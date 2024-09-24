@@ -72,9 +72,9 @@
     hwinfo
     htop
     gtop
-    #nvtop
     cpufrequtils
-
+    nvtopPackages.nvidia
+    zenith-nvidia
 
     mpv
     fuse
