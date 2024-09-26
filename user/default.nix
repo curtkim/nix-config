@@ -100,10 +100,12 @@
 
     xclip
     wl-clipboard
+    hyprshot
 
     python311
     python311Packages.debugpy
     python311Packages.isort
+    python311Packages.pipdeptree
 
     sops
     age
