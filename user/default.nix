@@ -68,6 +68,9 @@
     unzip
     unixtools.xxd
 
+    # for printing
+    enscript
+
     nethogs
     hwinfo
     htop

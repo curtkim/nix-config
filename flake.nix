@@ -84,6 +84,10 @@
         system = system;
         specialArgs = specialArgs // { hostName = "um790"; };
         modules = [
+          ({pkgs, ...}: {
+            # why working?
+            nixpkgs.config.allowUnfree = true;
+          })
           ./host/um790
           home-manager.nixosModules.home-manager
           {

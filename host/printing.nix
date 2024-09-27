@@ -17,15 +17,15 @@
     openFirewall = true;
   };
 
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    openFirewall = true;
-    publish = {
-      enable = true;
-      userServices = true;
-    };
-  };
+  #  services.avahi = {
+  #    enable = true;
+  #    nssmdns4 = true;
+  #    openFirewall = true;
+  #    publish = {
+  #      enable = true;
+  #      userServices = true;
+  #    };
+  #  };
 
   hardware.printers = {
     ensurePrinters = [
