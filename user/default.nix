@@ -48,6 +48,7 @@
     virt-manager
     quickemu
 
+    lazygit
     yazi
     bat
     fzf
