@@ -14,7 +14,7 @@
     allowFrom = [ "all" ];
     browsing = true;
     defaultShared = true;
-    openFirewall = true;
+    openFirewall = false;
   };
 
   #  services.avahi = {
