@@ -68,7 +68,11 @@
     glow
     unzip
     unixtools.xxd
+
+    # network
     speedtest-cli
+    iperf3
+    nmap
 
     # for printing
     enscript
