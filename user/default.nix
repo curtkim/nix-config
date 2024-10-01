@@ -68,6 +68,7 @@
     glow
     unzip
     unixtools.xxd
+    speedtest-cli
 
     # for printing
     enscript
