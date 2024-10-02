@@ -17,6 +17,20 @@
         repo_root_style = "green";
       };
 
+      username = {
+        format = "[$user]($style)";
+        style_user = "bold dimmed yellow";
+      };
+
+      hostname = {
+        format ="[@$hostname]($style): ";
+        style = "bold dimmed green";
+      };
+
+      localip = {
+        disabled = true;
+      };
+
       git_status = {
         deleted = "✗";
         modified = "✶";
@@ -31,6 +45,8 @@
 
       gcloud = {
         symbol = "🇬️ ";
+        detect_env_vars = [];
+        disabled = true;
       };
     };
   };
