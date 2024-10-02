@@ -10,6 +10,13 @@
         error_symbol = "[›](bold red)";
       };
 
+      directory = {
+        truncate_to_repo = true;
+        truncation_length = 3;
+        #truncation_symbol = "…/";
+        repo_root_style = "green";
+      };
+
       git_status = {
         deleted = "✗";
         modified = "✶";
@@ -20,6 +27,10 @@
       nix_shell = {
         symbol = " ";
         heuristic = true;
+      };
+
+      gcloud = {
+        symbol = "🇬️ ";
       };
     };
   };

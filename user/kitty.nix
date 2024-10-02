@@ -3,7 +3,9 @@
     enable = true;
     font = {
       #name = "JetBrainsMono Nerd Font ExtraLight";
-      name = "JetBrainsMonoNL NFM ExtraLight";
+      #name = "JetBrainsMonoNL NFM Regular";
+      #name = "JetBrainsMonoNL NFM ExtraLight";
+      name = "JetBrainsMonoNL NFM Thin";
       size = 15;
     };
 
