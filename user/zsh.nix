@@ -22,7 +22,8 @@
       ga = "git add";
       gd = "git diff";
       gc = "git commit -m";
-      gp = "git push";
+      gp = "git pull";
+      gP = "git push";
       gl = "git log --oneline --graph --decorate -20";
 
       #shortcut
