@@ -34,6 +34,7 @@
     ./virtualisation.nix
     ./network.nix
     ./sound.nix
+    ./minidlna.nix
   ];
 
 
