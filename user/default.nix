@@ -118,6 +118,7 @@
 
     sops
     age
+    passage
 
     gh
     pstree
