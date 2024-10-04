@@ -35,6 +35,7 @@
     ./network.nix
     ./sound.nix
     ./minidlna.nix
+    ./services.nix
   ];
 
 

@@ -14,7 +14,9 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 80 443 8096 8920 ];
+    allowedTCPPorts = [ 80 443 8096 8200 8920 ];
+
+    allowedUDPPorts = [ 8200 ];     # for minidlna
     allowedUDPPortRanges = [
       #{ from = 631; to = 631; }
       { from = 4000; to = 4007; }

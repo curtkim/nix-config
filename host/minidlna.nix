@@ -3,7 +3,13 @@
   services.minidlna.enable = true;
   services.minidlna.settings ={
     notify_interval = 60;
-    friendly_name = "PCMEDIA";
-    media_dir = ["V,/home/curt/Videos/"];
+    friendly_name = "um790";
+    media_dir = ["/data/video/"];
+    inotify = "yes";
+  };
+
+  users.users.minidlna = {
+    extraGroups =
+      [ "users" ]; # so minidlna can access the files.
   };
 }
