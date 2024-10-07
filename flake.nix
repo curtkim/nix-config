@@ -167,6 +167,14 @@
         ];
       };
 
+      homeConfigurations.curt = home-manager.lib.homeManagerConfiguration {
+        pkgs = pkgs;
+        extraSpecialArgs = specialArgs;
+        modules = [
+          ./user
+        ];
+      };
+
       packages = import ./pkgs nixpkgs.legacyPackages.x86_64-linux;
 
     };
