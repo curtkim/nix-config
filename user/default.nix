@@ -109,7 +109,9 @@
 
     xclip
     wl-clipboard
-    hyprshot
+    #hyprshot #jq error
+    grim
+    slurp
 
     python311
     python311Packages.debugpy
