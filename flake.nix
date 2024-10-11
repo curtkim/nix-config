@@ -89,11 +89,11 @@
             nixpkgs.config.allowUnfree = true;
           })
           ./host/um790
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.users.curt = import ./user;
-            home-manager.extraSpecialArgs = specialArgs;
-          }
+          #          home-manager.nixosModules.home-manager
+          #          {
+          #            home-manager.users.curt = import ./user;
+          #            home-manager.extraSpecialArgs = specialArgs;
+          #          }
         ];
       };
 
@@ -102,11 +102,6 @@
         specialArgs = specialArgs // { hostName = "vostro"; };
         modules = [
           ./host/vostro
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.users.curt = import ./user;
-            home-manager.extraSpecialArgs = specialArgs;
-          }
         ];
       };
 
@@ -115,30 +110,8 @@
         specialArgs = specialArgs // { hostName = "vostro"; };
         modules = [
           ./host/vostro-console
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.users.curt = import ./user;
-            home-manager.extraSpecialArgs = specialArgs;
-          }
         ];
       };
-
-      #    homeConfigurations.curt = let 
-      #      system = "x86_64-linux";
-      #      pkgs = nixpkgs.legacyPackages.${system};
-      #    in home-manager.lib.homeManagerConfiguration {
-      #      inherit pkgs;
-      #      modules = [
-      #        ./user
-      #        ./modules/hyprland
-      #      ];
-      #      extraSpecialArgs = {
-      #        userName = "curt";
-      #        username = "curt";
-      #        hyprland = hyprland;
-      #        system = system;
-      #      };
-      #    };
 
       nixosConfigurations.workstation = nixpkgs.lib.nixosSystem {
         pkgs = pkgs;
