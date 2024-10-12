@@ -45,16 +45,16 @@
     #      autopair-init
     #                              '';
 
-    plugins = with pkgs; [
+    plugins = [
       {
         name = "zsh-syntax-highlighting";
-        src = fetchFromGitHub {
-          owner = "zsh-users";
-          repo = "zsh-syntax-highlighting";
-          rev = "0.6.0";
-          sha256 = "0zmq66dzasmr5pwribyh4kbkk23jxbpdw4rjxx0i7dx8jjp2lzl4";
-        };
+        src = pkgs.zsh-syntax-highlighting;
         file = "zsh-syntax-highlighting.zsh";
+      }
+      {
+        name = "vi-mode";
+        src = pkgs.zsh-vi-mode;
+        file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
       }
     ];
   };
