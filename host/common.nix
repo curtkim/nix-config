@@ -18,6 +18,8 @@
       ];
       trusted-users = [
         "@wheel"
+        "root"
+        "curt"
       ];
     };
     gc = {

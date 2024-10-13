@@ -2,7 +2,7 @@
   # DLNA Server
   services.minidlna.enable = true;
   services.minidlna.settings ={
-    notify_interval = 60;
+    notify_interval = 30;
     friendly_name = "um790";
     media_dir = ["/data/video/"];
     inotify = "yes";
