@@ -94,11 +94,14 @@
 
     #qgis
     tldr
-    nix-init
     cachix
 
-    cargo
+    nix-init
+    nix-diff
+    nix-tree
     nixpkgs-fmt
+
+    cargo
 
     #blender
     vulkan-tools
