@@ -100,6 +100,7 @@
     nix-init
     nix-diff
     nix-tree
+    nix-visualize
     nixpkgs-fmt
 
     cargo
