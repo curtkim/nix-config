@@ -1,35 +1,7 @@
 { config, pkgs, ... }:
 {
-  nix = {
-    # /etc/nix/nix.conf로 저장된다. 
-    settings = {
-      auto-optimise-store = true;
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
-      substituters = [
-        "https://hyprland.cachix.org"
-        "https://cuda-maintainers.cachix.org"
-      ];
-      trusted-public-keys = [
-        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-        "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
-      ];
-      trusted-users = [
-        "@wheel"
-        "root"
-        "curt"
-      ];
-    };
-    gc = {
-      automatic = false;
-      #dates = "weekly";
-      #options = "--delete-older-than 30d";
-    };
-  };
-
   imports = [
+    ./nix.nix
     ./locale.nix
     ./font.nix
     ./input-method.nix
@@ -39,7 +11,6 @@
     ./minidlna.nix
     ./services.nix
   ];
-
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -79,5 +50,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 }
