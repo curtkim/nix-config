@@ -68,6 +68,7 @@
     glow
     unzip
     unixtools.xxd
+    litecli
 
     # network
     speedtest-cli
