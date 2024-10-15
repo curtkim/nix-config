@@ -10,6 +10,7 @@
     ./sound.nix
     ./minidlna.nix
     ./services.nix
+    ./keyboard-voyager.nix
   ];
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -20,7 +21,7 @@
   users.users.curt = {
     isNormalUser = true;
     description = "curt";
-    extraGroups = [ "networkmanager" "wheel" "input" "incus-admin" ];
+    extraGroups = [ "networkmanager" "wheel" "input" "plugdev" "incus-admin" ];
     packages = with pkgs; [
     ];
     shell = pkgs.zsh;
