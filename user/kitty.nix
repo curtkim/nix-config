@@ -11,6 +11,7 @@
 
     settings = {
       scrollback_lines = 5000;
+      paste_actions = "filter";
     };
     #    settings = {
     #      scrollback_lines = 3000;
