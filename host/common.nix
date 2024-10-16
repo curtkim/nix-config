@@ -11,6 +11,7 @@
     ./minidlna.nix
     ./services.nix
     ./keyboard-voyager.nix
+    ./security.nix
   ];
 
   # Enable touchpad support (enabled default in most desktopManager).

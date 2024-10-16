@@ -12,6 +12,7 @@
     ./git.nix
     #./hypr
     ./hyprland.nix
+    ./hyprlock.nix
     #./chromium.nix
     ./google-chrome.nix
   ];

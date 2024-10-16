@@ -35,6 +35,8 @@
       url = "https://github.com/hyprwm/Hyprland";
       submodules = true;
     };
+    #hyprlock.url = "github:hyprwm/Hyprlock";
+    #hyprlock.inputs.nixpkgs.follows = "nixpkgs-unstable";
     #hyprland.url = "github:hyprwm/Hyprland";
     darwin = {
       url = "github:lnl7/nix-darwin";
