@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable, cudaSupport, ... }:
+{ config, lib, pkgs, pkgs-unstable, cudaSupport, ... }:
 
 {
   imports = [
@@ -159,6 +159,8 @@
     # audio
     pamixer
 
+    google-cloud-sdk
+
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -172,8 +174,8 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
   ] ++ lib.optional cudaSupport [
-    opensplatWithCuda
-    pkgs-unstable.colmapWithCuda
+    #opensplatWithCuda
+    #pkgs-unstable.colmapWithCuda
     (blender.override {
       cudaSupport = true;
     })
@@ -206,6 +208,19 @@
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
     EDITOR = "nvim";
+    #EDITOR = "${lib.getExe pkgs.neovim}";
+    #BROWSER = "${lib.getExe pkgs-unstable.google-chrome }";
+  };
+
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "text/html" = "google-chrome.desktop";
+      "x-scheme-handler/http" = "google-chrome.desktop";
+      "x-scheme-handler/https" = "google-chrome.desktop";
+      "x-scheme-handler/about" = "google-chrome.desktop";
+      "x-scheme-handler/unknown" = "google-chrome.desktop";
+    };
   };
 
   home.pointerCursor = {
