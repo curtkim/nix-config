@@ -99,6 +99,14 @@
         ];
       };
 
+      nixosConfigurations.roter = nixpkgs.lib.nixosSystem {
+        system = system;
+        specialArgs = specialArgs // { hostName = "roter"; };
+        modules = [
+          ./host/roter
+        ];
+      };
+
       nixosConfigurations.vostro = nixpkgs.lib.nixosSystem {
         system = system;
         specialArgs = specialArgs // { hostName = "vostro"; };
