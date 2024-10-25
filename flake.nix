@@ -1,5 +1,6 @@
 {
   nixConfig = {
+    # current flake에 적용된다.
     extra-experimental-features = [ "nix-command" "flakes" ];
     substituters = [
       "https://cache.nixos.org/"
@@ -60,6 +61,7 @@
         hostName = "none";
         userName = "curt";
         cudaSupport = false;
+        nixpkgs = nixpkgs;
         disko = disko;
         hyprland = hyprland;
         pkgs-unstable = import nixpkgs-unstable {
