@@ -59,27 +59,28 @@
       system = "x86_64-linux";
       pkgsConfig = {
         allowUnfree = true;
+        cudaSupport = true;
         cudaCapabilities = [ "8.6" ];
         permittedInsecurePackages = [
           "freeimage-unstable-2021-11-01"
         ];
       };
-      specialArgs = {
-        hostName = "none";
-        userName = "curt";
-        cudaSupport = false;
-        nixpkgs = nixpkgs;
-        disko = disko;
-        hyprland = hyprland;
-        pkgs-unstable = import nixpkgs-unstable {
-          system = system;
-          config = pkgsConfig;
-        };
-        inherit inputs;
-      };
       pkgs = import nixpkgs {
         system = system;
         config = pkgsConfig;
+      };
+      pkgs-unstable = import nixpkgs-unstable {
+        system = system;
+        config = pkgsConfig;
+      };
+      specialArgs = {
+        hostName = "none";
+        userName = "curt";
+        nixpkgs = nixpkgs;
+        disko = disko;
+        hyprland = hyprland;
+        pkgs-unstable = pkgs-unstable;
+        inherit inputs;
       };
     in
     {

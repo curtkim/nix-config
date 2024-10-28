@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-unstable, cudaSupport, ... }:
+{ config, lib, pkgs, pkgs-unstable,  ... }: 
 
 {
   imports = [
@@ -17,10 +17,10 @@
     ./google-chrome.nix
   ];
 
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = [
-    "freeimage-unstable-2021-11-01"
-  ];
+  #nixpkgs.config.allowUnfree = true;
+  #nixpkgs.config.permittedInsecurePackages = [
+  #  "freeimage-unstable-2021-11-01"
+  #];
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -173,12 +173,12 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-  ] ++ lib.optional cudaSupport [
+  ] ++ lib.optionals pkgs.config.cudaSupport [
     #opensplatWithCuda
     #pkgs-unstable.colmapWithCuda
-    (blender.override {
-      cudaSupport = true;
-    })
+    #(pkgs.blender.override {
+    #cudaSupport = true;
+    #})
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

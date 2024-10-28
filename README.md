@@ -1,3 +1,6 @@
+## notes
+- unstable을 사용하는 이유는 google-chrome, nvim 때문
+
 ## howto
 
     NIXPKGS_ALLOW_UNFREE=1 nix build --impure .#packages.vivado-2022_2
