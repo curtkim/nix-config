@@ -4,7 +4,7 @@
   imports = [
     ./default_minimal.nix
 
-    ./kitty.nix
+    #./kitty.nix
     #./alacritty.nix
     #./hypr
     ./hyprland.nix
