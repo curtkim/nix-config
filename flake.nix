@@ -57,6 +57,13 @@
     }:
     let
       system = "x86_64-linux";
+      pkgsConfig = {
+        allowUnfree = true;
+        cudaCapabilities = [ "8.6" ];
+        permittedInsecurePackages = [
+          "freeimage-unstable-2021-11-01"
+        ];
+      };
       specialArgs = {
         hostName = "none";
         userName = "curt";
@@ -65,33 +72,26 @@
         disko = disko;
         hyprland = hyprland;
         pkgs-unstable = import nixpkgs-unstable {
-          system = "x86_64-linux";
-          config.allowUnfree = true;
-          config.cudaCapabilities = [ "8.6" ];
-          config.permittedInsecurePackages = [
-            "freeimage-unstable-2021-11-01"
-          ];
+          system = system;
+          config = pkgsConfig;
         };
         inherit inputs;
       };
       pkgs = import nixpkgs {
-        config.allowUnfree = true; # 여기서 allowUnfree 설정
-        config.cudaCapabilities = [ "8.6" ];
-        config.permittedInsecurePackages = [
-          "freeimage-unstable-2021-11-01"
-        ];
         system = system;
+        config = pkgsConfig;
       };
     in
     {
       nixosConfigurations.um790 = nixpkgs.lib.nixosSystem {
         system = system;
+        pkgs = pkgs;
         specialArgs = specialArgs // { hostName = "um790"; };
         modules = [
-          ({pkgs, ...}: {
-            # why working?
-            nixpkgs.config.allowUnfree = true;
-          })
+          #          ({pkgs, ...}: {
+          #            # why working?
+          #            nixpkgs.config.allowUnfree = true;
+          #          })
           ./host/um790
           #          home-manager.nixosModules.home-manager
           #          {
@@ -103,6 +103,7 @@
 
       nixosConfigurations.roter = nixpkgs.lib.nixosSystem {
         system = system;
+        pkgs = pkgs;
         specialArgs = specialArgs // { hostName = "roter"; };
         modules = [
           ./host/roter
@@ -111,6 +112,7 @@
 
       nixosConfigurations.vostro = nixpkgs.lib.nixosSystem {
         system = system;
+        pkgs = pkgs;
         specialArgs = specialArgs // { hostName = "vostro"; };
         modules = [
           ./host/vostro
@@ -119,6 +121,7 @@
 
       nixosConfigurations."vostro-console" = nixpkgs.lib.nixosSystem {
         system = system;
+        pkgs = pkgs;
         specialArgs = specialArgs // { hostName = "vostro"; };
         modules = [
           ./host/vostro-console
@@ -126,8 +129,8 @@
       };
 
       nixosConfigurations.workstation = nixpkgs.lib.nixosSystem {
-        pkgs = pkgs;
         system = system;
+        pkgs = pkgs;
         specialArgs = specialArgs // { hostName = "workstation"; cudaSupport = true; };
         modules = [
           ./host/workstation
