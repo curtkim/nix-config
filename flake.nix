@@ -135,12 +135,16 @@
         specialArgs = specialArgs // { hostName = "workstation"; cudaSupport = true; };
         modules = [
           ./host/workstation
+          #          ({pkgs, ...}: {
+          #            # why working?
+          #            nixpkgs.config.allowUnfree = true;
+          #          })
           #hyprland.nixosModules.default
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.users.curt = import ./user;
-            home-manager.extraSpecialArgs = specialArgs;
-          }
+          #          home-manager.nixosModules.home-manager
+          #          {
+          #            home-manager.users.curt = import ./user;
+          #            home-manager.extraSpecialArgs = specialArgs;
+          #          }
         ];
       };
 
