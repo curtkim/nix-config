@@ -14,9 +14,9 @@
       enable = true;
     };
 
-    incus = {
-      enable = true;
-    };
+    #    incus = {
+    #      enable = true;
+    #    };
   };
-  programs.virt-manager.enable = true;
+  #programs.virt-manager.enable = true;
 }

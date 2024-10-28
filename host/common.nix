@@ -8,7 +8,6 @@
     ./virtualisation.nix
     ./network.nix
     ./sound.nix
-    ./minidlna.nix
     ./services.nix
     ./keyboard-voyager.nix
     ./security.nix
@@ -38,10 +37,10 @@
     lshw
 
     # for incus
-    distrobuilder
-    cdrkit
-    hivex
-    wimlib
+    #    distrobuilder
+    #    cdrkit
+    #    hivex
+    #    wimlib
 
     home-manager
   ];

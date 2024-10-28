@@ -13,7 +13,7 @@
       ./hardware-configuration.nix
       ../nvidia.nix
       ../common.nix
-      ../xserver.nix
+      #../xserver.nix
       ../icestick.nix
       #../hyprland.nix
       ../printing.nix

@@ -167,6 +167,13 @@
           ./user
         ];
       };
+      homeConfigurations.curt_minimal = home-manager.lib.homeManagerConfiguration {
+        pkgs = pkgs;
+        extraSpecialArgs = specialArgs;
+        modules = [
+          ./user/default_minimal.nix
+        ];
+      };
 
       packages = import ./pkgs nixpkgs.legacyPackages.x86_64-linux;
 
