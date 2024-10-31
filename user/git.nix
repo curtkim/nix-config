@@ -6,7 +6,7 @@
     userEmail = "iamteri@gmail.com";
     aliases = {
       st = "status -sb";
-      lg = "log --oneline --graph --decorate -20";
+      lg = "log --oneline --date=short --format='%h %C(yellow)%ad%Creset %s' --graph --decorate -20";
       ch = "checkout";
       cm = "commit -m";
       br = "branch";
