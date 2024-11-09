@@ -117,6 +117,7 @@
     nix-diff
     nix-tree
     nix-visualize
+    nix-index
     nixpkgs-fmt
 
     cargo
