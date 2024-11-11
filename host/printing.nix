@@ -14,7 +14,7 @@
     allowFrom = [ "all" ];
     browsing = true;
     defaultShared = true;
-    openFirewall = true;
+    openFirewall = true;            # 631 port를 연다.
   };
 
   hardware.printers = {
