@@ -15,7 +15,7 @@
       ../common.nix
       #../xserver.nix
       #../hyprland.nix
-      #../printing.nix
+      ../printing.nix
     ];
 
   networking.hostName = hostName; # Define your hostname.
