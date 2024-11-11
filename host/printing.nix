@@ -14,7 +14,7 @@
     allowFrom = [ "all" ];
     browsing = true;
     defaultShared = true;
-    openFirewall = false;
+    openFirewall = true;
   };
 
   hardware.printers = {
