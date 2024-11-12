@@ -131,6 +131,7 @@
     sops
     age
     passage
+    yubikey-manager
 
     gh
     pstree
