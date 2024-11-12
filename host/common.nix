@@ -23,7 +23,7 @@
   users.users.curt = {
     isNormalUser = true;
     description = "curt";
-    extraGroups = [ "networkmanager" "wheel" "input" "plugdev" "incus-admin" ];
+    extraGroups = [ "networkmanager" "wheel" "input" "plugdev" "incus-admin" "video"];
     packages = with pkgs; [
     ];
     shell = pkgs.zsh;
