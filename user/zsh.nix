@@ -31,6 +31,7 @@
       n = "cd ~/nix-config/ && vi .";
       v = "cd ~/.config/nvim/ && vi .";
       x = "exit";
+      myip = "curl -s ipinfo.io | jq '.ip'";
       emby = ''
         podman run --replace \
           --name embyserver \
