@@ -10,9 +10,9 @@
   #    };
   #  };
 
-  #  hardware = {
-  #    opengl.enable = true;
-  #  };
+  hardware = {
+    opengl.enable = true;
+  };
   #
   #  # hyprland
   #  programs.hyprland = {
