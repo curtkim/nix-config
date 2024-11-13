@@ -1,14 +1,14 @@
 { config, pkgs, hyprland, ... }:
 
 {
-  services.xserver = {
-    enable = true;
-    #videosDrivers = ["nvidia"];
-    displayManager.gdm = {
-      enable = true;
-      wayland = true;
-    };
-  };
+  #  services.xserver = {
+  #    enable = true;
+  #    #videosDrivers = ["nvidia"];
+  #    displayManager.gdm = {
+  #      enable = true;
+  #      wayland = true;
+  #    };
+  #  };
 
   #  hardware = {
   #    opengl.enable = true;
@@ -20,11 +20,11 @@
   #    xwayland.enable = true;
   #  };
 
-  environment = {
-    sessionVariables = {
-      NIXOS_OZONE_WL = "1";
-    };
-  };
+  #  environment = {
+  #    sessionVariables = {
+  #      NIXOS_OZONE_WL = "1";
+  #    };
+  #  };
 
   #  programs.hyprland = {
   #    enable = true;
