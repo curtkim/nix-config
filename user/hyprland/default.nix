@@ -24,6 +24,7 @@
   };
 
   home.packages = with pkgs; [
+    notify-desktop # notify-desktop "title" "BODY"
     #cinnamon.nemo
     #libsForQt5.dolphin
     wofi
@@ -32,6 +33,5 @@
     waybar
     wlogout
     #foot
-    notify-desktop # notify-desktop "title" "BODY"
   ];
 }
