@@ -56,6 +56,10 @@
     EDITOR = "nvim";
     #EDITOR = "${lib.getExe pkgs.neovim}";
     #BROWSER = "${lib.getExe pkgs-unstable.google-chrome }";
+
+    # Ozone은 chromium에만 적용되는 것을 보임
+    # 내부적으로 사용하는 window system으로 보임
+    NIXOS_OZONE_WL = "1";
   };
 
 

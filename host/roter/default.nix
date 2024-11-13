@@ -14,7 +14,7 @@
       #../amd.nix
       ../common.nix
       #../xserver.nix
-      #../hyprland.nix
+      ../hyprland.nix
       ../printing.nix
     ];
 
