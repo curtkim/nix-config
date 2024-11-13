@@ -1,18 +1,15 @@
 _: {
   wayland.windowManager.hyprland.settings = {
     "$mainMod" = "SUPER";
-    "terminal" = "kitty";
-    "fileManager" = "dolphin";
-    "menu" = "wofi --show drun";
 
     bind = [
       # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
-      "$mainMod, return, exec, $terminal"
+      "$mainMod, return, exec, kitty"
       "$mainMod, C, killactive,"
       # $mainMod, M, exit,
-      "$mainMod, E, exec, $fileManager"
+      "$mainMod, E, exec, dolphine"
       "$mainMod, V, togglefloating,"
-      "$mainMod, space, exec, $menu"
+      "$mainMod, space, exec, wofi --show drun"
       #$mainMod, P, pseudo, # dwindle
       "$mainMod, F, fullscreen"
       #$mainMod, J, togglesplit, # dwindle
