@@ -11,10 +11,10 @@
       disko.nixosModules.disko
       ./disko-config.nix
       ./hardware-configuration.nix
-      #../amd.nix
+      ../intel.nix
       ../common.nix
       #../xserver.nix
-      ../hyprland.nix
+      #../hyprland.nix
       ../printing.nix
     ];
 
