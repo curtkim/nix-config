@@ -10,15 +10,15 @@
     };
   };
 
-  hardware = {
-    opengl.enable = true;
-  };
-
-  # hyprland
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
+  #  hardware = {
+  #    opengl.enable = true;
+  #  };
+  #
+  #  # hyprland
+  #  programs.hyprland = {
+  #    enable = true;
+  #    xwayland.enable = true;
+  #  };
 
   environment = {
     sessionVariables = {
