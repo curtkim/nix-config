@@ -74,6 +74,7 @@
     virt-manager
     quickemu
 
+    #util
     lazygit
     yazi
     bat
@@ -95,6 +96,7 @@
     unixtools.xxd
     litecli
     tldr
+    fx            # json viewer
 
     # network
     speedtest-cli
