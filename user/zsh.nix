@@ -18,6 +18,7 @@
       icat = "kitten icat";
       show_path = "echo $PATH | tr ':' '\n'";
 
+      lg = "lazygit";
       gs = "git status -sb";
       ga = "git add";
       gd = "git diff";
