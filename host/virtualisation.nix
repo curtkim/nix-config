@@ -10,9 +10,9 @@
       defaultNetwork.settings.dns_enabled = true;
     };
 
-    libvirtd = {
-      enable = true;
-    };
+    #libvirtd = {
+    #  enable = true;
+    #};
 
     #    incus = {
     #      enable = true;
