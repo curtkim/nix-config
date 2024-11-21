@@ -16,7 +16,8 @@
       ../minidlna.nix
       #../xserver.nix
       ../hyprland.nix
-      ../printing-client.nix
+      ../printing.nix
+      #../printing-client.nix
     ];
 
   networking.hostName = hostName; # Define your hostname.
