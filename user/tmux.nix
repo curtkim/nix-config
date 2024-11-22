@@ -16,6 +16,8 @@
       yank
     ];
     extraConfig = ''
+      bind -n C-] copy-mode
+
       # More Intuitive Split Commands
       bind "|" split-window -h -c "#{pane_current_path}"
       bind "\\" split-window -fh -c "#{pane_current_path}"
