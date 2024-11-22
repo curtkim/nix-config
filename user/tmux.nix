@@ -17,10 +17,10 @@
     ];
     extraConfig = ''
       # More Intuitive Split Commands
-      bind-key "|" split-window -h -c "#{pane_current_path}"
-      bind-key "\\" split-window -fh -c "#{pane_current_path}"
-      bind-key "-" split-window -v -c "#{pane_current_path}"
-      bind-key "_" split-window -fv -c "#{pane_current_path}"
+      bind "|" split-window -h -c "#{pane_current_path}"
+      bind "\\" split-window -fh -c "#{pane_current_path}"
+      bind "-" split-window -v -c "#{pane_current_path}"
+      bind "_" split-window -fv -c "#{pane_current_path}"
 
       # Swapping Windows
       bind -r "<" swap-window -d -t -1
@@ -33,8 +33,8 @@
       bind -r C-l resize-pane -R 10
 
       # Copy mode
-      bind-key -T copy-mode-vi v send-keys -X begin-selection
-      bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+      bind -T copy-mode-vi v send-keys -X begin-selection
+      bind -T copy-mode-vi y send-keys -X copy-selection-and-cancel
 
       # Status bar
       set-option -g status-position top
