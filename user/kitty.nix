@@ -6,7 +6,7 @@
       #name = "JetBrainsMonoNL NFM Regular";
       #name = "JetBrainsMonoNL NFM ExtraLight";
       name = "JetBrainsMonoNL NFM Thin";
-      size = 15;
+      size = 14;
     };
 
     settings = {
