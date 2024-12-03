@@ -50,11 +50,11 @@
   #  };
 
   environment.systemPackages = with pkgs; [
-    cinnamon.nemo
+    #cinnamon.nemo
     libsForQt5.dolphin
     wofi
     grim
-    gnome.eog
+    #gnome.eog
     waybar
     wlogout
     foot
