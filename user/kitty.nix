@@ -30,6 +30,7 @@
       #"ctrl+c" = "copy_and_clear_or_interrupt";
       #"ctrl+v" = "paste_from_clipboard";
     };
-    theme = "Tokyo Night Storm"; #"Catppuccin-Macchiato"; #"Tomorrow Night"; #"Nord";
+    # https://github.com/kovidgoyal/kitty-themes/tree/master/themes
+    themeFile = "tokyo_night_storm"; #"Catppuccin-Macchiato"; #"Tomorrow Night"; #"Nord";
   };
 }
