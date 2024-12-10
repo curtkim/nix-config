@@ -1,30 +1,30 @@
 { config, pkgs, hyprland, ... }:
 
 {
-  services.xserver = {
-    enable = true;
-    #videosDrivers = ["nvidia"];
-    displayManager.gdm = {
-      enable = true;
-      wayland = true;
-    };
-  };
+  #  services.xserver = {
+  #    enable = true;
+  #    #videosDrivers = ["nvidia"];
+  #    displayManager.gdm = {
+  #      enable = true;
+  #      wayland = true;
+  #    };
+  #  };
 
-  hardware = {
-    opengl.enable = true;
-  };
+  #  hardware = {
+  #    opengl.enable = true;
+  #  };
+  #
+  #  # hyprland
+  #  programs.hyprland = {
+  #    enable = true;
+  #    xwayland.enable = true;
+  #  };
 
-  # hyprland
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-
-  environment = {
-    sessionVariables = {
-      NIXOS_OZONE_WL = "1";
-    };
-  };
+  #  environment = {
+  #    sessionVariables = {
+  #      NIXOS_OZONE_WL = "1";
+  #    };
+  #  };
 
   #  programs.hyprland = {
   #    enable = true;
@@ -42,21 +42,15 @@
   #    };
   #  };
   #
-  #  programs.dconf.enable = true;
-  #
-  #  xdg.portal = {
-  #    enable = true;
-  #    wlr.enable = true;
-  #  };
 
-  environment.systemPackages = with pkgs; [
-    #cinnamon.nemo
-    libsForQt5.dolphin
-    wofi
-    grim
-    #gnome.eog
-    waybar
-    wlogout
-    foot
-  ];
+  #  environment.systemPackages = with pkgs; [
+  #    cinnamon.nemo
+  #    libsForQt5.dolphin
+  #    wofi
+  #    grim
+  #    gnome.eog
+  #    waybar
+  #    wlogout
+  #    foot
+  #  ];
 }
