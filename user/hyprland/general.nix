@@ -1,5 +1,11 @@
 _: {
   wayland.windowManager.hyprland.settings = {
+
+    # See https://wiki.hyprland.org/Configuring/Monitors/
+    monitor= [
+      "HDMI-A-1,preferred,auto,1.6"
+    ];
+
     exec-once = [
       "dunst"
       "waybar"
@@ -32,10 +38,10 @@ _: {
       active_opacity = 1.0;
       inactive_opacity = 1.0;
 
-      drop_shadow = true;
-      shadow_range = 4;
-      shadow_render_power = 3;
-      "col.shadow" = "rgba(1a1a1aee)";
+      #drop_shadow = true;
+      #shadow_range = 4;
+      #shadow_render_power = 3;
+      #"col.shadow" = "rgba(1a1a1aee)";
 
       # https://wiki.hyprland.org/Configuring/Variables/#blur
       blur = {
