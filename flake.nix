@@ -17,10 +17,10 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     disko = {
@@ -43,6 +43,7 @@
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs"; # ...
     };
+    rust-overlay.url = "github:oxalica/rust-overlay";
   };
 
   outputs =
@@ -53,10 +54,21 @@
     , home-manager
     , disko
     , darwin
+    , rust-overlay
     , ...
     }:
     let
       system = "x86_64-linux";
+      rustVersion = "1.81.0";
+      overlays = [
+        (import rust-overlay)
+        (final: prev: {
+          kime = prev.kime.override { 
+            rustc = final.rust-bin.stable.${rustVersion}.default;
+            cargo = final.rust-bin.stable.${rustVersion}.default;
+          };
+        })
+      ];
       pkgsConfig = {
         allowUnfree = true;
         cudaSupport = true;
@@ -68,6 +80,7 @@
       pkgs = import nixpkgs {
         system = system;
         config = pkgsConfig;
+        overlays = overlays;
       };
       pkgs-unstable = import nixpkgs-unstable {
         system = system;
