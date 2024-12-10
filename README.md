@@ -3,6 +3,8 @@
 
 ## howto
 
+    nix flake update --update-input nixpkgs-unstable
+
     NIXPKGS_ALLOW_UNFREE=1 nix build --impure .#packages.vivado-2022_2
     result/bin/vivado
 
