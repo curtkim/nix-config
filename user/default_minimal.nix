@@ -146,6 +146,7 @@
     nil
     lua-language-server
     pyright
+    rust-analyzer
 
     # dap
     gdb
