@@ -31,6 +31,7 @@
       b = "cd ~/brain/ && vi .";
       n = "cd ~/nix-config/ && vi .";
       v = "cd ~/.config/nvim/ && vi .";
+      t = "tree";
       x = "exit";
       myip = "curl -s ipinfo.io | jq '.ip'";
       emby = ''
