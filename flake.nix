@@ -124,6 +124,15 @@
         ];
       };
 
+      nixosConfigurations.gen53 = nixpkgs.lib.nixosSystem {
+        system = system;
+        pkgs = pkgs;
+        specialArgs = specialArgs // { hostName = "gen53"; };
+        modules = [
+          ./host/gen53
+        ];
+      };
+
       nixosConfigurations.vostro = nixpkgs.lib.nixosSystem {
         system = system;
         pkgs = pkgs;
