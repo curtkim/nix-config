@@ -148,6 +148,7 @@
     lua-language-server
     pyright
     rust-analyzer
+    bash-language-server
 
     # dap
     gdb
