@@ -13,6 +13,7 @@
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ 80 443 8096 8200 8920 
+      3000  # dev server
       11434 # ollama
     ];
 
