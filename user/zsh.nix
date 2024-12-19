@@ -11,9 +11,9 @@
     enableCompletion = true;
     defaultKeymap = "emacs";
     shellAliases = {
-      ls = "exa";
-      l = "exa -l --time-style iso";
-      la = "exa -la";
+      ls = "eza";
+      l = "eza -l --time-style iso";
+      la = "eza -la";
       ip = "ip --color=auto";
       icat = "kitten icat";
       show_path = "echo $PATH | tr ':' '\n'";
