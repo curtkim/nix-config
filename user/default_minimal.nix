@@ -109,6 +109,7 @@
     nethogs
     hwinfo
     htop
+    btop
     gtop
     cpufrequtils
     nvtopPackages.nvidia
