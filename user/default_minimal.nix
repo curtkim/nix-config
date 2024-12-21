@@ -68,6 +68,7 @@
 
   home.packages = with pkgs; [
     gnumake
+    file
 
     neofetch
     buildah
