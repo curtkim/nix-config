@@ -78,10 +78,12 @@
 
     #util
     lazygit
+    serie
     bat
     fzf
     ripgrep
     ripgrep-all
+    repgrep
     jq
     tree
     eza
