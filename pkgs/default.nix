@@ -7,4 +7,5 @@ pkgs: {
   claude-engineer = pkgs.callPackage ./claude-engineer.nix { };
   openxlab = pkgs.callPackage ./openxlab.nix { };
   gh-find-code = pkgs.callPackage ./gh-find-code.nix { };
+  mcphost = pkgs.callPackage ./mcphost.nix {};
 }
