@@ -8,4 +8,8 @@ pkgs: {
   openxlab = pkgs.callPackage ./openxlab.nix { };
   gh-find-code = pkgs.callPackage ./gh-find-code.nix { };
   mcphost = pkgs.callPackage ./mcphost.nix {};
+  shader-slang = pkgs.callPackage ./shader-slang.nix {};
+  luisa-compute = pkgs.callPackage ./luisa-compute.nix {};
+  luisa-render = pkgs.callPackage ./luisa-render.nix {};
 }
+
