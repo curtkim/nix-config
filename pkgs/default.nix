@@ -11,5 +11,6 @@ pkgs: {
   shader-slang = pkgs.callPackage ./shader-slang.nix {};
   luisa-compute = pkgs.callPackage ./luisa-compute.nix {};
   luisa-render = pkgs.callPackage ./luisa-render.nix {};
+  taichi = pkgs.callPackage ./taichi.nix {};
 }
 
