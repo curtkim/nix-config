@@ -95,6 +95,8 @@
         pkgs-unstable = pkgs-unstable;
         inherit inputs;
       };
+
+      forAllSystems = nixpkgs.lib.genAttrs [ system ];
     in
     {
       nixosConfigurations.um790 = nixpkgs.lib.nixosSystem {
@@ -199,5 +201,6 @@
 
       packages = import ./pkgs nixpkgs.legacyPackages.x86_64-linux;
 
+      devShells = import ./devshells { pkgs = pkgs; forAllSystems = forAllSystems; };
     };
 }
