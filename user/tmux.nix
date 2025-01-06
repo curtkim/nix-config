@@ -15,6 +15,9 @@
       vim-tmux-navigator
       yank
     ];
+    # bind -n     # without prefix 
+    # bind -r     # 반복가능
+    # bind -T     # 키 테이블 지정
     extraConfig = ''
       bind -n C-] copy-mode
 
@@ -38,11 +41,13 @@
       bind -T copy-mode-vi v send-keys -X begin-selection
       bind -T copy-mode-vi y send-keys -X copy-selection-and-cancel
 
-      # Status bar
-      set-option -g status-position top
-
       # Quick Reload
       bind r source-file ~/.config/tmux/tmux.conf \; display "Reloaded!"
+
+
+      # Status bar
+      set-option -g status-position top
+      set-window-option -g window-status-current-style bg=#00FF00
 
       set -g status-left-length 85
       set -g status-left "[#S]"
