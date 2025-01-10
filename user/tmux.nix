@@ -53,6 +53,10 @@
       set -g status-left "[#S]"
       set -g status-right "#{?window_bigger,[#{window_offset_x}#,#{window_offset_y}] ,}\"#{=21:pane_title}\" %H:%M %Y-%m-%d"
       set -g status-justify centre
+
+      # for kitty graphics protocol
+      set -gq allow-passthrough on
+      set -g visual-activity off
     '';
   };
 }
