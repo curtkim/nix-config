@@ -69,7 +69,7 @@ _: {
       ", XF86AudioRaiseVolume, exec, pamixer -i 10"
       ", XF86AudioLowerVolume, exec, pamixer -d 10"
 
-      #"$mainMod, P, exec, grim -g "$(slurp)"
+      "$mainMod, P, exec, grim -g \${slurp}"
     ];
 
     bindm = [
