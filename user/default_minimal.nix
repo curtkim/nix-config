@@ -129,10 +129,10 @@
 
     cargo
 
-    python311
-    python311Packages.debugpy
-    python311Packages.isort
-    python311Packages.pipdeptree
+    #python311
+    python3Packages.debugpy
+    python3Packages.isort
+    python3Packages.pipdeptree
 
     sops
     age
@@ -159,5 +159,11 @@
     # cloud
     google-cloud-sdk
     rclone
+
+  ] ++ [
+    (pkgs-unstable.python3.withPackages (ps: [
+      ps.llm
+      ps.llm-ollama
+    ]))
   ];
 }
