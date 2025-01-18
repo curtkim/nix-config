@@ -165,5 +165,15 @@
       ps.llm
       ps.llm-ollama
     ]))
+  ] ++ lib.optionals pkgs.config.cudaSupport [
+    (pkgs-unstable.llama-cpp.override {
+      cudaSupport = true;
+    })
+    pkgs-unstable.ollama-cuda
+    #opensplatWithCuda
+    #pkgs-unstable.colmapWithCuda
+    #(pkgs.blender.override {
+    #cudaSupport = true;
+    #})
   ];
 }
