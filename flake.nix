@@ -44,6 +44,8 @@
       inputs.nixpkgs.follows = "nixpkgs"; # ...
     };
     rust-overlay.url = "github:oxalica/rust-overlay";
+
+    nvf.url = "github:notashelf/nvf";
   };
 
   outputs =
@@ -199,7 +201,18 @@
         ];
       };
 
-      packages = import ./pkgs nixpkgs.legacyPackages.x86_64-linux;
+      #packages = import ./pkgs nixpkgs.legacyPackages.x86_64-linux;
+
+      packages."x86_64-linux" = let
+        neovimConfigured = (inputs.nvf.lib.neovimConfiguration {
+          inherit (nixpkgs.legacyPackages."x86_64-linux") pkgs;
+          modules = [{
+            config.vim = import ./nvf.nix {pkgs = pkgs;};
+          }];
+        });
+      in {
+        vi = neovimConfigured.neovim;
+      };
 
       devShells = import ./devshells { pkgs = pkgs; forAllSystems = forAllSystems; };
     };
