@@ -90,6 +90,28 @@
       pkgs-unstable = import nixpkgs-unstable {
         system = system;
         config = pkgsConfig;
+        overlays = [
+          (final: prev: {
+            llama-cpp = prev.llama-cpp.overrideAttrs (old:{
+              version = "4524";
+              src = prev.fetchFromGitHub {
+                owner = "ggerganov";
+                repo = "llama.cpp";
+                tag = "b4524";
+                hash = "sha256-mB4jBNiTFVmwVU/qgo+AYe+jdHzuDCXlERdN+D+opuo=";
+                leaveDotGit = true;
+                postFetch = ''
+                  git -C "$out" rev-parse --short HEAD > $out/COMMIT
+                  find "$out" -name .git -print0 | xargs -0 rm -rf
+                '';
+              };
+              buildInputs = old.buildInputs ++ [ prev.curl ];
+              cmakeFlags = old.cmakeFlags ++ [
+                (prev.lib.cmakeBool "LLAMA_CURL" true)
+              ];
+            });
+          })
+        ];
       };
       specialArgs = {
         hostName = "none";
