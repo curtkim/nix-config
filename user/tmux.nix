@@ -21,6 +21,10 @@
     extraConfig = ''
       bind -n C-] copy-mode
 
+      # Cycle window
+      #bind -n C-S-H previous-window
+      #bind -n C-S-L next-window
+
       # More Intuitive Split Commands
       bind "|" split-window -h -c "#{pane_current_path}"
       bind "\\" split-window -fh -c "#{pane_current_path}"
