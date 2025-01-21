@@ -6,7 +6,7 @@
       #name = "JetBrainsMonoNL NFM Regular";
       #name = "JetBrainsMonoNL NFM ExtraLight";
       name = "JetBrainsMonoNL NFM Thin";
-      size = 14;
+      size = 13;
     };
 
     settings = {
@@ -30,6 +30,9 @@
     keybindings = {
       #"ctrl+c" = "copy_and_clear_or_interrupt";
       #"ctrl+v" = "paste_from_clipboard";
+      "ctrl+shift+equal" = "change_font_size all +1.0";
+      "ctrl+shift+plus"  = "change_font_size all +1.0";
+      "ctrl+shift+minus" = "change_font_size all -1.0";
     };
     # https://github.com/kovidgoyal/kitty-themes/tree/master/themes
     themeFile = "tokyo_night_storm"; #"Catppuccin-Macchiato"; #"Tomorrow Night"; #"Nord";
