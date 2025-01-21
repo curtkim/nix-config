@@ -70,6 +70,9 @@
             cargo = final.rust-bin.stable.${rustVersion}.default;
           };
         })
+        (final: prev: 
+          import ./pkgs prev
+        )
       ];
       pkgsConfig = {
         allowUnfree = true;
@@ -212,7 +215,7 @@
         });
       in {
         vi = neovimConfigured.neovim;
-      };
+      } // (import ./pkgs pkgs);
 
       devShells = import ./devshells { pkgs = pkgs; forAllSystems = forAllSystems; };
     };

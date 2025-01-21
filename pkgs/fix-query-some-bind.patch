@@ -1,0 +1,15 @@
+diff --git a/gh-find-code b/gh-find-code
+index b0ddc55..da845cc 100755
+--- a/gh-find-code
++++ b/gh-find-code
+@@ -1063,6 +1063,10 @@ main() {
+ 		--preview-window 'border-block:~3:+{1}+3/3:nohidden:bottom:nowrap:66%' \
+ 		--prompt "$default_fzf_prompt" \
+ 		--query "$*" \
++		--border none \
++		--no-sort \
++		--bind "j:down,k:up" \
++		--bind 'q:abort' \
+ 		--with-nth=3..
+ }
+ 
