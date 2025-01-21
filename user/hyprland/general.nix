@@ -14,12 +14,12 @@ _: {
 
     env = [
       # See https://wiki.hyprland.org/Configuring/Environment-variables/
-      "XCURSOR_SIZE,64"
-      "HYPRCURSOR_SIZE,64"
+      #"XCURSOR_SIZE,64"
+      #"HYPRCURSOR_SIZE,64"
     ];
 
     general = {
-      gaps_in = 1;
+      gaps_in = 0;
       gaps_out = 0;
       border_size = 3;
       # https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors
@@ -32,7 +32,7 @@ _: {
       layout = "dwindle";
     };
     decoration = {
-      rounding = 8;
+      rounding = 0;
 
       # Change transparency of focused and unfocused windows
       active_opacity = 1.0;
