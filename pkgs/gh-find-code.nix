@@ -9,7 +9,7 @@ stdenv.mkDerivation {
     owner = "LangLangBart";
     repo = "gh-find-code";
     rev = "73a61a42dd480f6e051817ea166cfbc1defbd1c1";
-    hash = "sha256-3i1wmZnVDr+aK3asaCSMhw0dw0kh2rRAP16d5/yq+tE=";
+    hash = "sha256-WoSCPq4BzYXzec3KaeCwr8I9g/7qUEB8tIREQmwjULw=";
   };
 
   patches = [
