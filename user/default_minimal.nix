@@ -160,6 +160,10 @@
     google-cloud-sdk
     rclone
 
+    pkgs-unstable.aider-chat
+
+    gh-find-code
+
   ] ++ [
     (pkgs-unstable.python3.withPackages (ps: [
       ps.llm
