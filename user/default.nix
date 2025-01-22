@@ -5,7 +5,7 @@
     ./default_minimal.nix
     ./hyprland
     ./hyprlock.nix
-    ./google-chrome.nix
+    #./google-chrome.nix
   ];
 
   #nixpkgs.config.allowUnfree = true;
@@ -41,10 +41,18 @@
     slurp
 
     firefox
-    #google-chrome
+    (google-chrome.override {
+      commandLineArgs = [
+        #"--ozone-platform=wayland"
+        "--enable-wayland-ime"
+        "--enable-unsafe-webgpu"
+        "--enable-webgpu-developer-feature"
+        "--force-webgpu-compat"
+      ];
+    })
 
     # gnome
-    gnome.gnome-session
+    gnome-session
 
     obsidian
     #(ollama.override { acceleration = "cuda"; })

@@ -11,6 +11,10 @@
     commandLineArgs = [
       #"--ozone-platform=wayland"
       "--enable-wayland-ime"
+
+      "--enable-unsafe-webgpu"
+      "--enable-webgpu-developer-feature"
+      "--force-webgpu-compat"
     ];
   };
 }

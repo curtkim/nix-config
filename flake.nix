@@ -93,7 +93,7 @@
         overlays = [
           (final: prev: {
             llama-cpp = prev.llama-cpp.overrideAttrs (old:{
-              version = "4524";
+              version = "4526";
               src = prev.fetchFromGitHub {
                 owner = "ggerganov";
                 repo = "llama.cpp";
@@ -110,6 +110,24 @@
                 (prev.lib.cmakeBool "LLAMA_CURL" true)
               ];
             });
+          })
+
+          (final: prev: {
+            pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
+              (
+                python-final: python-prev: {
+                  litellm = python-prev.litellm.overridePythonAttrs (oldAttrs: rec {
+                    version = "1.59.3";
+                    src = prev.fetchFromGitHub {
+                      owner = "BerriAI";
+                      repo = "litellm";
+                      tag = "v${version}";
+                      hash = "sha256-Qd8ToGVydRHncQPODH8Go8cc9bapoPZL7DLQjOjzq84=";
+                    };
+                  });
+                }
+              )
+            ];
           })
         ];
       };
