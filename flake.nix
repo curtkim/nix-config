@@ -76,6 +76,7 @@
       ];
       pkgsConfig = {
         allowUnfree = true;
+        nvidia.acceptLicense = true;
         cudaSupport = true;
         cudaCapabilities = [ "8.6" ];
         permittedInsecurePackages = [
