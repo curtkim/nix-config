@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-unstable,  ... }: 
+{ config, lib, pkgs, pkgs-unstable, inputs, ... }: 
 
 {
   imports = [
@@ -50,6 +50,7 @@
         "--force-webgpu-compat"
       ];
     })
+    inputs.zen-browser.packages.${pkgs.system}.default
 
     # gnome
     gnome-session

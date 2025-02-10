@@ -46,6 +46,11 @@
     rust-overlay.url = "github:oxalica/rust-overlay";
 
     nvf.url = "github:notashelf/nvf";
+
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -57,6 +62,7 @@
     , disko
     , darwin
     , rust-overlay
+    , nvf
     , ...
     }:
     let
@@ -92,26 +98,26 @@
         system = system;
         config = pkgsConfig;
         overlays = [
-          (final: prev: {
-            llama-cpp = prev.llama-cpp.overrideAttrs (old:{
-              version = "4526";
-              src = prev.fetchFromGitHub {
-                owner = "ggerganov";
-                repo = "llama.cpp";
-                tag = "b4524";
-                hash = "sha256-mB4jBNiTFVmwVU/qgo+AYe+jdHzuDCXlERdN+D+opuo=";
-                leaveDotGit = true;
-                postFetch = ''
-                  git -C "$out" rev-parse --short HEAD > $out/COMMIT
-                  find "$out" -name .git -print0 | xargs -0 rm -rf
-                '';
-              };
-              buildInputs = old.buildInputs ++ [ prev.curl ];
-              cmakeFlags = old.cmakeFlags ++ [
-                (prev.lib.cmakeBool "LLAMA_CURL" true)
-              ];
-            });
-          })
+          #          (final: prev: {
+          #            llama-cpp = prev.llama-cpp.overrideAttrs (old:{
+          #              version = "4526";
+          #              src = prev.fetchFromGitHub {
+          #                owner = "ggerganov";
+          #                repo = "llama.cpp";
+          #                tag = "b4524";
+          #                hash = "sha256-mB4jBNiTFVmwVU/qgo+AYe+jdHzuDCXlERdN+D+opuo=";
+          #                leaveDotGit = true;
+          #                postFetch = ''
+          #                  git -C "$out" rev-parse --short HEAD > $out/COMMIT
+          #                  find "$out" -name .git -print0 | xargs -0 rm -rf
+          #                '';
+          #              };
+          #              buildInputs = old.buildInputs ++ [ prev.curl ];
+          #              cmakeFlags = old.cmakeFlags ++ [
+          #                (prev.lib.cmakeBool "LLAMA_CURL" true)
+          #              ];
+          #            });
+          #          })
 
           (final: prev: {
             pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
@@ -248,8 +254,8 @@
       #packages = import ./pkgs nixpkgs.legacyPackages.x86_64-linux;
 
       packages."x86_64-linux" = let
-        neovimConfigured = (inputs.nvf.lib.neovimConfiguration {
-          inherit (nixpkgs.legacyPackages."x86_64-linux") pkgs;
+        neovimConfigured = (nvf.lib.neovimConfiguration {
+          inherit pkgs;
           modules = [{
             config.vim = import ./nvf.nix {pkgs = pkgs;};
           }];
@@ -258,6 +264,9 @@
         vi = neovimConfigured.neovim;
       } // (import ./pkgs pkgs);
 
-      devShells = import ./devshells { pkgs = pkgs; forAllSystems = forAllSystems; };
+      devShells = import ./devshells { 
+        pkgs = pkgs; 
+        forAllSystems = forAllSystems; 
+      };
     };
 }
