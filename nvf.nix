@@ -77,6 +77,12 @@
       #crates.enable = true;
       #format.enable = true;
     };
+    clang = {
+      enable = true;
+      dap.enable = true;
+      lsp.enable = true;
+      treesitter.enable = true;
+    };
   };
 
   visuals = {
