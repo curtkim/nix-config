@@ -12,9 +12,9 @@ stdenv.mkDerivation {
     hash = "sha256-WoSCPq4BzYXzec3KaeCwr8I9g/7qUEB8tIREQmwjULw=";
   };
 
-  patches = [
-    ./fix-query-some-bind.patch
-  ];
+  #  patches = [
+  #    ./fix-query-some-bind.patch
+  #  ];
 
   buildPhase = ''
     mkdir -p $out/bin
