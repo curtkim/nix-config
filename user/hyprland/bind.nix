@@ -12,6 +12,7 @@ _: {
       "$mainMod, space, exec, wofi --show drun"
       #$mainMod, P, pseudo, # dwindle
       "$mainMod, F, fullscreen"
+      "$mainMod SHIFT, F, fullscreenstate, 2 0"
       #$mainMod, J, togglesplit, # dwindle
 
       # Move focus with mainMod + arrow keys
