@@ -16,6 +16,10 @@
       3000  # dev server
       11434 # ollama
     ];
+    allowedTCPPortRanges = [
+      { from = 1400; to = 1499;}    # soco-cli
+      { from = 54000; to = 54099;}  # soco-cli
+    ];
 
     allowedUDPPorts = [ 8200 ];     # for minidlna
     allowedUDPPortRanges = [

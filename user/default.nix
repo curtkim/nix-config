@@ -25,6 +25,7 @@
     alsa-utils
     youtube-tui
     yt-dlp
+    soco-cli
 
     #qgis
     #blender

@@ -4,7 +4,10 @@
   services.minidlna.settings ={
     notify_interval = 30;
     friendly_name = "um790";
-    media_dir = ["/data/video/"];
+    media_dir = [
+      "/data/video/"
+      "/data/music/"
+    ];
     inotify = "yes";
   };
 
