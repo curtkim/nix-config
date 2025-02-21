@@ -14,7 +14,7 @@
     enable = true;
     allowedTCPPorts = [ 
       80 443 8096 8200 8920 
-      2049  # nfs
+      111 2049  # nfs
       3000  # dev server
       11434 # ollama
     ];
