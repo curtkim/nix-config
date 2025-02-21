@@ -22,8 +22,25 @@
 
   networking.hostName = hostName; # Define your hostname.
 
+  # bluetooth
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
   services.blueman.enable = true;
+
+  #  # dfs
+  #  fileSystems = {
+  #    "/data2" = {
+  #      device = "192.168.0.239:/data";
+  #      fsType = "nfs4";
+  #      options = [
+  #        #"vers=4.2"
+  #        "x-systemd.automount" "noauto"
+  #        "x-systemd.idle-timeout=600"
+  #      ];
+  #    };
+  #  };
+  #
+  #  # Enable NFS client service
+  #  services.rpcbind.enable = true;
 }
