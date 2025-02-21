@@ -109,7 +109,7 @@
     gtk.enable = true;
     name = "Vanilla-DMZ";
     package = pkgs.vanilla-dmz;
-    size = 64;
+    size = 32;
   };
 
 

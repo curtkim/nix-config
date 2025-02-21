@@ -11,6 +11,7 @@
       disko.nixosModules.disko
       ./disko-config.nix
       ./hardware-configuration.nix
+      ./nfs.nix
       ../nvidia.nix
       ../common.nix
       #../xserver.nix
