@@ -15,7 +15,6 @@
       ../common.nix
       ../minidlna.nix
       #../xserver.nix
-      ../hyprland.nix
       ../printing.nix
       #../printing-client.nix
     ];
