@@ -14,6 +14,7 @@
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
       yank
+      resurrect
     ];
     # bind -n     # without prefix 
     # bind -r     # 반복가능
