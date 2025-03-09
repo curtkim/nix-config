@@ -92,7 +92,7 @@
     tokei
     erdtree
     du-dust
-    nodejs_20
+    nodejs_22
     yarn
     glow
     unzip
@@ -161,6 +161,7 @@
     rclone
 
     pkgs-unstable.aider-chat
+    pkgs-unstable.claude-code
 
     gh-find-code
 

@@ -21,5 +21,6 @@ in {
   baca = pkgs.python3Packages.callPackage ./baca.nix {
     climage = climage;
   };
+  pdfposter = pkgs.python3Packages.callPackage ./pdfposter.nix {};
 }
 
