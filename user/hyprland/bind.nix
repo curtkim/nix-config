@@ -29,11 +29,16 @@ _: {
       "$mainMod, 4, workspace, 4"
       "$mainMod, 5, workspace, 5"
 
-      "$mainMod, 6, resizeactive, exact 15% 85%"
-      "$mainMod, 7, resizeactive, exact 25% 75%"
-      "$mainMod, 8, resizeactive, exact 50% 50%"
-      "$mainMod, 9, resizeactive, exact 75% 25%"
-      "$mainMod, 0, resizeactive, exact 85% 15%"
+      #"$mainMod, 6, resizeactive, exact 15% 85%"
+      #"$mainMod, 7, resizeactive, exact 25% 75%"
+      #"$mainMod, 8, resizeactive, exact 50% 50%"
+      #"$mainMod, 9, resizeactive, exact 75% 25%"
+      #"$mainMod, 0, resizeactive, exact 85% 15%"
+      "$mainMod, 6, exec, ${./resize_windows.sh} 15"
+      "$mainMod, 7, exec, ${./resize_windows.sh} 25"
+      "$mainMod, 8, exec, ${./resize_windows.sh} 50"
+      "$mainMod, 9, exec, ${./resize_windows.sh} 75"
+      "$mainMod, 0, exec, ${./resize_windows.sh} 85"
 
       # Move active window to a workspace with mainMod + SHIFT + [0-9]
       "$mainMod SHIFT, 1, movetoworkspace, 1"
