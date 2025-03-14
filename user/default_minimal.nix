@@ -164,6 +164,7 @@
     pkgs-unstable.claude-code
 
     gh-find-code
+    code2prompt
 
   ] ++ [
     (pkgs-unstable.python3.withPackages (ps: [
