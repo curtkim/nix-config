@@ -165,6 +165,7 @@
 
     gh-find-code
     code2prompt
+    aichat
 
   ] ++ [
     (pkgs-unstable.python3.withPackages (ps: [
