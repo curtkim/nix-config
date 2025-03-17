@@ -3,6 +3,7 @@
 {
   imports = [
     ./default_minimal.nix
+    ./vscode.nix
     ./hyprland
     ./hyprlock.nix
     #./google-chrome.nix
