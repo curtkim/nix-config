@@ -27,5 +27,9 @@
         sha256 = "sha256-RJC4B7p1zu9sPMvVZ4e+fURC8z5fwYgFFpRH45YdZjM=";
       }
     ]);
+    package = pkgs.vscode.override (old: {
+      # Wayland Fcitx5
+      commandLineArgs = (old.commandLineArgs or [ ]) ++ [ "--enable-wayland-ime" ];
+    });
   };
 }
