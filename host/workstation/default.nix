@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, disko, userName, hostName, ... }:
+{ config, pkgs, pkgs-unstable, disko, userName, hostName, ... }:
 
 {
   imports =
@@ -22,4 +22,12 @@
   networking.hostName = hostName; # Define your hostname.
 
   services.hardware.openrgb.enable = true;
+
+  systemPackages = [
+    (pkgs-unstable.llama-cpp.override {
+      cudaSupport = true;
+    })
+    pkgs-unstable.ollama-cuda
+  ];
+
 }
