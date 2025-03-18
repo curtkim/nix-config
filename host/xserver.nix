@@ -1,16 +1,19 @@
 {
-
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  services.xserver = {
+    enable = true;
+    autorun = false;
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.displayManager.gdm.wayland = false;
-  services.xserver.desktopManager.gnome.enable = true;
+    # Enable the GNOME Desktop Environment.
+    displayManager.startx = false;
+    #displayManager.gdm.enable = true;
+    #displayManager.gdm.wayland = false;
+    desktopManager.gnome.enable = true;
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "kr";
-    variant = "";
+    # Configure keymap in X11
+    xkb = {
+      layout = "kr";
+      variant = "";
+    };
   };
 }

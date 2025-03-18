@@ -13,7 +13,7 @@
       ./hardware-configuration.nix
       ../amd.nix
       ../common.nix
-      #../xserver.nix
+      ../xserver.nix
       #../printing.nix
     ];
 
