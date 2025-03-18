@@ -6,7 +6,6 @@
     ./vscode.nix
     ./hyprland
     ./hyprlock.nix
-    ./dconf.nix
     #./google-chrome.nix
   ];
 
