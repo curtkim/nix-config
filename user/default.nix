@@ -6,13 +6,9 @@
     ./vscode.nix
     ./hyprland
     ./hyprlock.nix
+    ./dconf.nix
     #./google-chrome.nix
   ];
-
-  #nixpkgs.config.allowUnfree = true;
-  #nixpkgs.config.permittedInsecurePackages = [
-  #  "freeimage-unstable-2021-11-01"
-  #];
 
 
   # The home.packages option allows you to install Nix packages into your
@@ -94,7 +90,6 @@
     size = 32;
   };
 
-
   dconf.settings = {
     "org/gnome/desktop/peripherals/keyboard" = {
       repeat-interval = 30;
@@ -107,5 +102,21 @@
     "org/gnome/desktop/input-sources" = {
       xkb-options = [ "terminate:ctrl_alt_bksp" ]; # "caps:swapescape"
     };
+    "org/gnome/desktop/wm/keybindings" = {
+      move-to-monitor-left = [ "<shift><super>left" ];
+      move-to-monitor-right = [ "<shift><super>right" ];
+      move-to-workspace-1 = [ "<shift><super>1" ];
+      move-to-workspace-2 = [ "<shift><super>2" ];
+      move-to-workspace-3 = [ "<shift><super>3" ];
+      move-to-workspace-4 = [ "<shift><super>4" ];
+      move-to-workspace-5 = [ "<shift><super>5" ];
+      close = [ "<super>q" ];
+      toggle-fullscreen = [ "<super>f" ];
+    };
   };
+
+  home.file.".xinitrc".text = ''
+    gnome-session
+  '';
+
 }

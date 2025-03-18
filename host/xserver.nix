@@ -10,9 +10,13 @@
     displayManager.startx.enable = true;
     #displayManager.startx.generateScript = true;
 
-    #displayManager.gdm.enable = true;
+    displayManager.gdm.enable = false;
     #displayManager.gdm.wayland = false;
     desktopManager.gnome.enable = true;
+
+    excludePackages = [
+      pkgs.xterm
+    ];
 
     # Configure keymap in X11
     xkb = {
