@@ -7,7 +7,7 @@
 
     # Enable the GNOME Desktop Environment.
     displayManager.startx.enable = true;
-    displayManager.startx.generateScript = true;
+    #displayManager.startx.generateScript = true;
 
     #displayManager.gdm.enable = true;
     #displayManager.gdm.wayland = false;
