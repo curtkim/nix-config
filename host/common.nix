@@ -3,6 +3,7 @@
   imports = [
     ./nix.nix
     ./locale.nix
+    ./console.nix
     ./font.nix
     ./input-method.nix
     ./virtualisation.nix
