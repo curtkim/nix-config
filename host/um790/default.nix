@@ -27,6 +27,12 @@
 
   services.blueman.enable = true;
 
+  services.nix-serve = {
+    enable = true;
+    openFirewall = true;
+    secretKeyFile = "${./nix-serve-priv-key.pem}";
+  };
+
   #  # dfs
   #  fileSystems = {
   #    "/data2" = {
