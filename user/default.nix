@@ -102,8 +102,8 @@
       xkb-options = [ "terminate:ctrl_alt_bksp" ]; # "caps:swapescape"
     };
     "org/gnome/desktop/wm/keybindings" = {
-      move-to-monitor-left = [ "<shift><super>left" ];
-      move-to-monitor-right = [ "<shift><super>right" ];
+      move-to-monitor-left = [ "<shift><super>h" ];
+      move-to-monitor-right = [ "<shift><super>l" ];
       move-to-workspace-1 = [ "<shift><super>1" ];
       move-to-workspace-2 = [ "<shift><super>2" ];
       move-to-workspace-3 = [ "<shift><super>3" ];
