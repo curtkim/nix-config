@@ -23,7 +23,7 @@
 
   services.hardware.openrgb.enable = true;
 
-  systemPackages = [
+  environment.systemPackages = [
     (pkgs-unstable.llama-cpp.override {
       cudaSupport = true;
     })
