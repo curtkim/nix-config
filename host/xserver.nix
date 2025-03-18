@@ -4,6 +4,7 @@
   services.xserver = {
     enable = true;
     autorun = false;
+    logFile= "/home/curt/.Xorg.log";
 
     # Enable the GNOME Desktop Environment.
     displayManager.startx.enable = true;
