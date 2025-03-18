@@ -1,3 +1,4 @@
+{pkgs, ...}:
 {
   # Enable the X11 windowing system.
   services.xserver = {
@@ -5,7 +6,9 @@
     autorun = false;
 
     # Enable the GNOME Desktop Environment.
-    displayManager.startx = false;
+    displayManager.startx.enable = true;
+    displayManager.startx.generateScript = true;
+
     #displayManager.gdm.enable = true;
     #displayManager.gdm.wayland = false;
     desktopManager.gnome.enable = true;
@@ -16,4 +19,9 @@
       variant = "";
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    gnome.gnome-session
+  ];
+
 }
