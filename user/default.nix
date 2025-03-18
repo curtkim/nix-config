@@ -34,7 +34,7 @@
     glxinfo
     epr
     chrpath
-    hashcat
+    #hashcat
 
     xclip
     wl-clipboard
