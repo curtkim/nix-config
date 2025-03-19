@@ -169,12 +169,12 @@
         ];
       };
 
-      nixosConfigurations.workstation = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.black = nixpkgs.lib.nixosSystem {
         system = system;
         pkgs = pkgs;
-        specialArgs = specialArgs // { hostName = "workstation"; cudaSupport = true; };
+        specialArgs = specialArgs // { hostName = "black"; cudaSupport = true; };
         modules = [
-          ./host/workstation
+          ./host/black
           #          ({pkgs, ...}: {
           #            # why working?
           #            nixpkgs.config.allowUnfree = true;
