@@ -40,7 +40,7 @@
       device = "192.168.0.239:/data";
       fsType = "nfs";
       options = [
-        "vers=4.2"
+        "vers=3"
         "x-systemd.automount"
         "rw"
         #"noauto"
