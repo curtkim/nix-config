@@ -40,6 +40,7 @@
     usbutils
     pciutils
     lshw
+    nfs-utils
 
     # for incus
     #    distrobuilder

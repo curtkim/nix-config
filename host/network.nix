@@ -14,7 +14,7 @@
     enable = true;
     allowedTCPPorts = [ 
       80 443 8096 8200 8920 
-      2049  # nfs
+      111 2049 4000 4001 4002 20048 # nfs
       3000  # dev server
       11434 # ollama
     ];
@@ -24,7 +24,7 @@
     ];
 
     allowedUDPPorts = [ 
-      2049  # nfs
+      111 2049 4000 4001 4002 20048 # nfs
       8200  # for minidlna
     ];     
     allowedUDPPortRanges = [

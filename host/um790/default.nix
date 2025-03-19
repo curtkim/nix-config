@@ -33,19 +33,22 @@
     secretKeyFile = "${./nix-serve-priv-key.pem}";
   };
 
-  #  # dfs
-  #  fileSystems = {
-  #    "/data2" = {
-  #      device = "192.168.0.239:/data";
-  #      fsType = "nfs4";
-  #      options = [
-  #        #"vers=4.2"
-  #        "x-systemd.automount" "noauto"
-  #        "x-systemd.idle-timeout=600"
-  #      ];
-  #    };
-  #  };
-  #
-  #  # Enable NFS client service
-  #  services.rpcbind.enable = true;
+
+  # nfs
+  fileSystems = {
+    "/mnt/data" = {
+      device = "192.168.0.239:/data";
+      fsType = "nfs";
+      options = [
+        "vers=4.2"
+        "x-systemd.automount"
+        "rw"
+        #"noauto"
+        #"x-systemd.idle-timeout=600"
+      ];
+    };
+  };
+
+  # Enable NFS client service
+  services.rpcbind.enable = true;
 }
