@@ -1,13 +1,17 @@
 {
   xdg.mimeApps = {
     enable = true;
-    defaultApplications = {
-      "text/html" = "google-chrome.desktop";
-      "image/png" = "imv.desktop";
-      "x-scheme-handler/http" = "google-chrome.desktop";
-      "x-scheme-handler/https" = "google-chrome.desktop";
-      "x-scheme-handler/about" = "google-chrome.desktop";
-      "x-scheme-handler/unknown" = "google-chrome.desktop";
+    defaultApplications = let 
+        #browser = "google-chrome.desktop";
+        browser = "floorp.desktop";
+        image-viewer = "imv.desktop";
+      in {
+      "image/png" = image-viewer;
+      "text/html" = browser;
+      "x-scheme-handler/http" = browser;
+      "x-scheme-handler/https" = browser;
+      "x-scheme-handler/about" = browser;
+      "x-scheme-handler/unknown" = browser;
     };
   };
 }

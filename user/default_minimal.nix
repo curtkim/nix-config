@@ -67,59 +67,61 @@
 
 
   home.packages = with pkgs; [
+
+    # font
+    (nerdfonts.override { fonts = [ "JetBrainsMono" "Hack" ]; })
+
     gnumake
     file
 
     neofetch
-    buildah
-    skopeo
+    #buildah
+    #skopeo
     virt-manager
     quickemu
 
     #util
     lazygit
-    serie
+    serie       # A rich git commit graph in your terminal
     bat
     fzf
-    ripgrep
+    ripgrep     
     ripgrep-all
-    repgrep
+    repgrep     # Interactive replacer
     jq
     tree
     eza
-    fd
-    (nerdfonts.override { fonts = [ "JetBrainsMono" "Hack" ]; })
+    fd          # alternative to find
     tokei
-    erdtree
+    erdtree     # File-tree visualizer and disk usage analyzer
     du-dust
-    nodejs_22
-    yarn
     glow
     unzip
-    unixtools.xxd
-    litecli
+    unixtools.xxd   # 16진수
+    #litecli    # cli for SQLite
     tldr
     fx            # json viewer
 
     # network
-    speedtest-cli
-    iperf3
-    nmap
+    #speedtest-cli
+    #iperf3
+    #nmap
 
     # for printing
     enscript
 
-    nethogs
+    #nethogs
     hwinfo
     htop
     btop
     gtop
-    cpufrequtils
+    #cpufrequtils
     nvtopPackages.nvidia
     zenith-nvidia
+    pstree
 
     nix-search-cli
-    cachix
+    #cachix
     nix-init
     nix-diff
     nix-tree
@@ -127,20 +129,24 @@
     nix-index
     nixpkgs-fmt
 
-    cargo
+    #cargo
+    #rust-analyzer
+    nodejs_22
+    yarn
 
     #python311
-    python3Packages.debugpy
-    python3Packages.isort
-    python3Packages.pipdeptree
+    #python3Packages.debugpy
+    #python3Packages.isort
+    #python3Packages.pipdeptree
 
-    sops
+    #sops
     age
-    passage
+    age-plugin-yubikey
     yubikey-manager
+    passage
 
     gh
-    pstree
+    gh-find-code
 
     # for neovim
     markdownlint-cli
@@ -148,9 +154,8 @@
 
     # lsp
     nil
-    lua-language-server
     pyright
-    rust-analyzer
+    lua-language-server
     bash-language-server
 
     # dap
@@ -160,10 +165,9 @@
     google-cloud-sdk
     rclone
 
+    # AI
     pkgs-unstable.aider-chat
     pkgs-unstable.claude-code
-
-    gh-find-code
     code2prompt
     aichat
 

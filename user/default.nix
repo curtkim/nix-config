@@ -3,7 +3,7 @@
 {
   imports = [
     ./default_minimal.nix
-    ./theme.nix
+    ./ui-theme.nix
     ./mimeApps.nix
     ./vscode.nix
     ./hyprland
@@ -14,15 +14,17 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    # desktop
-    #multimedia
+
+    # device
+    alsa-utils
+
+    # multimedia
     mpv
     fuse
     termusic
-    alsa-utils
-    youtube-tui
     yt-dlp
     soco-cli
+    #youtube-tui
 
     #qgis
     #blender
@@ -34,12 +36,13 @@
 
     xclip
     wl-clipboard
-    #hyprshot #jq error
     grim
     slurp
     imv     # image viewer
 
     firefox
+    floorp
+    w3m
     (google-chrome.override {
       commandLineArgs = [
         #"--ozone-platform=wayland"
@@ -49,12 +52,11 @@
         "--force-webgpu-compat"
       ];
     })
-    inputs.zen-browser.packages.${pkgs.system}.default
 
     # gnome
     gnome-session
 
-    obsidian
+    #obsidian
     #(ollama.override { acceleration = "cuda"; })
     #(openai-whisper-cpp.override { cudaSupport = true;})
 
@@ -68,7 +70,6 @@
 
     # for windows
     spice-gtk
-    uv
   ];
 
   dconf.settings = {

@@ -13,6 +13,7 @@ _: {
       #$mainMod, P, pseudo, # dwindle
       "$mainMod, F, fullscreen"
       "$mainMod SHIFT, F, fullscreenstate, 2 0"
+      "$mainMod, P, exec, grim -g \"$(slurp)\""
       #$mainMod, J, togglesplit, # dwindle
 
       # Move focus with mainMod + arrow keys
@@ -72,11 +73,10 @@ _: {
       "$mainMod CTRL, K, resizeactive, 0 -10"
       "$mainMod CTRL, J, resizeactive, 0 10"
 
+
       # Volume and Media Control
       ", XF86AudioRaiseVolume, exec, pamixer -i 10"
       ", XF86AudioLowerVolume, exec, pamixer -d 10"
-
-      "$mainMod, P, exec, grim -g \${slurp}"
     ];
 
     bindm = [

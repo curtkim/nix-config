@@ -48,11 +48,6 @@
     rust-overlay.url = "github:oxalica/rust-overlay";
 
     nvf.url = "github:notashelf/nvf";
-
-    zen-browser = {
-      url = "github:youwen5/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
