@@ -12,16 +12,18 @@ let
   };
 
   overlay = workspace.mkPyprojectOverlay { 
-    sourcePreference = "wheel";
+    sourcePreference = "wheel"; # sdist로 설정하면, 너무 많은 pkgs에대해서 setuptools를 추가해야 한다.
   };
   python = pkgs.python312;
 
   hacks = pkgs.callPackage pyproject-nix.build.hacks {};
   pyprojectOverrides = (_final: _prev: {
+    # 1. sdist로 배포되는 경우는 setuptools를 추가해야 한다.
     peewee = _prev.peewee.overrideAttrs (attrs: ({
       buildInputs = attrs.buildInputs or [ ] ++ [ _final.setuptools ];
     }));
 
+    # 2. nixpkgs에서 가져온다.
     httpx-sse = hacks.nixpkgsPrebuilt {
       from = python.pkgs.httpx-sse;
       prev = {
@@ -35,6 +37,7 @@ let
       };
     };
 
+    # 3. nixpkgs에 없는 pkg의 경우는 pypi에서 가져와서 buildPythonPakcage로 packaing한다.
     fireworks-ai = python.pkgs.buildPythonPackage {
       pname = "fireworks-ai";
       version = "0.15.12";  # Use the appropriate version
@@ -69,6 +72,7 @@ let
       format = "wheel";
     };
 
+    # 4. dependency를 paassthru로 추가한다.
     ra-aid = _prev.ra-aid.overrideAttrs (attrs: ({
       passthru = attrs.passthru // {
         dependencies = attrs.passthru.dependencies // {
@@ -79,7 +83,6 @@ let
           pillow = [];
         };
       };
-      #propagatedBuildInputs = attrs.propagatedBuildInputs or [ ] ++ [ _final.fireworks-ai ];
     }));
   });
 
