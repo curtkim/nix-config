@@ -170,6 +170,7 @@
     pkgs-unstable.claude-code
     code2prompt
     aichat
+    ra-aid
 
   ] ++ [
     (pkgs-unstable.python3.withPackages (ps: [
