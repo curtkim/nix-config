@@ -2,10 +2,10 @@
   xdg.mimeApps = {
     enable = true;
     defaultApplications = let 
-        #browser = "google-chrome.desktop";
-        browser = "floorp.desktop";
-        image-viewer = "imv.desktop";
-      in {
+      #browser = "google-chrome.desktop";
+      browser = "floorp.desktop";
+      image-viewer = "imv.desktop";
+    in {
       "image/png" = image-viewer;
       "text/html" = browser;
       "x-scheme-handler/http" = browser;

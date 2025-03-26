@@ -40,7 +40,7 @@
     slurp
     imv     # image viewer
 
-    firefox
+    #firefox
     floorp
     w3m
     (google-chrome.override {
@@ -70,6 +70,19 @@
 
     # for windows
     spice-gtk
+
+    inputs.claude-desktop.packages.${system}.claude-desktop-with-fhs
+    #    (inputs.claude-desktop.packages.${system}.claude-desktop.overrideAttrs (oldAttrs: {
+    #      installPhase = oldAttrs.installPhase + ''
+    #      rm $out/bin/$pname
+    #      makeWrapper ${pkgs.electron}/bin/electron $out/bin/$pname \
+    #        --add-flags "$out/lib/$pname/app.asar" \
+    #        --add-flags "--openDevTools" \
+    #        --add-flags "--enable-wayland-ime" \
+    #        --add-flags "--ozone-platform=wayland" \
+    #        --add-flags "--enable-features=WaylandWindowDecorations,WebRTCPipeWireCapturer"
+    #    '';
+    #    }))
   ];
 
   dconf.settings = {
