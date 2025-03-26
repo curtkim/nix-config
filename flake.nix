@@ -48,6 +48,30 @@
     rust-overlay.url = "github:oxalica/rust-overlay";
 
     nvf.url = "github:notashelf/nvf";
+
+    claude-desktop = {
+      url = "github:k3d3/claude-desktop-linux-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+      #inputs.flake-utils.follows = "flake-utils";
+    };
+
+    uv2nix = {
+      url = "github:pyproject-nix/uv2nix";
+      inputs.pyproject-nix.follows = "pyproject-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    pyproject-nix = {
+      url = "github:pyproject-nix/pyproject.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    pyproject-build-systems = {
+      url = "github:pyproject-nix/build-system-pkgs";
+      inputs.pyproject-nix.follows = "pyproject-nix";
+      inputs.uv2nix.follows = "uv2nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -75,7 +99,10 @@
             };
         })
         (final: prev: 
-          import ./pkgs prev
+          import ./pkgs {
+            pkgs = prev;
+            inherit (inputs) uv2nix pyproject-nix pyproject-build-systems;
+          }
         )
       ];
       pkgsConfig = {
@@ -221,7 +248,10 @@
         });
       in {
         vi = neovimConfigured.neovim;
-      } // (import ./pkgs pkgs);
+      } // (import ./pkgs {
+        inherit pkgs;
+        inherit (inputs) uv2nix pyproject-nix pyproject-build-systems;
+      });
 
       devShells = import ./devshells { 
         pkgs = pkgs; 

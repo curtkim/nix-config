@@ -1,6 +1,5 @@
-# Custom packages, that can be defined similarly to ones from nixpkgs
-# You can build them using 'nix build .#example'
-pkgs: let 
+{pkgs, uv2nix, pyproject-nix, pyproject-build-systems}:
+let
   kdtree = pkgs.python3Packages.callPackage ./kdtree.nix {};
   climage = pkgs.python3Packages.callPackage ./climage.nix {
     kdtree = kdtree;
@@ -22,5 +21,10 @@ in {
     climage = climage;
   };
   pdfposter = pkgs.python3Packages.callPackage ./pdfposter.nix {};
+  ra-aid = pkgs.callPackage ./ra-aid.nix {
+    uv2nix = uv2nix;
+    pyproject-nix = pyproject-nix;
+    pyproject-build-systems = pyproject-build-systems;
+  };
 }
 
