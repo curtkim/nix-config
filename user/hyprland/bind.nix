@@ -14,6 +14,7 @@ _: {
       "$mainMod, F, fullscreen"
       "$mainMod SHIFT, F, fullscreenstate, 2 0"
       "$mainMod, P, exec, grim -g \"$(slurp)\""
+      "$mainMod, B, exec, vivaldi --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime"
       #$mainMod, J, togglesplit, # dwindle
 
       # Move focus with mainMod + arrow keys

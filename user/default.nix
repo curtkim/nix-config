@@ -41,6 +41,7 @@
     imv     # image viewer
 
     #firefox
+    vivaldi
     floorp
     w3m
     (google-chrome.override {
