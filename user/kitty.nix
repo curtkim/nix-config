@@ -34,8 +34,8 @@
       "ctrl+shift+plus"  = "change_font_size all +1.0";
       "ctrl+shift+minus" = "change_font_size all -1.0";
       # bypass to tmux
-      "ctrl+shift+h" = "no_op";
-      "ctrl+shift+l" = "no_op";
+      "ctrl+shift+h" = "launch --type=background tmux previous-window";
+      "ctrl+shift+l" = "launch --type=background tmux next-window";
     };
     # https://github.com/kovidgoyal/kitty-themes/tree/master/themes
     themeFile = "tokyo_night_storm"; #"Catppuccin-Macchiato"; #"Tomorrow Night"; #"Nord";

@@ -20,11 +20,12 @@
     # bind -r     # 반복가능
     # bind -T     # 키 테이블 지정
     extraConfig = ''
+      # without prefix '-n'
       bind -n C-] copy-mode
 
-      # Cycle window
-      bind -n C-H previous-window
-      bind -n C-L next-window
+      # Cycle window(by kitty)
+      #bind -n S-C-H previous-window
+      #bind -n S-C-L next-window
 
       # More Intuitive Split Commands
       bind "|" split-window -h -c "#{pane_current_path}"
