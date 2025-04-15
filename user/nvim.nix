@@ -3,7 +3,7 @@
 {
   programs.neovim = {
     enable = true;
-    package = pkgs.neovim-unwrapped;
+    package = pkgs-unstable.neovim-unwrapped;
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
@@ -12,8 +12,7 @@
     extraLuaPackages = ls:
       with ls; [
         luarocks
-        # required by 3rd/image.nvim
-        magick
+        magick              # required by 3rd/image.nvim
       ];
   };
 }

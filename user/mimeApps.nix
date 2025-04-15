@@ -3,7 +3,7 @@
     enable = true;
     defaultApplications = let 
       #browser = "google-chrome.desktop";
-      browser = "floorp.desktop";
+      browser = "vivaldi-stable.desktop";
       image-viewer = "imv.desktop";
     in {
       "image/png" = image-viewer;

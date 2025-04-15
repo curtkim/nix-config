@@ -6,6 +6,7 @@
     ./ui-theme.nix
     ./mimeApps.nix
     ./vscode.nix
+    ./firefox.nix
     ./hyprland
     ./hyprlock.nix
   ];
@@ -24,7 +25,7 @@
     termusic
     yt-dlp
     soco-cli
-    #youtube-tui
+    youtube-tui
 
     #qgis
     #blender
@@ -41,7 +42,8 @@
     imv     # image viewer
 
     #firefox
-    vivaldi
+    #vivaldi
+    #pkgs-unstable.firefox
     floorp
     w3m
     (google-chrome.override {

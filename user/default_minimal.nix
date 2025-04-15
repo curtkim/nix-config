@@ -129,8 +129,8 @@
     nix-index
     nixpkgs-fmt
 
-    #cargo
-    #rust-analyzer
+    cargo
+    rust-analyzer
     nodejs_22
     yarn
 

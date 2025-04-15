@@ -1,0 +1,67 @@
+#tab-background { max-height: 24px !important; }
+:root {
+  --tab-min-height: 24px !important;
+  --tab-max-height: 24px !important;
+  --urlbar-container-height: 24px !important;
+  --tab-border-radius: 0;
+  --tab-block-margin: 0;
+}
+
+#navigator-toolbox {
+  display: flex;
+  flex-direction:row
+}
+
+#toolbar-menubar{
+  visibility: collapse;
+}
+
+#firefox-view-button{
+  visibility: collapse;
+}
+#new-tab-button{
+  visibility: collapse;
+}
+#tabs-newtab-button{
+  visibility: collapse;
+}
+#alltabs-button{
+  visibility: collapse
+}
+.titlebar-close{
+  visibility: collapse
+}
+
+#back-button {
+  visibility: collapse;
+}
+#forward-button{
+  visibility: collapse;
+}
+#stop-reload-button{
+  visibility: collapse;
+}
+#tracking-protection-icon-container {
+  visibility: collapse;
+}
+#identity-box {
+  visibility: collapse;
+}
+#page-action-buttons{
+  visibility: collapse;
+}
+
+#urlbar-container{
+}
+
+#unified-extensions-button{
+  visibility: collapse;
+}
+#nav-bar-overflow-button{
+  visibility: collapse;
+}
+
+
+#PersonalToolbar{
+  visibility: collapse;
+}
