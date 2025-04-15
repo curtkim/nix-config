@@ -6,10 +6,20 @@
     profiles.default = {
       settings = {
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        "browser.uidensity" = 1;  # compact, let's see how long will it last
+        "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
+
+        "browser.tabs.tabMinWidth" = 16;
+        "browser.startup.homepage" = "https://www.google.com/";
+        "browser.startup.page" = 3; # Restore previous tabs
+        "privacy.trackingprotection.enabled" = true;
+        "browser.shell.checkDefaultBrowser" = false;
+        "browser.shell.defaultBrowserCheckCount" = 1;
       };
 
+
       # ~/.mozilla/firefox/default/chrome/userChrome.css
-      userChorme = lib.readFile ./firefox-userChrome.css;
+      userChrome = lib.readFile ./firefox-userChrome.css;
       # userChrome = ''
       #   #nav-bar, #urlbar-container, #searchbar { visibility: collapse !important; }
       #   #tab-background { max-height: 32px !important; }
@@ -21,7 +31,7 @@
       # https://addons.mozilla.org/firefox/downloads/file/4460303/immersive_translate-1.15.10.xpi
       extensions = with pkgs.firefox-addons; [
         vimium-c
-        #immersive-translate
+        immersive-translate
       ];
     };
   };

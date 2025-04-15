@@ -6,16 +6,16 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "ytsub";
-  version = "0.4.0";
+  version = "0.5.0";
 
   src = fetchFromGitHub {
     owner = "sarowish";
     repo = "ytsub";
     rev = "v${version}";
-    hash = "sha256-juYxzRlQ8U1qnO0YzVcWcQu/1exjoDSSaAcUkYurRIQ=";
+    hash = "sha256-Ym1LlqSBuhBxGwGhhQIeWrPKZb2cf5cMfoFamECK4TA=";
   };
 
-  cargoHash = "sha256-pv4eKD2XgaDAJqSf3JzfnsayofmOSy4XRzZ8rkZrHAo=";
+  cargoHash = "sha256-TweinTx4/rp8q3Yw2ewe04WWXMuKv2DK7ou3M/Jbdgw=";
 
   buildInputs = [
     sqlite

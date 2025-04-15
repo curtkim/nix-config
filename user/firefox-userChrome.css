@@ -12,10 +12,15 @@
   flex-direction:row
 }
 
+/* 1. menubar */
 #toolbar-menubar{
   visibility: collapse;
 }
 
+/* 2. TabsToolbar */
+#TabsToolbar{
+  order: 2
+}
 #firefox-view-button{
   visibility: collapse;
 }
@@ -32,6 +37,10 @@
   visibility: collapse
 }
 
+/* 3. nav-bar */
+#navi-bar {
+  order: 1
+}
 #back-button {
   visibility: collapse;
 }
@@ -42,7 +51,7 @@
   visibility: collapse;
 }
 #tracking-protection-icon-container {
-  visibility: collapse;
+  visibility: visible;
 }
 #identity-box {
   visibility: collapse;
@@ -61,7 +70,8 @@
   visibility: collapse;
 }
 
-
+/* 4. peronalToolbar */
 #PersonalToolbar{
   visibility: collapse;
 }
+

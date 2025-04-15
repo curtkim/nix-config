@@ -44,7 +44,7 @@
     #firefox
     #vivaldi
     #pkgs-unstable.firefox
-    floorp
+    #floorp
     w3m
     (google-chrome.override {
       commandLineArgs = [

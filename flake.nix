@@ -72,6 +72,12 @@
       inputs.uv2nix.follows = "uv2nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nur.url = "github:nix-community/NUR";
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -104,9 +110,17 @@
             inherit (inputs) uv2nix pyproject-nix pyproject-build-systems;
           }
         )
+        (final: prev: {
+          firefox-addons = import inputs.firefox-addons {
+            inherit (final) fetchurl lib stdenv;
+          };
+        })
       ];
       pkgsConfig = {
         allowUnfree = true;
+        allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
+          "immersive-translate"
+        ];
         nvidia.acceptLicense = true;
         cudaSupport = true;
         cudaCapabilities = [ "8.6" ];
