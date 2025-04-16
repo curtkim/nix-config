@@ -8,6 +8,7 @@
     in {
       "image/png" = image-viewer;
       "text/html" = browser;
+      "application/pdf" = browser;
       "x-scheme-handler/http" = browser;
       "x-scheme-handler/https" = browser;
       "x-scheme-handler/about" = browser;
