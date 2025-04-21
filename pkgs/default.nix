@@ -26,5 +26,6 @@ in {
     pyproject-nix = pyproject-nix;
     pyproject-build-systems = pyproject-build-systems;
   };
+  codex = pkgs.callPackage ./codex.nix {};
 }
 

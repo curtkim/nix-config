@@ -168,6 +168,7 @@
     # AI
     pkgs-unstable.aider-chat
     pkgs-unstable.claude-code
+    codex
     code2prompt
     aichat
     ra-aid
