@@ -28,6 +28,7 @@
           - Hangul
           - Latin
           result: Consume
+        # tmux move pane hotkeys(Ctrl+ jkhl)
         C-j:
           behavior: Ignore
           result: Bypass
