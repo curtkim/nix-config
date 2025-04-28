@@ -28,6 +28,18 @@
           - Hangul
           - Latin
           result: Consume
+        C-j:
+          behavior: Ignore
+          result: Bypass
+        C-k:
+          behavior: Ignore
+          result: Bypass
+        C-h:
+          behavior: Ignore
+          result: Bypass
+        C-l:
+          behavior: Ignore
+          result: Bypass
   '';
 
   #  i18n.inputMethod = {

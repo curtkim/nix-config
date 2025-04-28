@@ -14,6 +14,7 @@
       ../amd.nix
       ../common.nix
       ../minidlna.nix
+      ../jellyfin.nix
       #../xserver.nix
       ../printing.nix
       #../printing-client.nix
