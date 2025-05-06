@@ -28,22 +28,7 @@
           - Hangul
           - Latin
           result: Consume
-        # tmux move pane hotkeys(Ctrl+ jkhl)
-        C-j:
-          behavior: Ignore
-          result: Bypass
-        C-k:
-          behavior: Ignore
-          result: Bypass
-        C-h:
-          behavior: Ignore
-          result: Bypass
-        C-l:
-          behavior: Ignore
-          result: Bypass
   '';
-
-  #  i18n.inputMethod = {
   #    enabled = "fcitx5";
   #    fcitx5.addons = with pkgs; [
   #        fcitx5-hangul
