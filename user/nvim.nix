@@ -1,9 +1,16 @@
 { pkgs, pkgs-unstable, ... }:
 
+let
+  unstable-neovim-unwrapped = pkgs-unstable.neovim-unwrapped.overrideAttrs (old: {
+    meta = old.meta or { } // {
+      maintainers = [ ];
+    };
+  });
+in 
 {
   programs.neovim = {
     enable = true;
-    package = pkgs-unstable.neovim-unwrapped;
+    package = unstable-neovim-unwrapped; #pkgs-unstable.neovim-unwrapped;
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
