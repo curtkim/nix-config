@@ -21,6 +21,10 @@ in
         luarocks
         magick              # required by 3rd/image.nvim
       ];
+
+    plugins = [
+      pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+    ];
   };
 }
 

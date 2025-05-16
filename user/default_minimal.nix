@@ -129,10 +129,12 @@
     nix-index
     nixpkgs-fmt
 
+    # general lang tool
     cargo
     rust-analyzer
     nodejs_22
     yarn
+    clang-tools
 
     #python311
     #python3Packages.debugpy
