@@ -69,7 +69,9 @@
   home.packages = with pkgs; [
 
     # font
-    (nerdfonts.override { fonts = [ "JetBrainsMono" "Hack" ]; })
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.hack
+    nerd-fonts.symbols-only
 
     gnumake
     file
@@ -170,10 +172,10 @@
     # AI
     pkgs-unstable.aider-chat
     pkgs-unstable.claude-code
-    codex
+    #codex
     code2prompt
     aichat
-    ra-aid
+    #ra-aid
 
   ] ++ [
     (pkgs-unstable.python3.withPackages (ps: [

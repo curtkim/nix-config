@@ -5,7 +5,7 @@
     ./default_minimal.nix
     ./ui-theme.nix
     ./mimeApps.nix
-    ./vscode.nix
+    #./vscode.nix
     ./firefox.nix
     ./hyprland
     ./hyprlock.nix

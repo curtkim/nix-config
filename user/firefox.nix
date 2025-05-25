@@ -29,7 +29,7 @@
 
       # https://addons.mozilla.org/firefox/downloads/file/4210117/vimium_c-1.99.997.xpi
       # https://addons.mozilla.org/firefox/downloads/file/4460303/immersive_translate-1.15.10.xpi
-      extensions = with pkgs.firefox-addons; [
+      extensions.packages = with pkgs.firefox-addons; [
         vimium-c
         immersive-translate
       ];

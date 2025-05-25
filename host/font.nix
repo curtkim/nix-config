@@ -11,6 +11,7 @@
       #(nerdfonts.override { fonts = [ "JetBrainsMono" "Hack" ]; })
       nerd-fonts.hack
       nerd-fonts.jetbrains-mono
+      nerd-fonts.symbols-only
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
     ];

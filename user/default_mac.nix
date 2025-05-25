@@ -48,7 +48,9 @@
     tree
     eza
     fd
-    (nerdfonts.override { fonts = [ "JetBrainsMono" "Hack" ]; })
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.hack
+    nerd-fonts.symbols-only
     tokei
     erdtree
     du-dust

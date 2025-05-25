@@ -2,10 +2,10 @@
   programs.kitty = {
     enable = true;
     font = {
-      #name = "JetBrainsMono Nerd Font ExtraLight";
+      name = "JetBrainsMonoNL Nerd Font Thin";
       #name = "JetBrainsMonoNL NFM Regular";
       #name = "JetBrainsMonoNL NFM ExtraLight";
-      name = "JetBrainsMonoNL NFM Thin";
+      #name = "JetBrainsMonoNL NFM Thin";
       size = 13;
     };
 
