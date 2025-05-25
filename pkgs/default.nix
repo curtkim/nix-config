@@ -20,12 +20,12 @@ in {
   baca = pkgs.python3Packages.callPackage ./baca.nix {
     climage = climage;
   };
-  pdfposter = pkgs.python3Packages.callPackage ./pdfposter.nix {};
-  ra-aid = pkgs.callPackage ./ra-aid.nix {
-    uv2nix = uv2nix;
-    pyproject-nix = pyproject-nix;
-    pyproject-build-systems = pyproject-build-systems;
-  };
+  #pdfposter = pkgs.python3Packages.callPackage ./pdfposter.nix {};
+  #ra-aid = pkgs.callPackage ./ra-aid.nix {
+    #uv2nix = uv2nix;
+    #pyproject-nix = pyproject-nix;
+    #pyproject-build-systems = pyproject-build-systems;
+  #};
   codex = pkgs.callPackage ./codex.nix {};
 }
 

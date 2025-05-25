@@ -1,7 +1,6 @@
 { lib
 , buildPythonPackage
 , fetchFromGitHub
-, python3
 , setuptools
 , poetry-core
 # runtime dependencies
@@ -71,8 +70,5 @@ buildPythonPackage rec {
     license = licenses.gpl3;
     maintainers = with maintainers; [ ]; # 필요한 경우 메인테이너를 추가하세요
     platforms = platforms.all;
-    pythonPackages = [
-      "python3"
-    ];
   };
 }
