@@ -34,6 +34,7 @@
       t = "tree";
       x = "exit";
       myip = "curl -s ipinfo.io | jq '.ip'";
+      cl = "claude";
       emby = ''
         podman run --replace \
           --name embyserver \
