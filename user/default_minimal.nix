@@ -104,6 +104,11 @@
     tldr
     fx            # json viewer
 
+    caligula    # alternative to dd
+
+    # for joy
+    astroterm   # astroterm -m --color --constellations --speed 100 --fps 30 --city Seoul
+
     # network
     #speedtest-cli
     #iperf3
