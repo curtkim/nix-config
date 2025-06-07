@@ -92,6 +92,7 @@
     , darwin
     , rust-overlay
     , nvf
+    , jetpack-nixos 
     , ...
     }:
     let
@@ -146,6 +147,7 @@
         nixpkgs = nixpkgs;
         disko = disko;
         hyprland = hyprland;
+        jetpack-nixos = jetpack-nixos;
         pkgs-unstable = pkgs-unstable;
         inherit inputs;
       };
