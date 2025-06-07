@@ -1,8 +1,8 @@
-#tab-background { max-height: 24px !important; }
+#tab-background { max-height: 32px !important; }
 :root {
-  --tab-min-height: 24px !important;
-  --tab-max-height: 24px !important;
-  --urlbar-container-height: 24px !important;
+  --tab-min-height: 32px !important;
+  --tab-max-height: 32px !important;
+  --urlbar-container-height: 32px !important;
   --tab-border-radius: 0;
   --tab-block-margin: 0;
 }
