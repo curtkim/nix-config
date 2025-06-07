@@ -7,8 +7,8 @@
     extraGroups = [ "networkmanager" "wheel" "input" "video" "libvirt"];
     packages = with pkgs; [
     ];
-    shell = pkgs.zsh;
+    #shell = pkgs.zsh;
   };
 
-  programs.zsh.enable = true;
+  #programs.zsh.enable = true;
 }

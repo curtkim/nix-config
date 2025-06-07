@@ -1,4 +1,4 @@
-{ disko, jetpack-nixos, hostName, ... }:
+{ disko, jetpack-nixos, hostName, pkgs, ... }:
 
 {
   imports =
@@ -7,11 +7,16 @@
       disko.nixosModules.disko
       ./disko-config.nix
       ./hardware-configuration.nix
+      ../nix.nix
       ../user_curt.nix
     ];
 
   networking.hostName = hostName; # Define your hostname.
 
+  environment.systemPackages = with pkgs; [
+    git
+    home-manager
+  ];
 
   hardware.nvidia-jetpack = {
     enable = true;
