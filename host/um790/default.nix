@@ -34,4 +34,8 @@
     openFirewall = true;
     secretKeyFile = "${./nix-serve-priv-key.pem}";
   };
+
+  # Enable QEMU user-mode emulation for cross-architecture builds
+  # too slow
+  #boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 }
