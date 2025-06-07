@@ -119,26 +119,28 @@
           };
         })
       ];
-      pkgsConfig = {
+      cudaPkgsConfig = {
         allowUnfree = true;
-        allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
-          "immersive-translate"
-        ];
         nvidia.acceptLicense = true;
         cudaSupport = true;
         cudaCapabilities = [ "8.6" ];
+      };
+      commonPkgsConfig = {
+        allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
+          "immersive-translate"
+        ];
         permittedInsecurePackages = [
           "freeimage-unstable-2021-11-01"
         ];
       };
       pkgs = import nixpkgs {
         system = system;
-        config = pkgsConfig;
+        config = commonPkgsConfig // cudaPkgsConfig;
         overlays = overlays;
       };
       pkgs-unstable = import nixpkgs-unstable {
         system = system;
-        config = pkgsConfig;
+        config = commonPkgsConfig // cudaPkgsConfig;
         overlays = [];
       };
       specialArgs = {
@@ -157,13 +159,12 @@
     {
       nixosConfigurations.um790 = nixpkgs.lib.nixosSystem {
         system = system;
-        pkgs = pkgs;
         specialArgs = specialArgs // { hostName = "um790"; };
         modules = [
-          #          ({pkgs, ...}: {
-          #            # why working?
-          #            nixpkgs.config.allowUnfree = true;
-          #          })
+          {
+            nixpkgs.config = commonPkgsConfig // cudaPkgsConfig;
+            nixpkgs.overlays = overlays;
+          }
           ./host/um790
           #          home-manager.nixosModules.home-manager
           #          {
@@ -175,7 +176,6 @@
 
       nixosConfigurations.roter = nixpkgs.lib.nixosSystem {
         system = system;
-        pkgs = pkgs;
         specialArgs = specialArgs // { hostName = "roter"; };
         modules = [
           ./host/roter
@@ -184,7 +184,6 @@
 
       nixosConfigurations.gen53 = nixpkgs.lib.nixosSystem {
         system = system;
-        pkgs = pkgs;
         specialArgs = specialArgs // { hostName = "gen53"; };
         modules = [
           ./host/gen53
@@ -193,7 +192,6 @@
 
       nixosConfigurations.vostro = nixpkgs.lib.nixosSystem {
         system = system;
-        pkgs = pkgs;
         specialArgs = specialArgs // { hostName = "vostro"; };
         modules = [
           ./host/vostro
@@ -202,7 +200,6 @@
 
       nixosConfigurations."vostro-console" = nixpkgs.lib.nixosSystem {
         system = system;
-        pkgs = pkgs;
         specialArgs = specialArgs // { hostName = "vostro"; };
         modules = [
           ./host/vostro-console
@@ -211,14 +208,13 @@
 
       nixosConfigurations.black = nixpkgs.lib.nixosSystem {
         system = system;
-        pkgs = pkgs;
         specialArgs = specialArgs // { hostName = "black"; cudaSupport = true; };
         modules = [
+          {
+            nixpkgs.config = commonPkgsConfig // cudaPkgsConfig;
+            nixpkgs.overlays = overlays;
+          }
           ./host/black
-          #          ({pkgs, ...}: {
-          #            # why working?
-          #            nixpkgs.config.allowUnfree = true;
-          #          })
           #hyprland.nixosModules.default
           #          home-manager.nixosModules.home-manager
           #          {
@@ -229,10 +225,17 @@
       };
 
       nixosConfigurations.xavier = nixpkgs.lib.nixosSystem {
-        system = system;
-        pkgs = pkgs;
+        system = "aarch64-linux";
         specialArgs = specialArgs // { hostName = "xavier"; };
         modules = [
+          {
+            nixpkgs.config = {
+              allowUnfree = true;
+              nvidia.acceptLicense = true;
+              cudaSupport = true;
+              cudaCapabilities = [ "7.2" ];
+            };
+          }
           ./host/xavier
         ];
       };
