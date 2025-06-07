@@ -13,11 +13,6 @@
 
   networking.hostName = hostName; # Define your hostname.
 
-  environment.systemPackages = with pkgs; [
-    git
-    home-manager
-  ];
-
   hardware.nvidia-jetpack = {
     enable = true;
     som = "xavier-agx";
@@ -27,7 +22,21 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
 
+  networking.wireless.enable = true;
+  hardware.firmware = with pkgs; [
+    linux-firmware
+    firmwareLinuxNonfree
+  ];
+  boot.kernelModules = [ "iwlwifi" ];
+
+
   services.openssh.enable = true;
 
   system.stateVersion = "25.05";
+
+  environment.systemPackages = with pkgs; [
+    git
+    home-manager
+  ];
+
 }
