@@ -78,6 +78,8 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    jetpack-nixos.url = "github:anduril/jetpack-nixos";
   };
 
   outputs =
@@ -221,6 +223,15 @@
           #            home-manager.users.curt = import ./user;
           #            home-manager.extraSpecialArgs = specialArgs;
           #          }
+        ];
+      };
+
+      nixosConfigurations.xavier = nixpkgs.lib.nixosSystem {
+        system = system;
+        pkgs = pkgs;
+        specialArgs = specialArgs // { hostName = "xavier"; };
+        modules = [
+          ./host/xavier
         ];
       };
 

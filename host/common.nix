@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 {
   imports = [
+    ./user_curt.nix
     ./nix.nix
     ./locale.nix
     ./console.nix
@@ -22,15 +23,6 @@
   programs.ssh.startAgent = true;
 
   users.groups.libvirt = {};
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.curt = {
-    isNormalUser = true;
-    description = "curt";
-    extraGroups = [ "networkmanager" "wheel" "input" "video" "libvirt"];
-    packages = with pkgs; [
-    ];
-    shell = pkgs.zsh;
-  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
