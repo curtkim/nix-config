@@ -18,9 +18,11 @@
     som = "xavier-agx";
     carrierBoard = "devkit";
   };
-  
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
-  
+
   services.openssh.enable = true;
+
+  system.stateVersion = "25.05";
 }

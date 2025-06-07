@@ -229,6 +229,13 @@
         specialArgs = specialArgs // { hostName = "xavier"; };
         modules = [
           {
+            # nixpkgs.crossSystem = {
+            #   system = "aarch64-linux";
+            #   config = "aarch64-unknown-linux-gnu";
+            # };
+            nixpkgs.buildPlatform = "x86_64-linux";
+            nixpkgs.hostPlatform = "aarch64-linux";
+
             nixpkgs.config = {
               allowUnfree = true;
               nvidia.acceptLicense = true;
