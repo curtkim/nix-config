@@ -19,7 +19,7 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  programs.zsh.enable = true;
+  #programs.zsh.enable = true;
   programs.ssh.startAgent = true;
 
   users.groups.libvirt = {};
