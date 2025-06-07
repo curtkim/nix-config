@@ -125,6 +125,12 @@
         cudaSupport = true;
         cudaCapabilities = [ "8.6" ];
       };
+      xavierCudaPkgsConfig = {
+        allowUnfree = true;
+        nvidia.acceptLicense = true;
+        cudaSupport = true;
+        cudaCapabilities = [ "7.2" ];
+      };
       commonPkgsConfig = {
         allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
           "immersive-translate"
@@ -229,19 +235,21 @@
         specialArgs = specialArgs // { hostName = "xavier"; };
         modules = [
           {
-            # nixpkgs.crossSystem = {
-            #   system = "aarch64-linux";
-            #   config = "aarch64-unknown-linux-gnu";
-            # };
+            nixpkgs.config = xavierCudaPkgsConfig;
+          }
+          ./host/xavier
+        ];
+      };
+
+      # x86_64에서 크로스 컴파일용 설정
+      nixosConfigurations.xavier-cross = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        specialArgs = specialArgs // { hostName = "xavier"; };
+        modules = [
+          {
             nixpkgs.buildPlatform = "x86_64-linux";
             nixpkgs.hostPlatform = "aarch64-linux";
-
-            nixpkgs.config = {
-              allowUnfree = true;
-              nvidia.acceptLicense = true;
-              cudaSupport = true;
-              cudaCapabilities = [ "7.2" ];
-            };
+            nixpkgs.config = xavierCudaPkgsConfig;
           }
           ./host/xavier
         ];
