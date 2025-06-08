@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-unstable, inputs, ... }: 
+{ config, lib, pkgs, inputs, ... }: 
 
 {
   imports = [
@@ -43,7 +43,6 @@
 
     #firefox
     #vivaldi
-    #pkgs-unstable.firefox
     #floorp
     w3m
     (google-chrome.override {
