@@ -28,7 +28,6 @@
   # Enable OpenGL/CUDA support
   hardware.opengl = {
     enable = true;
-    driSupport = true;
     extraPackages = with pkgs; [
       nvidia-vaapi-driver
     ];
