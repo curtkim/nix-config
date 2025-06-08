@@ -236,6 +236,9 @@
         modules = [
           {
             nixpkgs.config = xavierCudaPkgsConfig;
+            nixpkgs.overlays = [
+              jetpack-nixos.overlays.default
+            ];
           }
           ./host/xavier
         ];
@@ -250,6 +253,9 @@
             nixpkgs.buildPlatform = "x86_64-linux";
             nixpkgs.hostPlatform = "aarch64-linux";
             nixpkgs.config = xavierCudaPkgsConfig;
+            nixpkgs.overlays = [
+              jetpack-nixos.overlays.default
+            ];
           }
           ./host/xavier
         ];

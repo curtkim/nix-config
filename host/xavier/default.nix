@@ -17,27 +17,10 @@
     enable = true;
     som = "xavier-agx";
     carrierBoard = "devkit";
+    modesetting.enable = false; # For X11
   };
 
-  boot.kernelModules = [ 
-    # Enable NVIDIA kernel modules
-    "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" 
-    "iwlwifi"
-  ];
-  
-  # Enable OpenGL/CUDA support
-  hardware.opengl = {
-    enable = true;
-    extraPackages = with pkgs; [
-      nvidia-vaapi-driver
-    ];
-  };
-
-  # CUDA environment setup
-  environment.variables = {
-    CUDA_PATH = "${pkgs.cudaPackages.cudatoolkit}";
-    LD_LIBRARY_PATH = "/run/opengl-driver/lib:/run/opengl-driver-32/lib";
-  };
+  boot.kernelModules = [ "iwlwifi" ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
@@ -56,6 +39,7 @@
     git
     nvtopPackages.nvidia
     ollama-cuda
+    #python3Packages.torchWithCuda
   ];
 
 }
