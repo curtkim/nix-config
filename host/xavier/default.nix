@@ -38,6 +38,7 @@
     git
     nvtopPackages.nvidia
     ollama-cuda
+    pythonPackages.torchWithCuda
   ];
 
 }
