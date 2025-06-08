@@ -19,8 +19,11 @@
     carrierBoard = "devkit";
   };
 
-  # Enable NVIDIA kernel modules
-  boot.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
+  boot.kernelModules = [ 
+    # Enable NVIDIA kernel modules
+    "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" 
+    "iwlwifi"
+  ];
   
   # Enable OpenGL/CUDA support
   hardware.opengl = {
@@ -45,8 +48,6 @@
     linux-firmware
     firmwareLinuxNonfree
   ];
-  boot.kernelModules = [ "iwlwifi" ];
-
 
   services.openssh.enable = true;
 
@@ -56,7 +57,6 @@
     git
     nvtopPackages.nvidia
     ollama-cuda
-    python3Packages.torchWithCuda
   ];
 
 }
