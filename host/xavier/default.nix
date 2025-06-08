@@ -36,7 +36,8 @@
 
   environment.systemPackages = with pkgs; [
     git
-    home-manager
+    nvtopPackages.nvidia
+    ollama-cuda
   ];
 
 }
