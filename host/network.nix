@@ -16,6 +16,7 @@
       80 443 8096 8200 8920 
       111 2049 4000 4001 4002 20048 # nfs
       3000  # dev server
+      8211  # issac-sim
       11434 # ollama
     ];
     allowedTCPPortRanges = [
@@ -26,6 +27,7 @@
     allowedUDPPorts = [ 
       111 2049 4000 4001 4002 20048 # nfs
       8200  # for minidlna
+      8211  # issac-sim
     ];     
     allowedUDPPortRanges = [
       #{ from = 631; to = 631; }
