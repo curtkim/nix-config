@@ -17,6 +17,7 @@
       ../jellyfin.nix
       #../xserver.nix
       ../printing.nix
+      ../upower.nix
       #../printing-client.nix
       ./nfs-client.nix
     ];
