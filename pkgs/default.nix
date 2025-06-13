@@ -27,5 +27,6 @@ in {
     #pyproject-build-systems = pyproject-build-systems;
   #};
   codex = pkgs.callPackage ./codex.nix {};
+  ft-scservo-debug-qt = pkgs.callPackage ./ft-scservo-debug-qt.nix {};
 }
 
