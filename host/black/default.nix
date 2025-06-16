@@ -17,6 +17,7 @@
       #../xserver.nix
       ../icestick.nix
       #../printing.nix
+      ./wake-on-lan.nix
     ];
 
   networking.hostName = hostName; # Define your hostname.
