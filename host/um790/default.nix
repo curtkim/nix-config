@@ -15,11 +15,12 @@
       ../common.nix
       ../minidlna.nix
       ../jellyfin.nix
-      #../xserver.nix
+      ../xserver.nix
       ../printing.nix
       ../upower.nix
       #../printing-client.nix
       ./nfs-client.nix
+      ../so101-serial.nix
     ];
 
   networking.hostName = hostName; # Define your hostname.

@@ -26,7 +26,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    gnome.gnome-session
+    gnome-session
   ];
 
 }
