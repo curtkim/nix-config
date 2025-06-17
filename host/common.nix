@@ -33,6 +33,7 @@
     pciutils
     lshw
     nfs-utils
+    wakeonlan
 
     # for incus
     #    distrobuilder
