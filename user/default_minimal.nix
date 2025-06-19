@@ -176,7 +176,9 @@
 
     # AI
     pkgs-unstable.aider-chat
-    pkgs-unstable.claude-code
+    (pkgs-unstable.claude-code.override {
+      nodejs_20 = pkgs-unstable.nodejs_24;
+    })
     #codex
     code2prompt
     aichat
