@@ -21,6 +21,7 @@
       #../printing-client.nix
       ./nfs-client.nix
       ../so101-serial.nix
+      ../nix-distributed-build-machine.nix
     ];
 
   networking.hostName = hostName; # Define your hostname.

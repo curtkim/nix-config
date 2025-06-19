@@ -18,6 +18,7 @@
       ../icestick.nix
       #../printing.nix
       ./wake-on-lan.nix
+      ../nix-distributed-build-client.nix
     ];
 
   networking.hostName = hostName; # Define your hostname.
