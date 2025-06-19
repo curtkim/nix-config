@@ -3,7 +3,7 @@
     # 분산 빌드 설정
     distributedBuilds = true;
 
-    # 빌드 머신 정의
+    # 빌드 머신 정의(/etc/nix/machines 에 기록됨)
     buildMachines = [
       {
         hostName = "192.168.0.198";
