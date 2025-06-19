@@ -2,7 +2,8 @@
 
   # tail -f /run/user/1000/kime.err
   # cat /etc/xdg/kime/config.yaml
-  i18n.inputMethod.enabled = "kime";
+  i18n.inputMethod.enable = true;
+  i18n.inputMethod.type = "kime";
   #i18n.inputMethod.kime.daemonModules = [ "Indicator" "Wayland" ];
   i18n.inputMethod.kime.iconColor = "White";
   i18n.inputMethod.kime.extraConfig = ''

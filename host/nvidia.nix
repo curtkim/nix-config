@@ -4,11 +4,8 @@
   virtualisation.podman.enableNvidia = true;
   hardware.nvidia-container-toolkit.enable = true;
 
-  # Enable OpenGL
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    #driSupport = true;
-    #driSupport32Bit = true;
   };
 
   # Load nvidia driver for Xorg and Wayland
