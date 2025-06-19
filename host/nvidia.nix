@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  virtualisation.podman.enableNvidia = true;
+  #virtualisation.podman.enableNvidia = true;
   hardware.nvidia-container-toolkit.enable = true;
 
   hardware.graphics = {
