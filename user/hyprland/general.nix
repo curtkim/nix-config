@@ -3,7 +3,7 @@ _: {
 
     # See https://wiki.hyprland.org/Configuring/Monitors/
     monitor= [
-      "HDMI-A-1,preferred,auto,2"
+      "HDMI-A-2,preferred,auto,2"
     ];
 
     exec-once = [
