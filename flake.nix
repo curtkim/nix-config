@@ -80,6 +80,10 @@
     };
 
     jetpack-nixos.url = "github:anduril/jetpack-nixos";
+    yt-x = {
+      url = "github:Benexl/yt-x";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -93,6 +97,7 @@
     , rust-overlay
     , nvf
     , jetpack-nixos 
+    , yt-x
     , ...
     }:
     let
@@ -137,6 +142,7 @@
         ];
         permittedInsecurePackages = [
           "freeimage-unstable-2021-11-01"
+          "immersive-translate-1.21.7"
         ];
       };
       pkgs = import nixpkgs {
@@ -157,6 +163,7 @@
         hyprland = hyprland;
         jetpack-nixos = jetpack-nixos;
         pkgs-unstable = pkgs-unstable;
+        yt-x = yt-x;
         inherit inputs;
       };
 

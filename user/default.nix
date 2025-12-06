@@ -73,7 +73,7 @@
     # for windows
     spice-gtk
 
-    inputs.claude-desktop.packages.${system}.claude-desktop-with-fhs
+    #inputs.claude-desktop.packages.${system}.claude-desktop-with-fhs
     #    (inputs.claude-desktop.packages.${system}.claude-desktop.overrideAttrs (oldAttrs: {
     #      installPhase = oldAttrs.installPhase + ''
     #      rm $out/bin/$pname
@@ -85,6 +85,8 @@
     #        --add-flags "--enable-features=WaylandWindowDecorations,WebRTCPipeWireCapturer"
     #    '';
     #    }))
+
+    inputs.yt-x.packages."${system}".default
   ];
 
   dconf.settings = {

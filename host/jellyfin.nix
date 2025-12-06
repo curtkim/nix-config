@@ -15,3 +15,6 @@
   ];
 }
 
+# url : http://localhost:8096/web/#/home.html
+# 어디에 music, video 디렉토를 설정했는지 기억이 안남
+
