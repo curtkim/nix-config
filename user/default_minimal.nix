@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-unstable,  ... }: 
+{ config, lib, pkgs, pkgs-unstable, beads, ... }: 
 
 {
   imports = [
@@ -81,6 +81,7 @@
     #skopeo
     virt-manager
     quickemu
+    distrobox
 
     #util
     lazygit
@@ -181,6 +182,9 @@
     #  nodejs_20 = pkgs-unstable.nodejs_24;
     #})
     #codex
+
+    beads.packages.${pkgs.system}.default
+
     code2prompt
     aichat
     #ra-aid

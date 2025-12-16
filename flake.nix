@@ -84,6 +84,7 @@
       url = "github:Benexl/yt-x";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    beads.url = "github:steveyegge/beads";
   };
 
   outputs =
@@ -98,6 +99,7 @@
     , nvf
     , jetpack-nixos 
     , yt-x
+    , beads
     , ...
     }:
     let
@@ -164,6 +166,7 @@
         jetpack-nixos = jetpack-nixos;
         pkgs-unstable = pkgs-unstable;
         yt-x = yt-x;
+        beads = beads;
         inherit inputs;
       };
 
