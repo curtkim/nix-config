@@ -63,6 +63,7 @@
     #(openai-whisper-cpp.override { cudaSupport = true;})
 
     inkscape
+    sioyek
 
     # audio
     pamixer

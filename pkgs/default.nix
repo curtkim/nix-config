@@ -28,5 +28,7 @@ in {
   #};
   codex = pkgs.callPackage ./codex.nix {};
   ft-scservo-debug-qt = pkgs.callPackage ./ft-scservo-debug-qt.nix {};
+
+  deepl-cli = pkgs.callPackage ./deepl-cli.nix {};
 }
 

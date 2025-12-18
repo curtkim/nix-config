@@ -157,6 +157,7 @@
 
     gh
     gh-find-code
+    deepl-cli
 
     # for neovim
     markdownlint-cli
@@ -184,6 +185,7 @@
     #codex
 
     beads.packages.${pkgs.system}.default
+    amp-cli
 
     code2prompt
     aichat
