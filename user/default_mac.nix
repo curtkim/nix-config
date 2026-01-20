@@ -53,7 +53,7 @@
     nerd-fonts.symbols-only
     tokei
     erdtree
-    du-dust
+    dust
     nodejs_20
     yarn
     nix-search-cli
@@ -83,7 +83,6 @@
 
     #blender
     vulkan-tools
-    glxinfo
     epr
     chrpath
     hashcat

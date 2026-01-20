@@ -19,10 +19,10 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     disko = {
@@ -106,14 +106,6 @@
       system = "x86_64-linux";
       overlays = [
         (import rust-overlay)
-        (final: prev: {
-          kime = let
-              rustVersion = "1.81.0";
-            in prev.kime.override {
-              rustc = final.rust-bin.stable.${rustVersion}.default;
-              cargo = final.rust-bin.stable.${rustVersion}.default;
-            };
-        })
         (final: prev: 
           import ./pkgs {
             pkgs = prev;

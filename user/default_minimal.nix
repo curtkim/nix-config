@@ -97,7 +97,7 @@
     fd          # alternative to find
     tokei
     erdtree     # File-tree visualizer and disk usage analyzer
-    du-dust
+    dust
     glow
     unzip
     unixtools.xxd   # 16진수
@@ -117,6 +117,9 @@
 
     # for printing
     enscript
+
+    # markdown
+    mdfried
 
     #nethogs
     hwinfo

@@ -12,6 +12,14 @@
     nix-collect-garbage
 
 
+    home-manager switch --flake .#curt
+    home-manager generations
+    home-manager expire-generations "-30 days"
+
+
+    sudo nixos-rebuild list-generations
+
+
 ## reference
 - https://github.com/lschuermann/nur-packages/blob/master/pkgs/vivado/vivado-2022_2.nix
 

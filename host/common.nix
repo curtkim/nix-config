@@ -20,7 +20,7 @@
   # services.xserver.libinput.enable = true;
 
   #programs.zsh.enable = true;
-  programs.ssh.startAgent = true;
+  #programs.ssh.startAgent = true;
 
   users.groups.libvirt = {};
 

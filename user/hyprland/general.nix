@@ -2,7 +2,7 @@ _: {
   wayland.windowManager.hyprland.settings = {
 
     # See https://wiki.hyprland.org/Configuring/Monitors/
-    monitor= [
+    monitor = [
       "HDMI-A-2,preferred,auto,2"
     ];
 
@@ -45,10 +45,10 @@ _: {
 
       # https://wiki.hyprland.org/Configuring/Variables/#blur
       blur = {
-          enabled = true;
-          size = 3;
-          passes = 1;
-          vibrancy = 0.1696;
+        enabled = true;
+        size = 3;
+        passes = 1;
+        vibrancy = 0.1696;
       };
     };
 
@@ -82,7 +82,7 @@ _: {
     };
 
     # https://wiki.hyprland.org/Configuring/Variables/#misc
-    misc = { 
+    misc = {
       force_default_wallpaper = 0; # Set to 0 or 1 to disable the anime mascot wallpapers
       disable_hyprland_logo = true; # If true disables the random hyprland logo / anime girl background. :(
     };
@@ -100,14 +100,14 @@ _: {
 
     # https://wiki.hyprland.org/Configuring/Variables/#gestures
     gestures = {
-        workspace_swipe = false;
+      #workspace_swipe = false;
     };
 
     # Example per-device config
     # See https://wiki.hyprland.org/Configuring/Keywords/#per-device-input-configs for more
     device = {
-        name = "epic-mouse-v1";
-        sensitivity = -0.5;
+      name = "epic-mouse-v1";
+      sensitivity = -0.5;
     };
 
   };

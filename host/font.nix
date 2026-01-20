@@ -3,7 +3,8 @@
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
-      ubuntu_font_family
+      #ubuntu_font_family
+      ubuntu-classic
       nanum
       nanum-gothic-coding
       #nerd-fonts.jetbrains-mono

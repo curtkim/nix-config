@@ -1,4 +1,10 @@
-{ config, lib, pkgs, inputs, ... }: 
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -11,6 +17,11 @@
     ./hyprlock.nix
   ];
 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30";
+  };
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -30,7 +41,7 @@
     #qgis
     #blender
     vulkan-tools
-    glxinfo
+    mesa-demos
     epr
     chrpath
     #hashcat
@@ -39,7 +50,7 @@
     wl-clipboard
     grim
     slurp
-    imv     # image viewer
+    imv # image viewer
 
     #firefox
     #vivaldi
