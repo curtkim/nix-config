@@ -1,7 +1,10 @@
 {
   nixConfig = {
     # current flake에 적용된다.
-    extra-experimental-features = [ "nix-command" "flakes" ];
+    extra-experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     substituters = [
       "https://cache.nixos.org/"
       "https://nix-community.cachix.org"
@@ -88,25 +91,27 @@
   };
 
   outputs =
-    inputs @ { self
-    , nixpkgs
-    , nixpkgs-unstable
-    , hyprland
-    , home-manager
-    , disko
-    , darwin
-    , rust-overlay
-    , nvf
-    , jetpack-nixos 
-    , yt-x
-    , beads
-    , ...
+    inputs@{
+      self,
+      nixpkgs,
+      nixpkgs-unstable,
+      hyprland,
+      home-manager,
+      disko,
+      darwin,
+      rust-overlay,
+      nvf,
+      jetpack-nixos,
+      yt-x,
+      beads,
+      ...
     }:
     let
       system = "x86_64-linux";
       overlays = [
         (import rust-overlay)
-        (final: prev: 
+        (
+          final: prev:
           import ./pkgs {
             pkgs = prev;
             inherit (inputs) uv2nix pyproject-nix pyproject-build-systems;
@@ -131,9 +136,11 @@
         cudaCapabilities = [ "7.2" ];
       };
       commonPkgsConfig = {
-        allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
-          "immersive-translate"
-        ];
+        allowUnfreePredicate =
+          pkg:
+          builtins.elem (nixpkgs.lib.getName pkg) [
+            "immersive-translate"
+          ];
         permittedInsecurePackages = [
           "freeimage-unstable-2021-11-01"
           "immersive-translate-1.21.7"
@@ -147,7 +154,7 @@
       pkgs-unstable = import nixpkgs-unstable {
         system = system;
         config = commonPkgsConfig // cudaPkgsConfig;
-        overlays = [];
+        overlays = [ ];
       };
       specialArgs = {
         hostName = "none";
@@ -167,7 +174,9 @@
     {
       nixosConfigurations.um790 = nixpkgs.lib.nixosSystem {
         system = system;
-        specialArgs = specialArgs // { hostName = "um790"; };
+        specialArgs = specialArgs // {
+          hostName = "um790";
+        };
         modules = [
           {
             nixpkgs.config = commonPkgsConfig // cudaPkgsConfig;
@@ -184,7 +193,9 @@
 
       nixosConfigurations.roter = nixpkgs.lib.nixosSystem {
         system = system;
-        specialArgs = specialArgs // { hostName = "roter"; };
+        specialArgs = specialArgs // {
+          hostName = "roter";
+        };
         modules = [
           ./host/roter
         ];
@@ -192,7 +203,9 @@
 
       nixosConfigurations.gen53 = nixpkgs.lib.nixosSystem {
         system = system;
-        specialArgs = specialArgs // { hostName = "gen53"; };
+        specialArgs = specialArgs // {
+          hostName = "gen53";
+        };
         modules = [
           ./host/gen53
         ];
@@ -200,7 +213,9 @@
 
       nixosConfigurations.vostro = nixpkgs.lib.nixosSystem {
         system = system;
-        specialArgs = specialArgs // { hostName = "vostro"; };
+        specialArgs = specialArgs // {
+          hostName = "vostro";
+        };
         modules = [
           ./host/vostro
         ];
@@ -208,7 +223,9 @@
 
       nixosConfigurations."vostro-console" = nixpkgs.lib.nixosSystem {
         system = system;
-        specialArgs = specialArgs // { hostName = "vostro"; };
+        specialArgs = specialArgs // {
+          hostName = "vostro";
+        };
         modules = [
           ./host/vostro-console
         ];
@@ -216,7 +233,10 @@
 
       nixosConfigurations.black = nixpkgs.lib.nixosSystem {
         system = system;
-        specialArgs = specialArgs // { hostName = "black"; cudaSupport = true; };
+        specialArgs = specialArgs // {
+          hostName = "black";
+          cudaSupport = true;
+        };
         modules = [
           {
             nixpkgs.config = commonPkgsConfig // cudaPkgsConfig;
@@ -234,7 +254,9 @@
 
       nixosConfigurations.xavier = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
-        specialArgs = specialArgs // { hostName = "xavier"; };
+        specialArgs = specialArgs // {
+          hostName = "xavier";
+        };
         modules = [
           {
             nixpkgs.config = xavierCudaPkgsConfig;
@@ -249,7 +271,9 @@
       # x86_64에서 크로스 컴파일용 설정
       nixosConfigurations.xavier-cross = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
-        specialArgs = specialArgs // { hostName = "xavier"; };
+        specialArgs = specialArgs // {
+          hostName = "xavier";
+        };
         modules = [
           {
             nixpkgs.buildPlatform = "x86_64-linux";
@@ -260,6 +284,16 @@
             ];
           }
           ./host/xavier
+        ];
+      };
+
+      nixosConfigurations.empty-aarch64 = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        specialArgs = specialArgs // {
+          hostName = "empty-aarch64";
+        };
+        modules = [
+          ./host/empty-aarch64
         ];
       };
 
@@ -292,23 +326,30 @@
 
       #packages = import ./pkgs nixpkgs.legacyPackages.x86_64-linux;
 
-      packages."x86_64-linux" = let
-        neovimConfigured = (nvf.lib.neovimConfiguration {
+      packages."x86_64-linux" =
+        let
+          neovimConfigured = (
+            nvf.lib.neovimConfiguration {
+              inherit pkgs;
+              modules = [
+                {
+                  config.vim = import ./nvf.nix { pkgs = pkgs; };
+                }
+              ];
+            }
+          );
+        in
+        {
+          vi = neovimConfigured.neovim;
+        }
+        // (import ./pkgs {
           inherit pkgs;
-          modules = [{
-            config.vim = import ./nvf.nix {pkgs = pkgs;};
-          }];
+          inherit (inputs) uv2nix pyproject-nix pyproject-build-systems;
         });
-      in {
-        vi = neovimConfigured.neovim;
-      } // (import ./pkgs {
-        inherit pkgs;
-        inherit (inputs) uv2nix pyproject-nix pyproject-build-systems;
-      });
 
-      devShells = import ./devshells { 
-        pkgs = pkgs; 
-        forAllSystems = forAllSystems; 
+      devShells = import ./devshells {
+        pkgs = pkgs;
+        forAllSystems = forAllSystems;
       };
     };
 }
