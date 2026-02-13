@@ -40,17 +40,24 @@
       type = "git";
       url = "https://github.com/hyprwm/Hyprland";
       submodules = true;
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     #hyprlock.url = "github:hyprwm/Hyprlock";
     #hyprlock.inputs.nixpkgs.follows = "nixpkgs-unstable";
     #hyprland.url = "github:hyprwm/Hyprland";
     darwin = {
       url = "github:lnl7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs"; # ...
+      inputs.nixpkgs.follows = "nixpkgs";
     };
-    rust-overlay.url = "github:oxalica/rust-overlay";
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    nvf.url = "github:notashelf/nvf";
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     claude-desktop = {
       url = "github:k3d3/claude-desktop-linux-flake";
@@ -76,7 +83,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nur.url = "github:nix-community/NUR";
+    #nur.url = "github:nix-community/NUR";
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -87,7 +94,6 @@
       url = "github:Benexl/yt-x";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    beads.url = "github:steveyegge/beads";
   };
 
   outputs =
@@ -103,7 +109,6 @@
       nvf,
       jetpack-nixos,
       yt-x,
-      beads,
       ...
     }:
     let
@@ -165,7 +170,6 @@
         jetpack-nixos = jetpack-nixos;
         pkgs-unstable = pkgs-unstable;
         yt-x = yt-x;
-        beads = beads;
         inherit inputs;
       };
 

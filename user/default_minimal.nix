@@ -1,4 +1,11 @@
-{ config, lib, pkgs, pkgs-unstable, beads, ... }: 
+{
+  config,
+  lib,
+  pkgs,
+  pkgs-unstable,
+  beads,
+  ...
+}:
 
 {
   imports = [
@@ -59,145 +66,143 @@
     #BROWSER = "${lib.getExe pkgs-unstable.google-chrome }";
   };
 
-
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   programs.direnv.enable = true;
   fonts.fontconfig.enable = true;
 
+  home.packages =
+    with pkgs;
+    [
 
-  home.packages = with pkgs; [
+      # font
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.hack
+      nerd-fonts.symbols-only
 
-    # font
-    nerd-fonts.jetbrains-mono
-    nerd-fonts.hack
-    nerd-fonts.symbols-only
+      gnumake
+      file
 
-    gnumake
-    file
+      neofetch
+      #buildah
+      #skopeo
+      virt-manager
+      quickemu
+      distrobox
 
-    neofetch
-    #buildah
-    #skopeo
-    virt-manager
-    quickemu
-    distrobox
+      #util
+      lazygit
+      serie # A rich git commit graph in your terminal
+      bat
+      fzf
+      ripgrep
+      ripgrep-all
+      repgrep # Interactive replacer
+      jq
+      tree
+      eza
+      fd # alternative to find
+      tokei
+      erdtree # File-tree visualizer and disk usage analyzer
+      dust
+      glow
+      unzip
+      unixtools.xxd # 16진수
+      #litecli    # cli for SQLite
+      tldr
+      fx # json viewer
 
-    #util
-    lazygit
-    serie       # A rich git commit graph in your terminal
-    bat
-    fzf
-    ripgrep     
-    ripgrep-all
-    repgrep     # Interactive replacer
-    jq
-    tree
-    eza
-    fd          # alternative to find
-    tokei
-    erdtree     # File-tree visualizer and disk usage analyzer
-    dust
-    glow
-    unzip
-    unixtools.xxd   # 16진수
-    #litecli    # cli for SQLite
-    tldr
-    fx            # json viewer
+      caligula # alternative to dd
 
-    caligula    # alternative to dd
+      # for joy
+      astroterm # astroterm -m --color --constellations --speed 100 --fps 30 --city Seoul
 
-    # for joy
-    astroterm   # astroterm -m --color --constellations --speed 100 --fps 30 --city Seoul
+      # network
+      #speedtest-cli
+      #iperf3
+      #nmap
 
-    # network
-    #speedtest-cli
-    #iperf3
-    #nmap
+      # for printing
+      enscript
 
-    # for printing
-    enscript
+      # markdown
+      mdfried
 
-    # markdown
-    mdfried
+      #nethogs
+      hwinfo
+      htop
+      btop
+      gtop
+      #cpufrequtils
+      pstree
 
-    #nethogs
-    hwinfo
-    htop
-    btop
-    gtop
-    #cpufrequtils
-    nvtopPackages.nvidia
-    zenith-nvidia
-    pstree
+      nix-search-cli
+      #cachix
+      nix-init
+      nix-diff
+      nix-tree
+      nix-visualize
+      nix-index
+      nixpkgs-fmt
 
-    nix-search-cli
-    #cachix
-    nix-init
-    nix-diff
-    nix-tree
-    nix-visualize
-    nix-index
-    nixpkgs-fmt
+      # general lang tool
+      cargo
+      rust-analyzer
+      nodejs_22
+      yarn
+      clang-tools
 
-    # general lang tool
-    cargo
-    rust-analyzer
-    nodejs_22
-    yarn
-    clang-tools
+      #python311
+      #python3Packages.debugpy
+      #python3Packages.isort
+      #python3Packages.pipdeptree
 
-    #python311
-    #python3Packages.debugpy
-    #python3Packages.isort
-    #python3Packages.pipdeptree
+      #sops
+      age
+      age-plugin-yubikey
+      yubikey-manager
+      passage
 
-    #sops
-    age
-    age-plugin-yubikey
-    yubikey-manager
-    passage
+      gh
+      gh-find-code
+      deepl-cli
 
-    gh
-    gh-find-code
-    deepl-cli
+      # for neovim
+      markdownlint-cli
+      stylua
 
-    # for neovim
-    markdownlint-cli
-    stylua
+      # lsp
+      nil
+      pyright
+      lua-language-server
+      bash-language-server
 
-    # lsp
-    nil
-    pyright
-    lua-language-server
-    bash-language-server
+      # dap
+      gdb
 
-    # dap
-    gdb
+      # cloud
+      google-cloud-sdk
+      rclone
 
-    # cloud
-    google-cloud-sdk
-    rclone
+      # AI
+      #pkgs-unstable.aider-chat
+      pkgs-unstable.claude-code
+      #(pkgs-unstable.claude-code.override {
+      #  nodejs_20 = pkgs-unstable.nodejs_24;
+      #})
+      #codex
 
-    # AI
-    pkgs-unstable.aider-chat
-    pkgs-unstable.claude-code
-    #(pkgs-unstable.claude-code.override {
-    #  nodejs_20 = pkgs-unstable.nodejs_24;
-    #})
-    #codex
+      amp-cli
 
-    beads.packages.${pkgs.system}.default
-    amp-cli
+      #code2prompt
+      #aichat
+      #ra-aid
 
-    code2prompt
-    aichat
-    #ra-aid
-
-  ] ++ [
-    (pkgs-unstable.python3.withPackages (ps: [
-      ps.llm
-      ps.llm-ollama
-    ]))
-  ];
+    ]
+    ++ [
+      (pkgs-unstable.python3.withPackages (ps: [
+        ps.llm
+        ps.llm-ollama
+      ]))
+    ];
 }

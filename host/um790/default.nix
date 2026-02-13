@@ -2,27 +2,32 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ xconfig, pkgs, disko, hostName, ... }:
+{
+  xconfig,
+  pkgs,
+  disko,
+  hostName,
+  ...
+}:
 
 {
-  imports =
-    [
-      ../boot.nix
-      disko.nixosModules.disko
-      ./disko-config.nix
-      ./hardware-configuration.nix
-      ../amd.nix
-      ../common.nix
-      ../minidlna.nix
-      ../jellyfin.nix
-      ../xserver.nix
-      ../printing.nix
-      ../upower.nix
-      #../printing-client.nix
-      ./nfs-client.nix
-      ../so101-serial.nix
-      ../nix-distributed-build-machine.nix
-    ];
+  imports = [
+    ../boot.nix
+    disko.nixosModules.disko
+    ./disko-config.nix
+    ./hardware-configuration.nix
+    ../amd.nix
+    ../common.nix
+    ../minidlna.nix
+    ../jellyfin.nix
+    ../xserver.nix
+    ../printing.nix
+    ../upower.nix
+    #../printing-client.nix
+    ./nfs-client.nix
+    ../so101-serial.nix
+    ../nix-distributed-build-machine.nix
+  ];
 
   networking.hostName = hostName; # Define your hostname.
 
@@ -37,6 +42,8 @@
     openFirewall = true;
     secretKeyFile = "${./nix-serve-priv-key.pem}";
   };
+
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   # Enable QEMU user-mode emulation for cross-architecture builds
   # too slow
