@@ -5,6 +5,9 @@
 
     nix flake update --update-input nixpkgs-unstable
 
+    nix build .#nixosConfigurations.um790.config.system.build.toplevel --verbose --print-build-logs --show-trace
+
+
     NIXPKGS_ALLOW_UNFREE=1 nix build --impure .#packages.vivado-2022_2
     result/bin/vivado
 
@@ -12,6 +15,7 @@
     nix-collect-garbage
 
 
+    nix build .#homeConfigurations.curt.activationPackage
     home-manager switch --flake .#curt
     home-manager generations
     home-manager expire-generations "-30 days"

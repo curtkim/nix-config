@@ -119,7 +119,7 @@
           final: prev:
           import ./pkgs {
             pkgs = prev;
-            inherit (inputs) uv2nix pyproject-nix pyproject-build-systems;
+            #inherit (inputs) uv2nix pyproject-nix pyproject-build-systems;
           }
         )
         (final: prev: {
@@ -138,22 +138,25 @@
         allowUnfree = true;
         nvidia.acceptLicense = true;
         cudaSupport = true;
-        cudaCapabilities = [ "7.2" ];
+        cudaCapabiligies = [ "7.2" ];
       };
       commonPkgsConfig = {
         allowUnfreePredicate =
           pkg:
           builtins.elem (nixpkgs.lib.getName pkg) [
             "immersive-translate"
+            "samsung-unified-linux-driver"
+            "amp-cli"
+            "google-chrome"
           ];
         permittedInsecurePackages = [
           "freeimage-unstable-2021-11-01"
-          "immersive-translate-1.21.7"
+          "immersive-translate-1.23.9"
         ];
       };
       pkgs = import nixpkgs {
         system = system;
-        config = commonPkgsConfig // cudaPkgsConfig;
+        config = commonPkgsConfig; # // cudaPkgsConfig;
         overlays = overlays;
       };
       pkgs-unstable = import nixpkgs-unstable {
@@ -183,7 +186,7 @@
         };
         modules = [
           {
-            nixpkgs.config = commonPkgsConfig // cudaPkgsConfig;
+            nixpkgs.config = commonPkgsConfig; # // cudaPkgsConfig;
             nixpkgs.overlays = overlays;
           }
           ./host/um790
@@ -348,7 +351,7 @@
         }
         // (import ./pkgs {
           inherit pkgs;
-          inherit (inputs) uv2nix pyproject-nix pyproject-build-systems;
+          #inherit (inputs) uv2nix pyproject-nix pyproject-build-systems;
         });
 
       devShells = import ./devshells {
