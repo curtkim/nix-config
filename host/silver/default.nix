@@ -18,5 +18,13 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # use intel graphic only
+  hardware.graphics.enable = true;
+  services.xserver.videoDrivers = [ "modesetting" ];
+  boot.blacklistedKernelModules = [
+    "nouveau"
+    "nvidia"
+  ];
+
   networking.hostName = hostName; # Define your hostname.
 }

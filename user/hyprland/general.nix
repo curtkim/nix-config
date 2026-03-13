@@ -2,8 +2,10 @@ _: {
   wayland.windowManager.hyprland.settings = {
 
     # See https://wiki.hyprland.org/Configuring/Monitors/
+    # um790 : HDMI-A-2
+    # silver : Unknown-1
     monitor = [
-      "HDMI-A-2,preferred,auto,2"
+      ",preferred,auto,2"
     ];
 
     exec-once = [
