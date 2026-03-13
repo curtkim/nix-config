@@ -27,6 +27,7 @@
     ./nfs-client.nix
     ../so101-serial.nix
     ../nix-distributed-build-machine.nix
+    ../android-dev.nix
   ];
 
   networking.hostName = hostName; # Define your hostname.
