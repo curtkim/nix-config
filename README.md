@@ -24,6 +24,13 @@
     sudo nixos-rebuild list-generations
 
 
+### build macbook pro iso
+```
+nix build .#nixosConfigurations.silver-installer.config.system.build.isoImage --impure
+cp result/iso/nixos-minimal-25.11.20260211.6c5e707-x86_64-linux.iso /mnt/usb
+```
+
+
 ## reference
 - https://github.com/lschuermann/nur-packages/blob/master/pkgs/vivado/vivado-2022_2.nix
 

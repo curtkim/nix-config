@@ -304,6 +304,25 @@
         ];
       };
 
+      nixosConfigurations.silver = nixpkgs.lib.nixosSystem {
+        system = system;
+        specialArgs = specialArgs // {
+          hostName = "silver";
+        };
+        modules = [
+          ./host/silver
+        ];
+      };
+
+      # for silver iso
+      nixosConfigurations.silver-installer = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+          ./host/silver/broadcom-wifi.nix
+        ];
+      };
+
       darwinConfigurations."curtg" = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [
