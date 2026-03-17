@@ -22,7 +22,7 @@
   #programs.zsh.enable = true;
   #programs.ssh.startAgent = true;
 
-  users.groups.libvirt = {};
+  users.groups.libvirt = { };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -34,6 +34,7 @@
     lshw
     nfs-utils
     wakeonlan
+    libnotify
 
     # for incus
     #    distrobuilder
