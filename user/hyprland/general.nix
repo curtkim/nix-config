@@ -10,7 +10,7 @@ _: {
 
     exec-once = [
       "dunst"
-      "waybar"
+      #"waybar"
       "kime"
     ];
 
