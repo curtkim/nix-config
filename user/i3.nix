@@ -8,6 +8,7 @@
 {
   xsession = {
     enable = true;
+    scriptPath = ".xinitrc";
     windowManager.i3 = {
       enable = true;
       package = pkgs.i3;

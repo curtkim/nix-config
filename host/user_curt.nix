@@ -9,6 +9,7 @@
       "wheel"
       "input"
       "video"
+      "render"
       "libvirt"
       "adbusers"
     ];

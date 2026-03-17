@@ -129,8 +129,4 @@
     };
   };
 
-  home.file.".xinitrc".text = ''
-    gnome-session
-  '';
-
 }
