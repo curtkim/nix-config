@@ -1,4 +1,5 @@
-{ config, ... }: {
+{ config, ... }:
+{
   home.sessionVariables = {
     STARSHIP_CACHE = "${config.xdg.cacheHome}/starship";
   };
@@ -23,7 +24,7 @@
       };
 
       hostname = {
-        format ="[@$hostname]($style): ";
+        format = "[@$hostname]($style): ";
         style = "bold dimmed green";
       };
 
@@ -40,12 +41,16 @@
 
       nix_shell = {
         symbol = " ";
-        heuristic = true;
+        heuristic = false;
       };
 
       gcloud = {
         symbol = "🇬️ ";
-        detect_env_vars = [];
+        detect_env_vars = [ ];
+        disabled = true;
+      };
+
+      battery = {
         disabled = true;
       };
     };
