@@ -13,8 +13,11 @@
     ./mimeApps.nix
     #./vscode.nix
     ./firefox.nix
+
     ./hyprland
     ./hyprlock.nix
+
+    ./i3.nix
   ];
 
   nix.gc = {
