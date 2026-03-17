@@ -20,6 +20,7 @@
 
   # use intel graphic only
   hardware.graphics.enable = true;
+  hardware.nvidiaOptimus.disable = true;
   services.xserver.videoDrivers = [ "modesetting" ];
   boot.blacklistedKernelModules = [
     "nouveau"
