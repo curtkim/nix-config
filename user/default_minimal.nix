@@ -191,9 +191,9 @@
       #  nodejs_20 = pkgs-unstable.nodejs_24;
       #})
       #codex
+      pkgs-unstable.opencode
 
-      amp-cli
-
+      #amp-cli
       #code2prompt
       #aichat
       #ra-aid
