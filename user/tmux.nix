@@ -14,9 +14,9 @@
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
       yank
-      resurrect           # prefix + Ctrl+s, prefix + Ctrl+r
+      resurrect # prefix + Ctrl+s, prefix + Ctrl+r
     ];
-    # bind -n     # without prefix 
+    # bind -n     # without prefix
     # bind -r     # 반복가능
     # bind -T     # 키 테이블 지정
     extraConfig = ''
@@ -44,6 +44,7 @@
       bind -r C-l resize-pane -R 10
 
       # Copy mode
+      bind -T copy-mode-vi 'C-v' send-keys -X rectangle-toggle \; send-keys -X begin-selection
       bind -T copy-mode-vi v send-keys -X begin-selection
       bind -T copy-mode-vi y send-keys -X copy-selection-and-cancel
 
