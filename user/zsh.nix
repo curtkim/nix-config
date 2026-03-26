@@ -10,6 +10,9 @@
     };
     enableCompletion = true;
     defaultKeymap = "emacs";
+    history = {
+      extended = true;
+    };
     shellAliases = {
       ls = "eza";
       l = "eza -l --time-style iso";
