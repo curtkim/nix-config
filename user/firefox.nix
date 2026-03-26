@@ -1,12 +1,19 @@
-{ config, pkgs, lib, pkgs-unstable, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  pkgs-unstable,
+  ...
+}:
+{
   programs.firefox = {
     enable = true;
     #package = pkgs-unstable.firefox;
 
     profiles.default = {
       settings = {
-        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-        "browser.uidensity" = 1;  # compact, let's see how long will it last
+        #"toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        "browser.uidensity" = 1; # compact, let's see how long will it last
         "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
 
         "browser.tabs.tabMinWidth" = 16;
@@ -17,9 +24,9 @@
         "browser.shell.defaultBrowserCheckCount" = 1;
       };
 
-
       # ~/.mozilla/firefox/default/chrome/userChrome.css
       userChrome = lib.readFile ./firefox-userChrome.css;
+
       # userChrome = ''
       #   #nav-bar, #urlbar-container, #searchbar { visibility: collapse !important; }
       #   #tab-background { max-height: 32px !important; }
@@ -32,6 +39,7 @@
       extensions.packages = with pkgs.firefox-addons; [
         vimium-c
         immersive-translate
+        #tree-style-tab
       ];
     };
   };
