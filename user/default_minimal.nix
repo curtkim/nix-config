@@ -19,6 +19,7 @@
     ./kitty.nix
     ./ssh.nix
     ./yazi.nix
+    ./tealdeer.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -109,7 +110,7 @@
       unzip
       unixtools.xxd # 16진수
       #litecli    # cli for SQLite
-      tldr
+      #tealdeer # tldr
       fx # json viewer
 
       caligula # alternative to dd
