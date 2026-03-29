@@ -93,6 +93,7 @@
       distrobox
 
       #util
+      dogedns
       serie # A rich git commit graph in your terminal
       bat
       fzf
