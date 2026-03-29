@@ -20,6 +20,7 @@
     ./ssh.nix
     ./yazi.nix
     ./tealdeer.nix
+    ./sdcv.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -92,7 +93,6 @@
       distrobox
 
       #util
-      lazygit
       serie # A rich git commit graph in your terminal
       bat
       fzf
