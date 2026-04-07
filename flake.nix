@@ -122,11 +122,7 @@
             #inherit (inputs) uv2nix pyproject-nix pyproject-build-systems;
           }
         )
-        (final: prev: {
-          firefox-addons = import inputs.firefox-addons {
-            inherit (final) fetchurl lib stdenv;
-          };
-        })
+        inputs.firefox-addons.overlays.default
       ];
       cudaPkgsConfig = {
         allowUnfree = true;
@@ -151,7 +147,7 @@
           ];
         permittedInsecurePackages = [
           "freeimage-unstable-2021-11-01"
-          "immersive-translate-1.23.9"
+          "immersive-translate-1.26.5"
         ];
       };
       pkgs = import nixpkgs {

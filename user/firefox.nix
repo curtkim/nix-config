@@ -39,6 +39,7 @@
       extensions.packages = with pkgs.firefox-addons; [
         vimium-c
         immersive-translate
+        web-clipper-obsidian
         #tree-style-tab
       ];
     };
