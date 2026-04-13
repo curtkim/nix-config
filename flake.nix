@@ -194,6 +194,16 @@
         ];
       };
 
+      nixosConfigurations.max1 = nixpkgs.lib.nixosSystem {
+        system = system;
+        specialArgs = specialArgs // {
+          hostName = "max1";
+        };
+        modules = [
+          ./host/max1
+        ];
+      };
+
       nixosConfigurations.roter = nixpkgs.lib.nixosSystem {
         system = system;
         specialArgs = specialArgs // {
