@@ -113,6 +113,7 @@
       #litecli    # cli for SQLite
       #tealdeer # tldr
       fx # json viewer
+      tree-sitter
 
       caligula # alternative to dd
 
