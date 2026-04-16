@@ -27,9 +27,5 @@
 
   # Realtek RTL8127 10GbE Controller
   hardware.enableRedistributableFirmware = true;
-  boot.extraModulePackages = with config.boot.kernelPackages; [
-    r8168
-  ];
-  boot.blacklistedKernelModules = [ "r8169" ];
-
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 }
