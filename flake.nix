@@ -87,7 +87,6 @@
       ...
     }:
     let
-      system = "x86_64-linux";
       overlays = [
         (import rust-overlay)
         (
@@ -116,39 +115,51 @@
             "samsung-unified-linux-driver"
             "amp-cli"
             "google-chrome"
+            "claude-code"
           ];
         permittedInsecurePackages = [
           "freeimage-unstable-2021-11-01"
           "immersive-translate-1.26.5"
         ];
       };
-      pkgs = import nixpkgs {
-        system = system;
-        config = commonPkgsConfig; # // cudaPkgsConfig;
-        overlays = overlays;
-      };
-      pkgs-unstable = import nixpkgs-unstable {
-        system = system;
-        config = commonPkgsConfig // cudaPkgsConfig;
-        overlays = [ ];
-      };
+
       specialArgs = {
         hostName = "none";
         userName = "curt";
         nixpkgs = nixpkgs;
         disko = disko;
-        hyprland = hyprland;
         jetpack-nixos = jetpack-nixos;
-        pkgs-unstable = pkgs-unstable;
-        yt-x = yt-x;
         inherit inputs;
       };
 
+      mkHome = { system, modules }:
+        let
+          pkgs = import nixpkgs {
+            system = system;
+            config = commonPkgsConfig; # // cudaPkgsConfig;
+            overlays = overlays;
+          };
+          pkgs-unstable = import nixpkgs-unstable {
+            system = system;
+            config = commonPkgsConfig; # // cudaPkgsConfig;
+            overlays = [ ];
+          };
+          extraSpecialArgs = specialArgs // {
+            pkgs-unstable = pkgs-unstable;
+            hyprland = hyprland;
+            yt-x = yt-x;
+          };
+        in
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = pkgs;
+          extraSpecialArgs = extraSpecialArgs;
+          inherit modules;
+        };
 
     in
     {
       nixosConfigurations.um790 = nixpkgs.lib.nixosSystem {
-        system = system;
+        system = "x86_64-linux";
         specialArgs = specialArgs // {
           hostName = "um790";
         };
@@ -167,7 +178,7 @@
       };
 
       nixosConfigurations.max1 = nixpkgs.lib.nixosSystem {
-        system = system;
+        system = "x86_64-linux";
         specialArgs = specialArgs // {
           hostName = "max1";
         };
@@ -188,7 +199,7 @@
       };
 
       nixosConfigurations.roter = nixpkgs.lib.nixosSystem {
-        system = system;
+        system = "x86_64-linux";
         specialArgs = specialArgs // {
           hostName = "roter";
         };
@@ -198,7 +209,7 @@
       };
 
       nixosConfigurations.gen53 = nixpkgs.lib.nixosSystem {
-        system = system;
+        system = "x86_64-linux";
         specialArgs = specialArgs // {
           hostName = "gen53";
         };
@@ -208,7 +219,7 @@
       };
 
       nixosConfigurations.vostro = nixpkgs.lib.nixosSystem {
-        system = system;
+        system = "x86_64-linux";
         specialArgs = specialArgs // {
           hostName = "vostro";
         };
@@ -218,7 +229,7 @@
       };
 
       nixosConfigurations."vostro-console" = nixpkgs.lib.nixosSystem {
-        system = system;
+        system = "x86_64-linux";
         specialArgs = specialArgs // {
           hostName = "vostro";
         };
@@ -228,7 +239,7 @@
       };
 
       nixosConfigurations.black = nixpkgs.lib.nixosSystem {
-        system = system;
+        system = "x86_64-linux";
         specialArgs = specialArgs // {
           hostName = "black";
           cudaSupport = true;
@@ -288,7 +299,7 @@
       };
 
       nixosConfigurations.silver = nixpkgs.lib.nixosSystem {
-        system = system;
+        system = "x86_64-linux";
         specialArgs = specialArgs // {
           hostName = "silver";
         };
@@ -307,35 +318,46 @@
       };
 
 
-      homeConfigurations.curt = home-manager.lib.homeManagerConfiguration {
-        pkgs = pkgs;
-        extraSpecialArgs = specialArgs;
+      homeConfigurations.curt = mkHome {
+        system = "x86_64-linux";
         modules = [
           ./user
         ];
       };
-      homeConfigurations.curt_minimal = home-manager.lib.homeManagerConfiguration {
-        pkgs = pkgs;
-        extraSpecialArgs = specialArgs;
+      homeConfigurations.curt_arm = mkHome {
+        system = "aarch64-linux";
+        modules = [
+          ./user
+        ];
+      };
+
+      homeConfigurations.curt_minimal = mkHome {
+        system = "x86_64-linux";
+        modules = [
+          ./user/default-minimal.nix
+        ];
+      };
+      homeConfigurations.curt_minimal_arm = mkHome {
+        system = "aarch64-linux";
         modules = [
           ./user/default-minimal.nix
         ];
       };
 
-      packages."x86_64-linux" =
-        let
-          neovimConfigured = nvf.lib.neovimConfiguration {
-            inherit pkgs;
-            modules = [
-              {
-                config.vim = import ./nvf.nix { pkgs = pkgs; };
-              }
-            ];
-          };
-        in
-        {
-          vi = neovimConfigured.neovim;
-        }
-        // (import ./pkgs { inherit pkgs; });
+      # packages."x86_64-linux" =
+      #   let
+      #     neovimConfigured = nvf.lib.neovimConfiguration {
+      #       inherit pkgs;
+      #       modules = [
+      #         {
+      #           config.vim = import ./nvf.nix { pkgs = pkgs; };
+      #         }
+      #       ];
+      #     };
+      #   in
+      #   {
+      #     vi = neovimConfigured.neovim;
+      #   }
+      #   // (import ./pkgs { inherit pkgs; });
     };
 }
