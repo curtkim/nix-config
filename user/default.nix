@@ -59,15 +59,6 @@
     #vivaldi
     #floorp
     w3m
-    (google-chrome.override {
-      commandLineArgs = [
-        #"--ozone-platform=wayland"
-        "--enable-wayland-ime"
-        "--enable-unsafe-webgpu"
-        "--enable-webgpu-developer-feature"
-        "--force-webgpu-compat"
-      ];
-    })
 
     # gnome
     gnome-session
@@ -88,7 +79,18 @@
     # for windows
     spice-gtk
 
-    inputs.yt-x.packages."${system}".default
+    inputs.yt-x.packages."${pkgs.stdenv.hostPlatform.system}".default
+  ]
+  ++ lib.optionals (pkgs.stdenv.hostPlatform.system == "x86_64-linux") [
+    (google-chrome.override {
+      commandLineArgs = [
+        #"--ozone-platform=wayland"
+        "--enable-wayland-ime"
+        "--enable-unsafe-webgpu"
+        "--enable-webgpu-developer-feature"
+        "--force-webgpu-compat"
+      ];
+    })
   ];
 
   # gnome을 사용할때 사용하는 setting

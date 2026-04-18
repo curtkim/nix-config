@@ -47,10 +47,6 @@
     #hyprlock.url = "github:hyprwm/Hyprlock";
     #hyprlock.inputs.nixpkgs.follows = "nixpkgs-unstable";
     #hyprland.url = "github:hyprwm/Hyprland";
-    darwin = {
-      url = "github:lnl7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -58,30 +54,6 @@
 
     nvf = {
       url = "github:notashelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    claude-desktop = {
-      url = "github:k3d3/claude-desktop-linux-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-      #inputs.flake-utils.follows = "flake-utils";
-    };
-
-    uv2nix = {
-      url = "github:pyproject-nix/uv2nix";
-      inputs.pyproject-nix.follows = "pyproject-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    pyproject-nix = {
-      url = "github:pyproject-nix/pyproject.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    pyproject-build-systems = {
-      url = "github:pyproject-nix/build-system-pkgs";
-      inputs.pyproject-nix.follows = "pyproject-nix";
-      inputs.uv2nix.follows = "uv2nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -107,7 +79,6 @@
       hyprland,
       home-manager,
       disko,
-      darwin,
       rust-overlay,
       nvf,
       jetpack-nixos,
@@ -176,7 +147,6 @@
         inherit inputs;
       };
 
-      forAllSystems = nixpkgs.lib.genAttrs [ system ];
     in
     {
       nixosConfigurations.um790 = nixpkgs.lib.nixosSystem {

@@ -2,13 +2,11 @@
   config,
   pkgs,
   lib,
-  pkgs-unstable,
   ...
 }:
 {
   programs.firefox = {
     enable = true;
-    #package = pkgs-unstable.firefox;
 
     profiles.default = {
       settings = {
