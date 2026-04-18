@@ -394,9 +394,5 @@
           #inherit (inputs) uv2nix pyproject-nix pyproject-build-systems;
         });
 
-      devShells = import ./devshells {
-        pkgs = pkgs;
-        forAllSystems = forAllSystems;
-      };
     };
 }
