@@ -92,10 +92,7 @@
         (import rust-overlay)
         (
           final: prev:
-          import ./pkgs {
-            pkgs = prev;
-            #inherit (inputs) uv2nix pyproject-nix pyproject-build-systems;
-          }
+          import ./pkgs { pkgs = prev; }
         )
         inputs.firefox-addons.overlays.default
       ];
@@ -146,6 +143,7 @@
         yt-x = yt-x;
         inherit inputs;
       };
+
 
     in
     {
@@ -323,8 +321,6 @@
           ./user/default-minimal.nix
         ];
       };
-
-      #packages = import ./pkgs nixpkgs.legacyPackages.x86_64-linux;
 
       packages."x86_64-linux" =
         let
