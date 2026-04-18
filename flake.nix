@@ -9,6 +9,7 @@
       "https://cache.nixos.org/"
       "https://nix-community.cachix.org"
       "https://cuda-maintainers.cachix.org"
+      "https://graham33.cachix.org"
       "https://hyprland.cachix.org"
       "http://192.168.0.198:5000"
     ];
@@ -16,6 +17,7 @@
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
+      "graham33.cachix.org-1:DqH72VpwSrACa3+L9eqh4bixjWx9IQUaxQtRh4gtkX8="
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       "192.168.0.198:xAxl3IZFQCZKbaEfNm/HljvQvm+Q14HSIHcdeMccy6g="
     ];
@@ -94,6 +96,7 @@
       url = "github:Benexl/yt-x";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    dgx-spark.url = "github:graham33/nixos-dgx-spark";
   };
 
   outputs =
@@ -109,6 +112,7 @@
       nvf,
       jetpack-nixos,
       yt-x,
+      dgx-spark,
       ...
     }:
     let
@@ -201,6 +205,17 @@
         };
         modules = [
           ./host/max1
+        ];
+      };
+
+      nixosConfigurations.spark1 = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        specialArgs = specialArgs // {
+          hostName = "spark1";
+        };
+        modules = [
+          dgx-spark.nixosModules.dgx-spark
+          ./host/spark1
         ];
       };
 
