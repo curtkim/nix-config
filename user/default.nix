@@ -8,7 +8,7 @@
 
 {
   imports = [
-    ./default_minimal.nix
+    ./default-minimal.nix
     ./ui-theme.nix
     ./xdg-mimeApps.nix
 

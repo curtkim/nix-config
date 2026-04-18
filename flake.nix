@@ -350,7 +350,7 @@
         pkgs = pkgs;
         extraSpecialArgs = specialArgs;
         modules = [
-          ./user/default_minimal.nix
+          ./user/default-minimal.nix
         ];
       };
 

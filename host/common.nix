@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ./user_curt.nix
+    ./user-curt.nix
     ./nix.nix
     ./locale.nix
     ./console.nix
