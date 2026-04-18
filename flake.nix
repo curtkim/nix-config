@@ -271,12 +271,6 @@
             nixpkgs.overlays = overlays;
           }
           ./host/black
-          #hyprland.nixosModules.default
-          #          home-manager.nixosModules.home-manager
-          #          {
-          #            home-manager.users.curt = import ./user;
-          #            home-manager.extraSpecialArgs = specialArgs;
-          #          }
         ];
       };
 
@@ -364,24 +358,18 @@
 
       packages."x86_64-linux" =
         let
-          neovimConfigured = (
-            nvf.lib.neovimConfiguration {
-              inherit pkgs;
-              modules = [
-                {
-                  config.vim = import ./nvf.nix { pkgs = pkgs; };
-                }
-              ];
-            }
-          );
+          neovimConfigured = nvf.lib.neovimConfiguration {
+            inherit pkgs;
+            modules = [
+              {
+                config.vim = import ./nvf.nix { pkgs = pkgs; };
+              }
+            ];
+          };
         in
         {
           vi = neovimConfigured.neovim;
         }
-        // (import ./pkgs {
-          inherit pkgs;
-          #inherit (inputs) uv2nix pyproject-nix pyproject-build-systems;
-        });
-
+        // (import ./pkgs { inherit pkgs; });
     };
 }
