@@ -13,7 +13,7 @@
     ./services.nix
     ./keyboard-voyager.nix
     ./security.nix
-    ./desktop.nix
+    ./dconf.nix
   ];
 
   # Enable touchpad support (enabled default in most desktopManager).

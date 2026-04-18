@@ -1,5 +1,4 @@
 { config, pkgs, hyprland, ... }:
-
 {
   security = {
     polkit.enable = true;

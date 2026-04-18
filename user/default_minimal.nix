@@ -16,7 +16,6 @@
     ./nvim.nix
     ./git.nix
 
-    ./kitty.nix
     ./ssh.nix
     ./yazi.nix
     ./tealdeer.nix

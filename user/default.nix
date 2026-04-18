@@ -10,8 +10,9 @@
   imports = [
     ./default_minimal.nix
     ./ui-theme.nix
-    ./mimeApps.nix
-    #./vscode.nix
+    ./xdg-mimeApps.nix
+
+    ./kitty.nix
     ./firefox.nix
 
     ./hyprland
@@ -26,8 +27,7 @@
     options = "--delete-older-than 30";
   };
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
+
   home.packages = with pkgs; [
 
     # device
@@ -88,22 +88,10 @@
     # for windows
     spice-gtk
 
-    #inputs.claude-desktop.packages.${system}.claude-desktop-with-fhs
-    #    (inputs.claude-desktop.packages.${system}.claude-desktop.overrideAttrs (oldAttrs: {
-    #      installPhase = oldAttrs.installPhase + ''
-    #      rm $out/bin/$pname
-    #      makeWrapper ${pkgs.electron}/bin/electron $out/bin/$pname \
-    #        --add-flags "$out/lib/$pname/app.asar" \
-    #        --add-flags "--openDevTools" \
-    #        --add-flags "--enable-wayland-ime" \
-    #        --add-flags "--ozone-platform=wayland" \
-    #        --add-flags "--enable-features=WaylandWindowDecorations,WebRTCPipeWireCapturer"
-    #    '';
-    #    }))
-
     inputs.yt-x.packages."${system}".default
   ];
 
+  # gnome을 사용할때 사용하는 setting
   dconf.settings = {
     "org/gnome/desktop/peripherals/keyboard" = {
       repeat-interval = 30;

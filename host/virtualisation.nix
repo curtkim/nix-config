@@ -1,21 +1,4 @@
 {pkgs, nixpkgs, ...}:{
-  #  imports = [ 
-  #    "${nixpkgs}/nixos/modules/virtualisation/qemu-vm.nix"
-  #    #<nixpkgs/nixos/modules/virtualisation/qemu-vm.nix> 
-  #  ];
-  #
-  #  environment.systemPackages = [
-  #    pkgs.qemu 
-  #    pkgs.spice-gtk
-  #  ];
-  #
-  #  virtualisation.qemu.options = [
-  #    "-vga qxl"
-  #    "-spice port=5924,disable-ticketing=on"
-  #    "-device virtio-serial -chardev spicevmc,id=vdagent,debug=0,name=vdagent"
-  #    "-device virtserialport,chardev=vdagent,name=com.redhat.spice.0"
-  #  ];
-  #services.spice-vdagentd.enable = true;
 
   environment.systemPackages = [
     pkgs.qemu 
@@ -35,10 +18,7 @@
     libvirtd = {
       enable = true;
     };
-
-    #    incus = {
-    #      enable = true;
-    #    };
   };
-  programs.virt-manager.enable = true;
+
+  #programs.virt-manager.enable = true;
 }
