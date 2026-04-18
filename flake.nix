@@ -344,17 +344,6 @@
         ];
       };
 
-      darwinConfigurations."curtg" = darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
-        modules = [
-          ./hosts/m2/default.nix
-          home-manager.darwinModules.home-manager
-          {
-            home-manager.users.curt = import ./user/default_mac.nix;
-            home-manager.extraSpecialArgs = specialArgs;
-          }
-        ];
-      };
 
       homeConfigurations.curt = home-manager.lib.homeManagerConfiguration {
         pkgs = pkgs;
