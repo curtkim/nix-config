@@ -28,6 +28,7 @@
     ../so101-serial.nix
     ../nix-distributed-build-machine.nix
     ../android-dev.nix
+    ../keyboard-totem.nix
   ];
 
   networking.hostName = hostName; # Define your hostname.

@@ -12,6 +12,7 @@
       "render"
       "libvirt"
       "adbusers"
+      "kvm"
     ];
     packages = with pkgs; [
     ];
