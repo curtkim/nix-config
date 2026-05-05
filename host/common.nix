@@ -6,7 +6,7 @@
     ./locale.nix
     ./console.nix
     ./font.nix
-    ./input-method.nix
+    #./input-method.nix
     ./virtualisation.nix
     ./network.nix
     ./sound.nix

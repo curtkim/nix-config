@@ -20,6 +20,7 @@
     ./yazi.nix
     ./tealdeer.nix
     ./sdcv.nix
+    ./kime.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -113,6 +114,7 @@
       #tealdeer # tldr
       fx # json viewer
       tree-sitter
+      killall
 
       caligula # alternative to dd
 
