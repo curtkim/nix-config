@@ -1,5 +1,5 @@
 {
   services.udev.extraRules = ''
-    SUBSYSTEM=="usb", ATTR{idVendor}=="fee3", ATTR{idProduct}=="0000", MODE="0666"
+    KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="fee3", ATTRS{idProduct}=="0000", MODE="0666"
   '';
 }
