@@ -17,6 +17,7 @@
 
     ./hyprland
     ./hyprlock.nix
+    ./hypridle.nix
 
     ./i3.nix
   ];
