@@ -23,6 +23,11 @@ _: {
       #$mainMod, K, movefocus, u
       #$mainMod, J, movefocus, d
       "$mainMod, Tab, cyclenext"
+      # for totem
+      "$mainMod, T, cyclenext"
+
+      # $mainMod + W -> submap -> q/w/e/r/t for workspace 1/2/3/4/5
+      "$mainMod, W, submap, workspaces"
 
       # Switch workspaces with mainMod + [0-9]
       "$mainMod, 1, workspace, 1"
@@ -86,4 +91,20 @@ _: {
       "$mainMod, mouse:273, resizewindow"
     ];
   };
+
+  wayland.windowManager.hyprland.extraConfig = ''
+    submap = workspaces
+    bind = , Q, workspace, 1
+    bind = , Q, submap, reset
+    bind = , W, workspace, 2
+    bind = , W, submap, reset
+    bind = , E, workspace, 3
+    bind = , E, submap, reset
+    bind = , R, workspace, 4
+    bind = , R, submap, reset
+    bind = , T, workspace, 5
+    bind = , T, submap, reset
+    bind = , escape, submap, reset
+    submap = reset
+  '';
 }
