@@ -77,6 +77,7 @@
 
     # joy
     cmatrix
+    blanket   # white noise
 
     # for windows
     spice-gtk
