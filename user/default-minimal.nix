@@ -207,6 +207,8 @@
       (pkgs-unstable.python3.withPackages (ps: [
         ps.llm
         ps.llm-ollama
+        ps.llm-deepseek
+        ps.llm-openrouter
       ]))
     ];
 }
