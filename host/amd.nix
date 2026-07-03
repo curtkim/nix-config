@@ -6,6 +6,6 @@
   };
   #hardware.amdgpu.amdvlk.enable = true;
 
-  services.xserver.videoDrivers = ["admgpu"]; 
+  services.xserver.videoDrivers = ["amdgpu"];
 
 }

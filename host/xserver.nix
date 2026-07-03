@@ -11,10 +11,6 @@
     #displayManager.lightdm.enable = true;
     #displayManager.startx.generateScript = true;
 
-    displayManager.gdm.enable = false;
-    #displayManager.gdm.wayland = false;
-    desktopManager.gnome.enable = false;
-
     windowManager.i3.enable = true;
 
     excludePackages = [
@@ -27,6 +23,9 @@
       variant = "";
     };
   };
+
+  services.desktopManager.gnome.enable = false;
+  services.displayManager.gdm.enable = false;
 
   environment.systemPackages = with pkgs; [
     #gnome-session
