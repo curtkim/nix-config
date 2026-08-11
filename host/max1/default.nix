@@ -15,4 +15,10 @@
   ];
 
   networking.hostName = hostName; # Define your hostname.
+
+  environment.systemPackages = with pkgs; [
+    rocmPackages.rocminfo
+    rocmPackages.rocm-smi
+  ]
+
 }
