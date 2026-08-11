@@ -16,6 +16,9 @@ in
     vimAlias = true;
     vimdiffAlias = true;
 
+    withRuby = false;
+    withPython3 = false;
+
     extraLuaPackages = ls:
       with ls; [
         luarocks
