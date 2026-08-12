@@ -14,11 +14,33 @@
     ../common.nix
   ];
 
+
   networking.hostName = hostName; # Define your hostname.
 
+  boot.kernelParams = [ 
+    "ttm.pages_limit=29360128" 
+  ];
+
   environment.systemPackages = with pkgs; [
+    amdgpu_top
     rocmPackages.rocminfo
     rocmPackages.rocm-smi
-  ]
+    ds4
+    fastflowlm
+  ];
 
+  security.pam.loginLimits = [
+    {
+      domain = "*";
+      type = "soft";
+      item = "memlock";
+      value = "8388608";
+    }
+    {
+      domain = "*";
+      type = "hard";
+      item = "memlock";
+      value = "8388608";
+    }
+  ];
 }

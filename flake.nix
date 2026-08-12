@@ -12,6 +12,7 @@
       "https://graham33.cachix.org"
       "https://hyprland.cachix.org"
       "http://192.168.0.198:5000"
+      "https://nix-amd-ai.cachix.org"
     ];
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
@@ -20,6 +21,7 @@
       "graham33.cachix.org-1:DqH72VpwSrACa3+L9eqh4bixjWx9IQUaxQtRh4gtkX8="
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       "192.168.0.198:xAxl3IZFQCZKbaEfNm/HljvQvm+Q14HSIHcdeMccy6g="
+      "nix-amd-ai.cachix.org-1:F4OU4vw/lV2oiG6SBHZ+nqjl4EFJuqI4X9A7pvaBmhQ="
     ];
   };
 
@@ -69,6 +71,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     dgx-spark.url = "github:graham33/nixos-dgx-spark";
+    nix-amd-ai.url = "github:noamsto/nix-amd-ai";
   };
 
   outputs =
@@ -84,6 +87,7 @@
       jetpack-nixos,
       yt-x,
       dgx-spark,
+      nix-amd-ai,
       ...
     }:
     let
@@ -183,6 +187,21 @@
           hostName = "max1";
         };
         modules = [
+          nix-amd-ai.nixosModules.default
+          {
+            hardware.amd-npu = {
+              enable = true;
+              enableNPU = true;         # default; set false for GPU-only hosts (see "Other hardware")
+              enableFastFlowLM = true;  # LLM inference on NPU (requires enableNPU)
+              enableLemonade = false;   # OpenAI-compatible API server
+              enableROCm = true;        # ROCm GPU backends (llamacpp + sd-cpp)
+              enableVulkan = true;      # Vulkan GPU backends (llamacpp + whispercpp)
+              enableImageGen = false;   # default true; set false to drop sd-cpp from closure
+              lemonade.user = "curt";
+            };
+
+            users.users.curt.extraGroups = ["video" "render"];
+          }
           ./host/max1
         ];
       };
