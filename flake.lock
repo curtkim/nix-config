@@ -272,6 +272,26 @@
     },
     "flake-parts_4": {
       "inputs": {
+        "nixpkgs-lib": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1787559586,
+        "narHash": "sha256-onL0VLf9vPllmT0H/OlURIU5r5t5WIEl7t4tVNKT0Nw=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "9d0d87172c374f89da73c1cfe6d81ae62feac1f1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "flake-parts_5": {
+      "inputs": {
         "nixpkgs-lib": "nixpkgs-lib_2"
       },
       "locked": {
@@ -710,7 +730,7 @@
     "nix-amd-ai": {
       "inputs": {
         "flake-compat": "flake-compat_3",
-        "flake-parts": "flake-parts_4",
+        "flake-parts": "flake-parts_5",
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs_3"
       },
@@ -973,6 +993,7 @@
         "dgx-spark": "dgx-spark",
         "disko": "disko_2",
         "firefox-addons": "firefox-addons",
+        "flake-parts": "flake-parts_4",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "jetpack-nixos": "jetpack-nixos",
