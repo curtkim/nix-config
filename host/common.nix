@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 {
   imports = [
     ./user-curt.nix
@@ -43,6 +43,7 @@
     #    wimlib
 
     home-manager
+    inputs.self.packages.${pkgs.system}.neovim
   ];
 
   # This value determines the NixOS release from which the default

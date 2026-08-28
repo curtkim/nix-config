@@ -13,7 +13,7 @@
     ./tmux.nix
     ./starship.nix
     ./zoxide.nix
-    ./nvim.nix
+    #./nvim.nix
     ./git.nix
 
     ./ssh.nix
