@@ -14,6 +14,7 @@
       extended = true;
     };
     shellAliases = {
+      vi = "nvim";
       ls = "eza";
       l = "eza -l --time-style iso";
       la = "eza -la";
