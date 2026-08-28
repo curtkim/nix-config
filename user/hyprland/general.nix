@@ -160,7 +160,6 @@ _: {
   wayland.windowManager.hyprland.extraConfig = ''
     hl.on("hyprland.start", function()
       hl.exec_cmd("dunst")
-      hl.exec_cmd("kime")
     end)
   '';
 }
