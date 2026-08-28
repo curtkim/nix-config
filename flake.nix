@@ -76,11 +76,22 @@
     };
     dgx-spark.url = "github:graham33/nixos-dgx-spark";
     nix-amd-ai.url = "github:noamsto/nix-amd-ai";
+
+    wrappers = {
+      url = "github:BirdeeHub/nix-wrapper-modules";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ flake-parts, ... }:
+  outputs = inputs@{ flake-parts, wrappers, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" "aarch64-linux" ];
-      imports = [ ./parts ];
+
+      imports = [ 
+        wrappers.flakeModules.wrappers 
+        ./parts
+      ];
+
+      flake.wrappers.neovim = ./wrapper/neovim;
     };
 }
