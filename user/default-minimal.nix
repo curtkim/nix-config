@@ -155,6 +155,7 @@
       nodejs_22
       yarn
       clang-tools
+      elan # lean4 toolchain manager (lean, lake)
 
       #python311
       #python3Packages.debugpy
