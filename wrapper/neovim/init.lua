@@ -199,6 +199,27 @@ do
   end
 end
 
+-- lean.nvim (lean 4)
+do
+  require('lean').setup {
+    -- 제안 매핑은 <LocalLeader> 기반인데 여기선 localleader가 <space>라
+    -- <leader>s(telescope) 등과 부딪힌다. 아래에서 '\\'로 다시 건다.
+    mappings = false,
+  }
+
+  vim.api.nvim_create_autocmd('FileType', {
+    desc = 'lean.nvim 제안 매핑을 <LocalLeader> = \\ 로 걸기',
+    pattern = 'lean',
+    group = vim.api.nvim_create_augroup('lean-mappings', { clear = true }),
+    callback = function(args)
+      local saved = vim.g.maplocalleader
+      vim.g.maplocalleader = '\\'
+      require('lean').use_suggested_mappings(args.buf)
+      vim.g.maplocalleader = saved
+    end,
+  })
+end
+
 -- conform (formatting)
 require('conform').setup {
   notify_on_error = false,

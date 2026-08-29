@@ -41,6 +41,19 @@
     data = pkgs.vimPlugins.nvim-treesitter.withAllGrammars;
   };
 
+  # --- lean 4 ------------------------------------------------------------------
+  # lean.nvim: filetype/syntax/ftplugin + treesitter query(highlights.scm) 제공
+  # tree-sitter-lean: nvim-treesitter에 없는 grammar라서 parser/lean.so로 직접 붙임
+  specs.lean = {
+    data = [
+      pkgs.vimPlugins.lean-nvim
+      (pkgs.runCommandLocal "lean-treesitter-parser" { } ''
+        mkdir -p "$out/parser"
+        ln -s ${pkgs.tree-sitter-grammars.tree-sitter-lean}/parser "$out/parser/lean.so"
+      '')
+    ];
+  };
+
   # --- completion & snippets --------------------------------------------------
   specs.completion = {
     data = with pkgs.vimPlugins; [
@@ -117,6 +130,7 @@
     fd
     gnumake
     delve
+    elan # lean/lake (lean.nvim LSP)
   ];
 
   # --- specMods for per-spec runtimePkgs -------------------------------------
