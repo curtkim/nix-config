@@ -39,6 +39,7 @@
           - TreatJongseongAsChoseong
   '';
 
+  # ~/.config/kime/layouts/
   xdg.configFile."kime/layouts/my-dubeolsik.yaml".source = ./kime-my-dubeolsik.yaml;
 
   # home-manager 기본 유닛은 Type=oneshot + kime 자체 daemonize라 systemd가

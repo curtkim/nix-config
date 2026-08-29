@@ -19,8 +19,8 @@
     ./hyprlock.nix
     ./hypridle.nix
 
-    ./i3.nix
-    ./fabric-ai.nix
+    #./i3.nix
+    #./fabric-ai.nix
   ];
 
   nix.gc = {
