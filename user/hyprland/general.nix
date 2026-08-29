@@ -65,6 +65,14 @@ _: {
         preserve_split = true; # You probably want this
       };
 
+      cursor = {
+        # amdgpu 의 하드웨어 커서 plane 이 s2idle 복귀 후 되살아나지 않아
+        # 커서가 보이지 않는 문제 회피 (동작은 하지만 그려지지 않음).
+        # 2026-08-29 max1 (Strix Halo, Hyprland 0.55.4) 에서 확인.
+        # 임시 복구는 `hyprctl setcursor breeze_cursors 32`.
+        no_hardware_cursors = true;
+      };
+
       misc = {
         force_default_wallpaper = 0; # Set to 0 or 1 to disable the anime mascot wallpapers
         disable_hyprland_logo = true; # If true disables the random hyprland logo / anime girl background. :(
