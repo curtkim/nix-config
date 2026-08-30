@@ -258,12 +258,24 @@ end
 require('blink.cmp').setup {
   keymap = {
     preset = 'default',
+    ['<Down>'] = { 'select_next', 'fallback' },
+    ['<Up>'] = { 'select_prev', 'fallback' },
+    ['<CR>'] = { 'accept', 'fallback' },
+  },
+  cmdline = {
+    keymap = {
+      preset = 'cmdline',
+      ['<Down>'] = { 'select_next', 'fallback' },
+      ['<Up>'] = { 'select_prev', 'fallback' },
+    },
   },
   appearance = {
     nerd_font_variant = 'mono',
   },
   completion = {
     documentation = { auto_show = false, auto_show_delay_ms = 500 },
+    -- 첫 항목을 미리 선택하지 않음: 직접 고르기 전엔 <CR>이 줄바꿈으로 동작
+    list = { selection = { preselect = false } },
   },
   sources = {
     default = { 'lsp', 'path', 'snippets' },
