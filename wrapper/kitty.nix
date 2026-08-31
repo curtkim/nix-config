@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   lib,
   wlib,
@@ -8,11 +9,20 @@
 {
   imports = [ wlib.wrapperModules.kitty ];
 
+  # 합성용 주입 지점. parts/wrappers.nix 의 packages.terminal 이
+  # packages.environment (zsh wrapper) 를 여기에 꽂는다.
+  # null 이면 kitty 가 사용자의 로그인 셸을 쓴다 (kitty 기본 동작).
+  options.shell = lib.mkOption {
+    type = lib.types.nullOr lib.types.str;
+    default = null;
+    description = "kitty 가 띄울 셸의 실행 파일 경로 (kitty.conf 의 shell).";
+  };
+
   # 옵션 이름은 home-manager 의 programs.kitty 와 그대로 대응된다.
   # (settings / themeFile / font / keybindings / mouseBindings / actionAliases /
   #  environment / extraConfig)
 
-  font = {
+  config.font = {
     name = "JetBrainsMonoNL Nerd Font Thin";
     #name = "JetBrainsMonoNL NFM Regular";
     #name = "JetBrainsMonoNL NFM ExtraLight";
@@ -20,7 +30,9 @@
     size = 13;
   };
 
-  settings = {
+  config.settings = {
+    shell = lib.mkIf (config.shell != null) config.shell;
+
     scrollback_lines = 5000;
     paste_actions = "filter";
     #cursor_trail = 1;
@@ -31,7 +43,7 @@
     shell_integration = "no-rc";
   };
 
-  keybindings = {
+  config.keybindings = {
     #"ctrl+c" = "copy_and_clear_or_interrupt";
     #"ctrl+v" = "paste_from_clipboard";
     "ctrl+shift+equal" = "change_font_size all +1.0";
@@ -43,5 +55,5 @@
   };
 
   # https://github.com/kovidgoyal/kitty-themes/tree/master/themes
-  themeFile = "tokyo_night_storm"; #"Catppuccin-Macchiato"; #"Tomorrow Night"; #"Nord";
+  config.themeFile = "tokyo_night_storm"; #"Catppuccin-Macchiato"; #"Tomorrow Night"; #"Nord";
 }

@@ -97,5 +97,6 @@
       flake.wrappers.tmux = ./wrapper/tmux.nix;
       flake.wrappers.kitty = ./wrapper/kitty.nix;
       flake.wrappers.starship = ./wrapper/starship.nix;
+      flake.wrappers.niri = ./wrapper/niri.nix;
     };
 }
