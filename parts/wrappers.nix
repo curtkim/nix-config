@@ -58,7 +58,6 @@ in
           pkgs.tree-sitter
           pkgs.imagemagick
           pkgs.imv
-          pkgs.ffmpeg-full
           pkgs.yt-dlp
           pkgs.lazygit
           pkgs.yazi # 원본의 lf 자리. 이 저장소는 yazi 를 쓴다
