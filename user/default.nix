@@ -56,6 +56,7 @@
     grim
     slurp
     imv # image viewer
+    xdg-utils # xdg-open, ./xdg-mimeApps.nix 의 연결을 실제로 실행해주는 쪽
 
     #firefox
     #vivaldi
