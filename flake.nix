@@ -94,5 +94,6 @@
 
       flake.wrappers.neovim = ./wrapper/neovim;
       flake.wrappers.zsh = ./wrapper/zsh.nix;
+      flake.wrappers.tmux = ./wrapper/tmux.nix;
     };
 }
