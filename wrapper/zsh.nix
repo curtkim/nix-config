@@ -35,6 +35,13 @@ let
     p: ''fpath+=("${p.src}/${builtins.dirOf p.file}")''
   ) plugins;
 
+  # starship wrapper. init 스크립트가 STARSHIP_CONFIG 를 들고 있는 wrapper 를
+  # 가리키게 하려면 구체적인 경로가 필요하다. (아래 zshrc 주석 참고)
+  starship = wlib.evalPackage [
+    { inherit pkgs; }
+    ./starship.nix
+  ];
+
   pluginSource = lib.concatMapStringsSep "\n" (p: ''
     # ${p.name}
     source "${p.src}/${p.file}"
@@ -121,10 +128,30 @@ in
     # --- plugins ------------------------------------------------------------
     ${pluginSource}
 
+    # --- kitty shell integration --------------------------------------------
+    # home-manager 의 programs.kitty.shellIntegration.enableZshIntegration(기본 true)가
+    # ~/.zshrc 에 넣어주던 것. kitty 밖에서는 KITTY_INSTALLATION_DIR 이 없어서 아무 일도 안 한다.
+    # kitty.conf 쪽 절반(shell_integration no-rc)은 wrapper/kitty.nix 에 있다.
+    if test -n "$KITTY_INSTALLATION_DIR"; then
+      export KITTY_SHELL_INTEGRATION="no-rc"
+      autoload -Uz -- "$KITTY_INSTALLATION_DIR"/shell-integration/zsh/kitty-integration
+      kitty-integration
+      unfunction kitty-integration
+    fi
+
     # --- fzf (programs.fzf.enableZshIntegration = true) ---------------------
     source "${pkgs.fzf}/share/fzf/completion.zsh"
     # zsh-vi-mode 가 init 시점에 keybinding 을 되돌리므로
     # fzf key-binding 은 zvm 초기화 이후에 다시 걸어준다 (Ctrl-R, Ctrl-T, Alt-C)
     zvm_after_init_commands+=('source "${pkgs.fzf}/share/fzf/key-bindings.zsh"')
+
+    # --- starship (programs.starship.enableZshIntegration = true) -----------
+    # zsh-vi-mode 뒤에 와야 starship 이 기존 zle-keymap-select widget 을 보존한다.
+    # starship 은 init 스크립트에 박아넣을 자기 경로를 PATH 에서 찾고,
+    # 못 찾으면 wrapping 되지 않은 원본 바이너리로 폴백해서 STARSHIP_CONFIG 를 잃는다.
+    # 그래서 init 을 부르는 동안만 PATH 앞에 wrapper 를 붙인다.
+    if [[ $TERM != "dumb" ]]; then
+      eval "$(PATH="${starship}/bin:$PATH" "${starship}/bin/starship" init zsh)"
+    fi
   '';
 }
