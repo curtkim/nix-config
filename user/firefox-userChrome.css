@@ -56,6 +56,13 @@
 #identity-box {
   visibility: collapse;
 }
+
+/* #identity-box 는 사이트 권한 요청 팝업의 앵커(#notification-popup-box)를
+   자식으로 가진다. visibility 는 상속되므로 위에서 collapse 하면 앵커까지 사라져
+   "알림을 보내도록 허용하시겠습니까?" 프롬프트가 아예 뜨지 않는다. 앵커만 되살린다. */
+#notification-popup-box {
+  visibility: visible;
+}
 #page-action-buttons{
   visibility: collapse;
 }

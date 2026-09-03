@@ -7,15 +7,11 @@
 {
   programs.firefox = {
     enable = true;
-
-    # home-manager 26.05 부터 home.stateVersion >= 26.05 이면 프로필 기본 경로가
-    # ~/.mozilla/firefox -> $XDG_CONFIG_HOME/mozilla/firefox 로 바뀐다.
-    # 기존 ~/.mozilla/firefox/default 프로필(5GB+)을 그대로 쓰기 위해 예전 경로로 고정.
+    #package = pkgs-unstable.firefox;
     configPath = ".mozilla/firefox";
 
     profiles.default = {
       settings = {
-        # userChrome.css 를 적용하려면 반드시 필요
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         "browser.uidensity" = 1; # compact, let's see how long will it last
         "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
