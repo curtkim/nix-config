@@ -165,9 +165,9 @@ _: {
 
   # Autostart. See https://wiki.hypr.land/Configuring/Basics/Autostart/
   # Uses the start hook so these do not respawn on every config reload.
-  wayland.windowManager.hyprland.extraConfig = ''
-    hl.on("hyprland.start", function()
-      hl.exec_cmd("dunst")
-    end)
-  '';
+  # wayland.windowManager.hyprland.extraConfig = ''
+  #   hl.on("hyprland.start", function()
+  #     hl.exec_cmd("dunst")
+  #   end)
+  # '';
 }
