@@ -4,6 +4,7 @@
   programs.tmux = {
     enable = true;
     sensibleOnTop = false;
+    terminal = "tmux-256color";
     shell = "${pkgs.zsh}/bin/zsh";
     prefix = "C-u";
     baseIndex = 1;
@@ -62,8 +63,16 @@
       set -g status-justify left
 
       # for kitty graphics protocol
-      set -gq allow-passthrough on
+      set -g allow-passthrough on
       set -g visual-activity off
+
+      # for claude code Shift+Enter
+      set -g allow-passthrough on
+      set -s extended-keys on
+      set -as terminal-features 'xterm*:extkeys'
+
+      # for claude code focus-tracking
+      set -g focus-events on
     '';
   };
 }

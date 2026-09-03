@@ -36,6 +36,8 @@
       # bypass to tmux
       "ctrl+shift+h" = "launch --type=background tmux previous-window";
       "ctrl+shift+l" = "launch --type=background tmux next-window";
+      # claude code: 줄바꿈만 하고 submit 하지 않기 (Esc + CR)
+      "shift+enter" = "send_text all \\x1b\\r";
     };
     # https://github.com/kovidgoyal/kitty-themes/tree/master/themes
     themeFile = "tokyo_night_storm"; #"Catppuccin-Macchiato"; #"Tomorrow Night"; #"Nord";
