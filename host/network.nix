@@ -15,7 +15,7 @@
     allowedTCPPorts = [ 
       80 443 8096 8200 8920 
       111 2049 4000 4001 4002 20048 # nfs
-      3000  # dev server
+      3000 8080  # general dev server
       8211  # issac-sim
       11434 # ollama
     ];
