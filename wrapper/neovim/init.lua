@@ -554,9 +554,17 @@ lze.load {
   {
     'markdown-preview.nvim',
     cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
-    after = function()
+    before = function()
+      -- plugin/mkdp.vim이 source될 때 읽으므로 로드 전에 설정해야 한다
       vim.g.mkdp_filetypes = { 'markdown' }
-      vim.g.mkdp_browser = 'google-chrome-stable'
+      -- mkdp_browser를 비워두면 linux에서 xdg-open을 사용한다 (기본 브라우저)
+      vim.g.mkdp_browser = ''
+    end,
+    after = function()
+      -- mkdp는 :MarkdownPreview 등을 BufEnter/FileType autocmd 안에서
+      -- buffer-local 명령으로 만든다. 지연 로딩된 시점에는 현재 버퍼의
+      -- 이벤트가 이미 지나갔으므로 직접 한 번 발생시켜 준다.
+      vim.api.nvim_exec_autocmds('BufEnter', { group = 'mkdp_init', modeline = false })
     end,
   },
 
