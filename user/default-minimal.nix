@@ -76,7 +76,7 @@
   home.packages =
     with pkgs;
     [
-
+      wlr-randr
       # font
       nerd-fonts.jetbrains-mono
       nerd-fonts.hack
