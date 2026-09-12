@@ -14,7 +14,7 @@
     historyLimit = 5000;
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
-      yank
+      #yank
       resurrect # prefix + Ctrl+s, prefix + Ctrl+r
     ];
     # bind -n     # without prefix
@@ -52,6 +52,8 @@
       # Quick Reload
       bind r source-file ~/.config/tmux/tmux.conf \; display "Reloaded!"
 
+      # yank to clipboard
+      set -g set-clipboard on
 
       # Status bar
       set-option -g status-position top
