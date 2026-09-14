@@ -41,11 +41,19 @@
 
   services.blueman.enable = true;
 
-  services.nix-serve = {
+
+  services.harmonia = {
     enable = true;
-    openFirewall = true;
-    secretKeyFile = "${./nix-serve-priv-key.pem}";
+    signKeyPaths = [ ./nix-serve-priv-key.pem ];
+    settings.bind = "0.0.0.0:5000";
   };
+  networking.firewall.allowedTCPPorts = [ 5000 ];
+
+  # services.nix-serve = {
+  #   enable = true;
+  #   openFirewall = true;
+  #   secretKeyFile = "${./nix-serve-priv-key.pem}";
+  # };
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
