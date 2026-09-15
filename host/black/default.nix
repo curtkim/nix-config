@@ -18,6 +18,7 @@
       ../icestick.nix
       #../printing.nix
       ./wake-on-lan.nix
+      ./openrgb-off.nix
       #../nix-distributed-build-client.nix
     ];
 
