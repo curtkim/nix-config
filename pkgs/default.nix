@@ -34,4 +34,6 @@ in
   ft-scservo-debug-qt = pkgs.callPackage ./ft-scservo-debug-qt.nix { };
 
   deepl-cli = pkgs.callPackage ./deepl-cli.nix { };
+
+  tmuxatlas = pkgs.callPackage ./tmuxatlas.nix { };
 }
