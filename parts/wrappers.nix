@@ -65,9 +65,9 @@ in
 
           # wrapped
           self'.packages.neovim
-          self'.packages.tmux
-          self'.packages.starship
-          self'.packages.nix-check-bin
+          #self'.packages.tmux
+          #self'.packages.starship
+          #self'.packages.nix-check-bin
         ];
         env.EDITOR = lib.getExe self'.packages.neovim;
       };
