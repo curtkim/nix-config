@@ -21,7 +21,7 @@
       defaultFonts = {
         serif = [ "Ubuntu" ];
         sansSerif = [ "Ubuntu" ];
-        monospace = [ "JetBrainsMono Nerd Font, Light" ];
+        monospace = [ "JetBrainsMono Nerd Font" ];
       };
     };
   };

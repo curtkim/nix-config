@@ -23,7 +23,10 @@
   #  environment / extraConfig)
 
   config.font = {
-    name = "JetBrainsMonoNL Nerd Font Thin";
+    # kitty 는 "패밀리 스타일" 을 한 덩어리로 주면 fontconfig 매칭에 실패한다.
+    # (실패 시 조용히 monospace = DejaVu Sans Mono 로 떨어져 nerd icon 이 깨짐)
+    # family=/style= 로 분리해서 지정한다.
+    name = ''family="JetBrainsMonoNL Nerd Font" style="Thin"'';
     #name = "JetBrainsMonoNL NFM Regular";
     #name = "JetBrainsMonoNL NFM ExtraLight";
     #name = "JetBrainsMonoNL NFM Thin";
