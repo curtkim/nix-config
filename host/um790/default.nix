@@ -36,7 +36,7 @@
   networking.hostName = hostName; # Define your hostname.
 
   # black(sunshine) 에 접속하는 moonlight 클라이언트
-  environment.systemPackages = [ pkgs.moonlight-qt ];
+  # environment.systemPackages = [ pkgs.moonlight-qt ];
 
   # bluetooth
   hardware.bluetooth.enable = true;

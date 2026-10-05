@@ -19,7 +19,7 @@
       #../printing.nix
       ./wake-on-lan.nix
       ./openrgb-off.nix
-      ./sunshine.nix
+      #./sunshine.nix
       #../nix-distributed-build-client.nix
     ];
 
