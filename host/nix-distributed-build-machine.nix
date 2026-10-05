@@ -20,8 +20,7 @@
     extraGroups = [ "wheel" ];
     openssh.authorizedKeys.keys = [
       # 클라이언트의 공개키를 여기에 추가
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDbITVR+WM4GjJwU2fypunfWOE31UHKdDNpnJHq/zpqc root@black
-"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDbITVR+WM4GjJwU2fypunfWOE31UHKdDNpnJHq/zpqc root@black"
     ];
   }; 
 }
