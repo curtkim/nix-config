@@ -11,7 +11,6 @@
       "https://cache.nixos-cuda.org"
       "https://graham33.cachix.org"
       "https://hyprland.cachix.org"
-      "http://192.168.0.198:5000"
       "https://nix-amd-ai.cachix.org"
     ];
     trusted-public-keys = [
@@ -20,7 +19,6 @@
       "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
       "graham33.cachix.org-1:DqH72VpwSrACa3+L9eqh4bixjWx9IQUaxQtRh4gtkX8="
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-      "192.168.0.198:xAxl3IZFQCZKbaEfNm/HljvQvm+Q14HSIHcdeMccy6g="
       "nix-amd-ai.cachix.org-1:F4OU4vw/lV2oiG6SBHZ+nqjl4EFJuqI4X9A7pvaBmhQ="
     ];
   };
