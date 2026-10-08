@@ -7,7 +7,7 @@
     ./console.nix
     ./font.nix
     #./input-method.nix
-    ./virtualisation.nix
+    #./virtualisation.nix
     ./network.nix
     ./sound.nix
     ./services.nix

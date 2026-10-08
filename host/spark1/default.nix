@@ -18,6 +18,7 @@
 
   # Enable zram swap for better memory management
   # zramSwap.enable = true;
+  services.dgx-dashboard.enable = false;
 
   networking.hostName = hostName; # Define your hostname.
 }
