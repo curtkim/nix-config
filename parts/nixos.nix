@@ -55,6 +55,16 @@ in
         ../host/spark1
       ];
     };
+    spark2 = nixpkgs.lib.nixosSystem {
+      system = "aarch64-linux";
+      specialArgs = specialArgs // {
+        hostName = "spark2";
+      };
+      modules = [
+        dgx-spark.nixosModules.dgx-spark
+        ../host/spark2
+      ];
+    };
 
     roter = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
