@@ -45,7 +45,7 @@
   services.blueman.enable = true;
 
 
-  services.harmonia = {
+  services.harmonia.cache = {
     enable = true;
     signKeyPaths = [ ./nix-serve-priv-key.pem ];
     settings.bind = "0.0.0.0:5000";
