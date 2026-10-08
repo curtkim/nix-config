@@ -6,6 +6,7 @@
     ./disko-config.nix
     ../spark1/hardware-configuration.nix
     ../common.nix
+    ../spark-qsfp.nix
   ];
 
   # Enable DGX Spark hardware support with NVIDIA kernel
