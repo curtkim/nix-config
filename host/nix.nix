@@ -11,11 +11,16 @@
         "https://cache.nixos.org/"
         "https://nix-community.cachix.org"
         "https://cache.nixos-cuda.org"
+        # nixos-dgx-spark (DGX Spark 커널/CUDA/nccl-tests). 이게 없으면
+        # `nix develop github:graham33/nixos-dgx-spark#...` 가 소스 빌드로 떨어진다.
+        # 해당 플레이크에는 nixConfig이 없어서 스스로 캐시를 제안하지 못한다.
+        "https://graham33.cachix.org"
       ];
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
+        "graham33.cachix.org-1:DqH72VpwSrACa3+L9eqh4bixjWx9IQUaxQtRh4gtkX8="
       ];
       trusted-users = [
         "@wheel"
