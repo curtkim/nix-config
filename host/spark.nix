@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   # Enable DGX Spark hardware support with NVIDIA kernel
   hardware.dgx-spark.enable = true;
