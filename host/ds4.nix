@@ -14,6 +14,8 @@
   services.ds4 = {
     enable = true;
     role = if hostName == "spark1" then "coordinator" else "worker";
+    # 세션 1개 x 64K. 세션마다 ctx를 미리 잡으므로 batched-session 8은 ctx 4096이 상한이다
+    # (8 x 8K부터 memory admission에서 거부, 업스트림 QA_BEFORE_RELEASES.md).
     ctx = 65536;
     # spark1-cx0 (spark-qsfp.nix). 9911은 QSFP trustedInterfaces로 이미 열려 있다.
     tensorParallel.coordinator = "192.168.100.11";

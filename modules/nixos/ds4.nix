@@ -215,10 +215,12 @@ in
 
       batchedSessions = mkOption {
         type = types.nullOr types.ints.positive;
-        default = 8;
+        default = null;
         description = ''
           --batched-session (coordinator only). V4.1 uses native batched
-          decode from five ready sessions; allow memory for every context.
+          decode from five ready sessions, but every session preallocates
+          its context: on two Sparks eight 4K contexts fit and eight 8K are
+          rejected by memory admission (upstream QA_BEFORE_RELEASES.md).
         '';
       };
 
@@ -331,9 +333,10 @@ in
         Group = cfg.group;
         WorkingDirectory = cfg.stateDir;
 
-        # Worker reconnects after a coordinator restart; the coordinator only
-        # restarts when it crashes.
-        Restart = if isCoordinator then "on-failure" else "always";
+        # Worker reconnects after a coordinator restart.  The coordinator only
+        # restarts on a signal: exit 1 is a startup error such as memory
+        # admission, and retrying it every 10 s does not help.
+        Restart = if isCoordinator then "on-abnormal" else "always";
         RestartSec = 10;
         # Mapping ~81 GiB per rank takes minutes.
         TimeoutStartSec = "infinity";
