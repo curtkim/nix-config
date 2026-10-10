@@ -42,6 +42,21 @@ in
     cudaCapabiligies = [ "7.2" ];
   };
 
+  # ds4 (pkgs/ds4) 전용 nixpkgs: unstable + CUDA 13.3, GB10(sm_121).
+  # 시스템 nixpkgs(26.05)와 분리해서 CUDA 버전과 store path를 고정한다.
+  ds4For =
+    system:
+    import ../pkgs/ds4 {
+      pkgs = import inputs.nixpkgs-unstable {
+        inherit system;
+        config = {
+          allowUnfree = true;
+          cudaSupport = true;
+          cudaCapabilities = [ "12.1" ];
+        };
+      };
+    };
+
   specialArgs = {
     hostName = "none";
     userName = "curt";

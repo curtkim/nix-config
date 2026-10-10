@@ -1,8 +1,18 @@
 { inputs, ... }:
 let
   shared = import ./shared.nix { inherit inputs; };
-  inherit (shared) overlays commonPkgsConfig cudaPkgsConfig xavierCudaPkgsConfig specialArgs;
+  inherit (shared) overlays commonPkgsConfig cudaPkgsConfig xavierCudaPkgsConfig specialArgs ds4For;
   inherit (inputs) nixpkgs nix-amd-ai dgx-spark jetpack-nixos;
+
+  # spark1/spark2가 같은 ds4 store path를 쓰도록 한 번만 만든다.
+  ds4Spark = ds4For "aarch64-linux";
+  ds4Module = {
+    imports = [ ../modules/nixos/ds4.nix ];
+    services.ds4 = {
+      package = ds4Spark.ds4;
+      downloadPackage = ds4Spark.ds4-model-download;
+    };
+  };
 in
 {
   flake.nixosConfigurations = {
@@ -52,6 +62,7 @@ in
       };
       modules = [
         dgx-spark.nixosModules.dgx-spark
+        ds4Module
         ../host/spark1
       ];
     };
@@ -62,6 +73,7 @@ in
       };
       modules = [
         dgx-spark.nixosModules.dgx-spark
+        ds4Module
         ../host/spark2
       ];
     };
