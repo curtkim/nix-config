@@ -24,7 +24,7 @@ in
       ];
     permittedInsecurePackages = [
       "freeimage-unstable-2021-11-01"
-      "immersive-translate-1.30.2"
+      "immersive-translate-1.33.3"
     ];
   };
 
