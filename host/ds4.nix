@@ -26,6 +26,10 @@
       openFirewall = true;
     };
 
+    # 첫 prefill에서 매핑된 가중치를 SSD에서 다시 읽으면 TP 게이트(750ms)를 넘겨
+    # 양쪽이 끊긴다. 시작 시 자기 랭크 몫을 미리 읽어 둔다.
+    extraArgs = [ "--warm-weights" ];
+
     # 검증 전까지는 수동 기동.
     autoStart = false;
   };
