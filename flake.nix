@@ -72,6 +72,10 @@
       url = "github:Benexl/yt-x";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    herdr = {
+      url = "github:herdrdev/herdr";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     dgx-spark.url = "github:graham33/nixos-dgx-spark";
     nix-amd-ai.url = "github:noamsto/nix-amd-ai";
 
