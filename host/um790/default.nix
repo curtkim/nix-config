@@ -35,6 +35,11 @@
 
   networking.hostName = hostName; # Define your hostname.
 
+  # 스왑 없이는 메모리 압박 시 systemd-oomd가 프로세스를 못 죽이고
+  # 시스템 전체가 멈춘다(2026-10-18 무응답 재부팅 재발 방지).
+  # 루트(990 PRO NVMe, ext4)에 스왑파일 생성 — 부팅 시 자동 생성됨.
+  swapDevices = [ { device = "/swapfile"; size = 16384; } ]; # MiB = 16 GiB
+
   # black(sunshine) 에 접속하는 moonlight 클라이언트
   # environment.systemPackages = [ pkgs.moonlight-qt ];
 
