@@ -76,7 +76,12 @@
       url = "github:herdrdev/herdr";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    dgx-spark.url = "github:graham33/nixos-dgx-spark";
+    # 커널 6.17에 고정한다 (b04c6d090 "kernel: bump NVIDIA NV-Kernels 6.17 -> 7.0"
+    # 직전 커밋). NVIDIA 7.0 커널에서는 GB10에서 CUDA가 깨진다: R595는 cuInit이
+    # CUDA_ERROR_NOT_INITIALIZED로 실패하고, R615는 cuInit은 되지만 1 MiB
+    # host-to-device cudaMemcpy가 무한 대기한다. 6.17.13 + R595에서는 정상이다
+    # (ds4-nix의 `nix run .#cuda-probe`로 확인 가능).
+    dgx-spark.url = "github:graham33/nixos-dgx-spark/ef595d9edeeb665defb0f8e121b8851542f2bfb9";
     nix-amd-ai.url = "github:noamsto/nix-amd-ai";
 
     wrappers = {
