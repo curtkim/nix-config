@@ -1,7 +1,19 @@
-{ lib, config, ... }:
-{
-  # Enable DGX Spark hardware support with NVIDIA kernel
-  hardware.dgx-spark.enable = true;
+{ lib, config, pkgs, ... }:
+let
+  # dgx-spark 모듈의 scrubKernelDevRefs와 동일 (modules/dgx-spark.nix:77).
+  # 커널 모듈 출력은 kernel.dev를 참조할 수 없다 — 참조 검사에서
+  # "output ... is not allowed to refer to" 로 빌드가 실패한다.
+  scrubKernelDevRefs =
+    drv:
+    drv.overrideAttrs (old: {
+      postFixup = (old.postFixup or "") + ''
+        if [ -d "$out/lib/modules" ]; then
+          find $out/lib/modules -name '*.ko' -print0 \
+            | xargs -0 -r ${pkgs.removeReferencesTo}/bin/remove-references-to \
+                -t ${config.boot.kernelPackages.kernel.dev}
+        fi
+      '';
+    });
 
   # dgx-spark 모듈은 NVIDIA 7.0 커널과 R615 드라이버를 한 쌍으로 전제한다
   # (upstream PR #184/#185가 같은 날 함께 머지). 그런데 모듈은 드라이버를
@@ -13,16 +25,25 @@
   #
   # nixpkgs 26.05가 R615를 담을 때까지 명시적으로 고정한다. 해시는
   # nixpkgs-unstable의 pkgs/os-specific/linux/nvidia-x11/default.nix 기준.
-  # NB: 모듈이 원래 드라이버의 .open/.mod에 씌우는 scrubKernelDevRefs는
-  # 건너뛴다 (클로저에 dev 참조가 남을 뿐 동작에는 영향 없음).
+  r615 = config.boot.kernelPackages.nvidiaPackages.mkDriver {
+    version = "615.71.09";
+    sha256_64bit = "sha256-zc7tIrvrYSSNGm3qvCWWZz46ZQFpjucayNL9wo87cP4=";
+    sha256_aarch64 = "sha256-IbekQhE7cFfmnPZaLY9NDYcF7CoNZ+2Qb7sRd4EOgWM=";
+    openSha256 = "sha256-3gByMYIwFzRaLdDG+roCEOuKRRJDrljG9AlLnRZTirM=";
+    settingsSha256 = "sha256-LK1LU8mDkM/XVRKPBtuOZh9nIP/lGFLAJnmasEX8jhg=";
+    persistencedSha256 = "sha256-qPRb+3d88+2RcpUkoBTbjIaImnQ+jX+/6p1vXcJ5geE=";
+  };
+in
+{
+  # Enable DGX Spark hardware support with NVIDIA kernel
+  hardware.dgx-spark.enable = true;
+
+  # 모듈이 latest에 하는 것과 같은 모양으로 감싼다.
   hardware.nvidia.package = lib.mkForce (
-    config.boot.kernelPackages.nvidiaPackages.mkDriver {
-      version = "615.71.09";
-      sha256_64bit = "sha256-zc7tIrvrYSSNGm3qvCWWZz46ZQFpjucayNL9wo87cP4=";
-      sha256_aarch64 = "sha256-IbekQhE7cFfmnPZaLY9NDYcF7CoNZ+2Qb7sRd4EOgWM=";
-      openSha256 = "sha256-3gByMYIwFzRaLdDG+roCEOuKRRJDrljG9AlLnRZTirM=";
-      settingsSha256 = "sha256-LK1LU8mDkM/XVRKPBtuOZh9nIP/lGFLAJnmasEX8jhg=";
-      persistencedSha256 = "sha256-qPRb+3d88+2RcpUkoBTbjIaImnQ+jX+/6p1vXcJ5geE=";
+    r615
+    // {
+      open = scrubKernelDevRefs r615.open;
+      mod = scrubKernelDevRefs r615.mod;
     }
   );
 
