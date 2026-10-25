@@ -15,6 +15,7 @@ let
   };
 
   resize = ./resize_windows.sh;
+  grimByTwoPoint = ./grim-by-two-point.sh;
 in
 {
   wayland.windowManager.hyprland.settings = {
@@ -31,6 +32,7 @@ in
       (bind "${mainMod} + F" "hl.dsp.window.fullscreen()")
       (bind "${mainMod} + SHIFT + F" "hl.dsp.window.fullscreen_state({ internal = 2, client = 0 })")
       (bind "${mainMod} + P" ''hl.dsp.exec_cmd("grim -g \"$(slurp)\"")'')
+      (bind "${mainMod} + SHIFT + P" ''hl.dsp.exec_cmd("${grimByTwoPoint}")'')
       (bind "${mainMod} + B"
         ''hl.dsp.exec_cmd("vivaldi --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime")''
       )
