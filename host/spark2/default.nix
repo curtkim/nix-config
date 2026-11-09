@@ -8,7 +8,6 @@
     ../common.nix
     ../spark.nix
     ../spark-qsfp.nix
-    ../ds4.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
