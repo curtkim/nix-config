@@ -68,4 +68,7 @@
   # Enable QEMU user-mode emulation for cross-architecture builds
   # too slow
   #boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
+  # xlnx-utils 을 위해
+  nix.settings.extra-sandbox-paths = [ "/dev/fuse" ];
 }
