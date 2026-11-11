@@ -34,6 +34,7 @@
     lshw
     nfs-utils
     wakeonlan
+    ethtool
     libnotify
 
     # for incus

@@ -17,6 +17,9 @@
 
   networking.hostName = hostName; # Define your hostname.
 
+  # Wake-on-LAN (systemd .link 파일로 설정되므로 링크 재설정 후에도 유지된다)
+  networking.interfaces.enp193s0.wakeOnLan.enable = true;
+
   boot.kernelParams = [ 
     "ttm.pages_limit=29360128" 
 

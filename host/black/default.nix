@@ -17,13 +17,15 @@
       #../xserver.nix
       ../icestick.nix
       #../printing.nix
-      ./wake-on-lan.nix
       ./openrgb-off.nix
       #./sunshine.nix
       #../nix-distributed-build-client.nix
     ];
 
   networking.hostName = hostName; # Define your hostname.
+
+  # Wake-on-LAN (systemd .link 파일로 설정되므로 링크 재설정 후에도 유지된다)
+  networking.interfaces.enp14s0.wakeOnLan.enable = true;
 
   services.hardware.openrgb.enable = true;
 }
