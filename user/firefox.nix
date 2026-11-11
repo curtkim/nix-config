@@ -4,6 +4,24 @@
   lib,
   ...
 }:
+let
+  nonstop-vimium = pkgs.stdenvNoCC.mkDerivation {
+    pname = "nonstop-vimium";
+    version = "0.1.0";
+
+    src = pkgs.fetchurl {
+      url = "https://addons.mozilla.org/firefox/downloads/latest/nonstop-vimium/addon-0.1.0.xpi";
+      hash = "sha256-Ko0YomtAh5BLNaVKBXR3uhIRfRi88ciggQJcHHbSLEQ=";
+    };
+
+    dontUnpack = true;
+
+    installPhase = ''
+      mkdir -p $out/share/mozilla/extensions
+      cp $src $out/share/mozilla/extensions/nonstop-vimium-c.b7l0k@aleeas.com.xpi
+    '';
+  };
+in
 {
   programs.firefox = {
     enable = true;
@@ -41,6 +59,7 @@
         immersive-translate
         web-clipper-obsidian
         #tree-style-tab
+        #nonstop-vimium
       ];
     };
   };
