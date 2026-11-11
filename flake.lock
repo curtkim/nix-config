@@ -327,6 +327,26 @@
         "type": "github"
       }
     },
+    "helium-flake": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1794326795,
+        "narHash": "sha256-u/bFiTT2reDPGKDeOWEJMBd7iNYFkbdcIsrymwCF8OU=",
+        "owner": "oxcl",
+        "repo": "nix-flake-helium-browser",
+        "rev": "ee8c73c6432d7337216775ccbe726c3004af6542",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxcl",
+        "repo": "nix-flake-helium-browser",
+        "type": "github"
+      }
+    },
     "hercules-ci-effects": {
       "inputs": {
         "flake-parts": "flake-parts_3",
@@ -1045,6 +1065,7 @@
         "disko": "disko_2",
         "firefox-addons": "firefox-addons",
         "flake-parts": "flake-parts_4",
+        "helium-flake": "helium-flake",
         "herdr": "herdr",
         "home-manager": "home-manager",
         "hyprland": "hyprland",

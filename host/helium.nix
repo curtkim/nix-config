@@ -1,0 +1,35 @@
+{ config, pkgs, inputs, ... }:
+
+{
+  imports = [
+    #(import (fetchTarball "https://github.com/oxcl/nix-flake-helium-browser/archive/main.tar.gz")).nixosModules.default
+    inputs.helium-flake.nixosModules.default
+  ];
+
+  programs.helium = {
+    enable = true;
+
+    # Optional: override the package
+    # package = pkgs.helium;
+
+    # 🚩 Flags - Command-line arguments always passed to Helium
+    flags = [
+	#"--disable-gpu"
+	#"--ozone-platform-hint=auto"
+    ];
+
+    # 🎯 Policies - Written to /etc/chromium/policies/managed/helium-nixos.json
+    # Also written to /etc/helium/policies/managed/ for future compatibility
+    policies = {
+      "BrowserSignin" = 0;
+      "PasswordManagerEnabled" = false;
+      "SyncDisabled" = true;
+	#"SpellcheckEnabled" = true;
+	#"SpellcheckLanguage" = [ "en-US" ];
+      "ExtensionInstallForcelist" = [      # Pre-install extensions
+        "cjpalhdlnbpafiamejdnhcphjbkeiagm" # uBlock Origin
+        "hfjbmagddngcpeloejdejnfgbamkjaeg" # vimiumc
+      ];
+    };
+  };
+}

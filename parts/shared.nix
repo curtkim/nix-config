@@ -10,6 +10,7 @@ in
       import ../pkgs { pkgs = prev; }
     )
     inputs.firefox-addons.overlays.default
+    inputs.helium-flake.overlays.default
   ];
 
   commonPkgsConfig = {

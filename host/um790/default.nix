@@ -31,6 +31,7 @@
     ../keyboard-totem.nix
     ../keyboard-cheapiano.nix
     ../platformio-udev.nix
+    ../helium.nix
   ];
 
   networking.hostName = hostName; # Define your hostname.
