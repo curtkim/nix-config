@@ -22,6 +22,7 @@ in
         "amp-cli"
         "google-chrome"
         "claude-code"
+        "fastflowlm"
       ];
     permittedInsecurePackages = [
       "freeimage-unstable-2021-11-01"

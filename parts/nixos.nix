@@ -26,6 +26,10 @@ in
         hostName = "max1";
       };
       modules = [
+        {
+          nixpkgs.config = commonPkgsConfig;
+          nixpkgs.overlays = overlays;
+        }
         nix-amd-ai.nixosModules.default
         {
           hardware.amd-npu = {

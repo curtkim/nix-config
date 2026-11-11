@@ -45,7 +45,7 @@
     rocmPackages.rocminfo
     rocmPackages.rocm-smi
     ds4
-    fastflowlm
+    #fastflowlm
   ];
 
   security.pam.loginLimits = [
