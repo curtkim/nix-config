@@ -32,6 +32,7 @@
     ../keyboard-cheapiano.nix
     ../platformio-udev.nix
     ../helium.nix
+    ../hikrobot-camera.nix
   ];
 
   networking.hostName = hostName; # Define your hostname.
