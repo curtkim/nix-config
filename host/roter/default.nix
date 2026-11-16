@@ -11,7 +11,6 @@
       disko.nixosModules.disko
       ./disko-config.nix
       ./hardware-configuration.nix
-      ../intel.nix
       ../common.nix
       #../xserver.nix
       ../printing.nix
