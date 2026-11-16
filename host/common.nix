@@ -11,7 +11,7 @@
     ./network.nix
     ./sound.nix
     ./services.nix
-    ./keyboard-voyager.nix
+    #./keyboard-voyager.nix
     ./security.nix
     ./dconf.nix
   ];
