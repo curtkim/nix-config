@@ -45,6 +45,14 @@ in
       # ~/.mozilla/firefox/default/chrome/userChrome.css
       userChrome = lib.readFile ./firefox-userChrome.css;
 
+      # arxiv dark mode (/html/ 은 자체 다크모드가 있어서 제외)
+      userContent = ''
+        @-moz-document regexp("https://(www\\.)?arxiv\\.org/(?!html/).*") {
+          html { background: #fff !important; filter: invert(0.9) hue-rotate(180deg); }
+          img, video, svg, picture { filter: invert(1) hue-rotate(180deg); }
+        }
+      '';
+
       # userChrome = ''
       #   #nav-bar, #urlbar-container, #searchbar { visibility: collapse !important; }
       #   #tab-background { max-height: 32px !important; }
