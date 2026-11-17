@@ -11,6 +11,7 @@ in
         nixos.input-method
         nixos.mime-apps
         nixos.sdcv
+        nixos.ui-theme
       ];
 
       environment.systemPackages = [
