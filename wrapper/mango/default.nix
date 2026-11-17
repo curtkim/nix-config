@@ -1,84 +1,94 @@
-{
-  config,
-  wlib,
-  pkgs,
-  lib,
-  ...
-}: let
-  mod = "SUPER";
+{ config, ... }:
+let
+  inherit (config.flake) wrappers;
 in
 {
-  imports = [ wlib.wrapperModules.mangowc ];
+  flake.wrappers.mango =
+    {
+      config,
+      wlib,
+      pkgs,
+      lib,
+      ...
+    }: let
+      mod = "SUPER";
 
-  env = {
-    #XCURSOR_THEME = self.lib.cursor.name;
-    #XCURSOR_SIZE = toString self.lib.cursor.size;
-  };
+      # flake 에 등록된 kitty wrapper (wrapper/kitty.nix)
+      kitty = wrappers.kitty.wrap { inherit pkgs; };
+    in
+    {
+      imports = [ wlib.wrapperModules.mangowc ];
 
-  autostart_sh = ''
+      env = {
+        #XCURSOR_THEME = self.lib.cursor.name;
+        #XCURSOR_SIZE = toString self.lib.cursor.size;
+      };
+
+      autostart_sh = ''
     
-  '';
+      '';
 
-  settings = {
-    repeat_rate = 40;
-    repeat_delay = 250;
-    numlockon = 0;
+      settings = {
+        repeat_rate = 40;
+        repeat_delay = 250;
+        numlockon = 0;
 
-    default_mfact = 0.5;
+        default_mfact = 0.5;
 
-    monitorrule = [
-      "name:HDMI-A-1,scale:2.0"
-    ];
+        monitorrule = [
+          "name:HDMI-A-1,scale:2.0"
+        ];
 
-    #tag_num = 10;
+        #tag_num = 10;
 
-    #tagrule = map (id: "id:${toString id},layout_name:tile") (lib.range 1 17);
+        #tagrule = map (id: "id:${toString id},layout_name:tile") (lib.range 1 17);
 
-    windowrule = [
-    ];
+        windowrule = [
+        ];
 
-    layerrule = [
-    ];
+        layerrule = [
+        ];
 
-    bind = [
-      "${mod},Return,spawn,kitty"
-      "${mod},space,spawn,wofi --show drun"
+        bind = [
+          "${mod},Return,spawn,${lib.getExe kitty}"
+          "${mod},space,spawn,wofi --show drun"
 
-      "${mod},m,quit"
-      "${mod},q,killclient"
+          "${mod},m,quit"
+          "${mod},q,killclient"
 
-      "${mod},h,focusdir,left"
-      "${mod},l,focusdir,right"
-      "${mod},k,focusdir,up"
-      "${mod},j,focusdir,down"
+          "${mod},h,focusdir,left"
+          "${mod},l,focusdir,right"
+          "${mod},k,focusdir,up"
+          "${mod},j,focusdir,down"
 
-      "${mod}+SHIFT,k,exchange_client,up"
-      "${mod}+SHIFT,j,exchange_client,down"
-      "${mod}+SHIFT,h,exchange_client,left"
-      "${mod}+SHIFT,l,exchange_client,right"
+          "${mod}+SHIFT,k,exchange_client,up"
+          "${mod}+SHIFT,j,exchange_client,down"
+          "${mod}+SHIFT,h,exchange_client,left"
+          "${mod}+SHIFT,l,exchange_client,right"
 
 
-      "${mod},f,togglefullscreen"
-      "${mod}+SHIFT,f,togglefakefullscreen"
+          "${mod},f,togglefullscreen"
+          "${mod}+SHIFT,f,togglefakefullscreen"
 
-      "${mod},1,view,1"
-      "${mod},2,view,2"
-      "${mod},3,view,3"
-      "${mod},4,view,4"
-      "${mod},5,view,5"
-      "${mod},6,view,6"
-      "${mod},7,view,7"
-      "${mod},8,view,8"
-      "${mod},9,view,9"
-      "${mod},0,view,10"
-    ];
+          "${mod},1,view,1"
+          "${mod},2,view,2"
+          "${mod},3,view,3"
+          "${mod},4,view,4"
+          "${mod},5,view,5"
+          "${mod},6,view,6"
+          "${mod},7,view,7"
+          "${mod},8,view,8"
+          "${mod},9,view,9"
+          "${mod},0,view,10"
+        ];
 
-    axisbind = [
-      #"SUPER,UP,spawn,${exeOf pkgs.vj.volYtMusic} up"
-      #"SUPER,DOWN,spawn,${exeOf pkgs.vj.volYtMusic} down"
+        axisbind = [
+          #"SUPER,UP,spawn,${exeOf pkgs.vj.volYtMusic} up"
+          #"SUPER,DOWN,spawn,${exeOf pkgs.vj.volYtMusic} down"
 
-      #"SUPER+CTRL,UP,spawn,${exeOf pkgs.vj.vol} up"
-      #"SUPER+CTRL,DOWN,spawn,${exeOf pkgs.vj.vol} down"
-    ];
-  };
+          #"SUPER+CTRL,UP,spawn,${exeOf pkgs.vj.vol} up"
+          #"SUPER+CTRL,DOWN,spawn,${exeOf pkgs.vj.vol} down"
+        ];
+      };
+    };
 }
