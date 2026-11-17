@@ -24,6 +24,8 @@ in
           data = wrappers.tmux.wrap { inherit pkgs; };
           prefix = true;
         }
+        # ls/l/la alias 가 쓰는 eza (NixOS 에는 programs.eza 가 없다)
+        pkgs.eza
       ];
 
       # ~/.nix-profile/etc/profile.d/hm-session-vars.sh 를 읽지 않는다.
