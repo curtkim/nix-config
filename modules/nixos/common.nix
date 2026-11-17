@@ -12,12 +12,9 @@ in
         nixos.locale
         nixos.console
         nixos.font
-        #nixos.input-method
-        #nixos.virtualisation
         nixos.network
         nixos.sound
         nixos.services
-        #nixos.keyboard-voyager
         nixos.security
         nixos.dconf
         nixos.git
