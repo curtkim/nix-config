@@ -27,6 +27,9 @@ in
         shell = "${wrappers.zsh.wrap { inherit pkgs; }}/bin/zsh";
         scrollback_lines = 5000;
         paste_actions = "filter";
+        # 기본값은 read-*-ask 라서 OSC 52 클립보드 읽기(tmux, nvim 등)마다
+        # "A program running in this window wants to read from system clipboard" 를 묻는다.
+        clipboard_control = "write-clipboard write-primary read-clipboard read-primary no-append";
         #cursor_trail = 1;
       };
 
