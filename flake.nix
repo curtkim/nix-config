@@ -30,19 +30,12 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    #    hyprland = {
-    #      url = "github:hyprwm/Hyprland";
-    #      inputs.nixpkgs.follows = "nixpkgs";
-    #    };
     hyprland = {
       type = "git";
       url = "https://github.com/hyprwm/Hyprland";
       submodules = true;
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    #hyprlock.url = "github:hyprwm/Hyprlock";
-    #hyprlock.inputs.nixpkgs.follows = "nixpkgs-unstable";
-    #hyprland.url = "github:hyprwm/Hyprland";
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -52,12 +45,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    #nur.url = "github:nix-community/NUR";
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     yt-x = {
       url = "github:Benexl/yt-x";
       inputs.nixpkgs.follows = "nixpkgs";
