@@ -21,7 +21,9 @@ in
         general = {
           lock_cmd = "pidof hyprlock || ${hyprlock}";
           before_sleep_cmd = "loginctl lock-session";
-          after_sleep_cmd = "hyprctl dispatch dpms on";
+          # mango 의 wakeup_monitor 는 모니터 이름이 필요해서, 이름 없이 모든 출력을 켜는
+          # wlopm (wlr-output-power-management, mango 지원) 을 쓴다.
+          after_sleep_cmd = "${lib.getExe pkgs.wlopm} --on '*'";
         };
 
         listener = [
