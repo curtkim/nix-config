@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  flake.modules.nixos.helium =
+  flake.modules.nixos.helium-browser =
     { config, pkgs, ... }:
 
     {

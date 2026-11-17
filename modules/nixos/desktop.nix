@@ -7,7 +7,7 @@ in
     { config, pkgs, ... }:
     {
       imports = [
-        nixos.helium
+        nixos.helium-browser
         nixos.input-method
         nixos.mime-apps
         nixos.sdcv

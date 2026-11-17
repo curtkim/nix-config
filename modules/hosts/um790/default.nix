@@ -40,7 +40,7 @@ in
             nixos.keyboard-totem
             nixos.keyboard-cheapiano
             nixos.platformio-udev
-            nixos.helium
+            nixos.helium-browser
             nixos.hikrobot-camera
           ];
 
