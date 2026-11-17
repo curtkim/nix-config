@@ -6,20 +6,6 @@ let
 in
 {
   flake.nixosConfigurations = {
-    um790 = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = specialArgs // {
-        hostName = "um790";
-      };
-      modules = [
-        {
-          nixpkgs.config = commonPkgsConfig;
-          nixpkgs.overlays = overlays;
-        }
-        ../host/um790
-      ];
-    };
-
     max1 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = specialArgs // {

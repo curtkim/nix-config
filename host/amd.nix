@@ -1,11 +1,5 @@
-{ config, pkgs, ... }:
-
+# modules/nixos/amd.nix 로 옮겼다. 아직 dendritic 으로 전환하지 않은 호스트를 위한 shim.
+{ inputs, ... }:
 {
-  hardware.graphics= {
-    enable = true;
-  };
-  #hardware.amdgpu.amdvlk.enable = true;
-
-  services.xserver.videoDrivers = ["amdgpu"];
-
+  imports = [ inputs.self.modules.nixos.amd ];
 }

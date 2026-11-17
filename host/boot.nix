@@ -1,7 +1,5 @@
+# modules/nixos/boot.nix 로 옮겼다. 아직 dendritic 으로 전환하지 않은 호스트를 위한 shim.
+{ inputs, ... }:
 {
-  # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.efiSupport = true;
-  boot.loader.grub.efiInstallAsRemovable = true;
-  boot.loader.grub.configurationLimit = 5;
+  imports = [ inputs.self.modules.nixos.boot ];
 }

@@ -1,34 +1,5 @@
-{ config, pkgs, ... }:
+# modules/nixos/printing.nix 로 옮겼다. 아직 dendritic 으로 전환하지 않은 호스트를 위한 shim.
+{ inputs, ... }:
 {
-  # Enable CUPS to print documents.
-  services.printing = {
-    enable = true;
-    logLevel = "debug"; # $ journalctl --follow --unit=cups
-    drivers = [
-      pkgs.splix
-      pkgs.samsung-unified-linux-driver
-      (pkgs.writeTextDir "share/cups/model/Samsung_M2020_Series.ppd" (builtins.readFile ./Samsung_M2020_Series.ppd))
-    ];
-
-    listenAddresses = [ "*:631" ];
-    allowFrom = [ "all" ];
-    browsing = true;
-    defaultShared = true;
-    openFirewall = true;            # 631 port를 연다.
-  };
-
-  hardware.printers = {
-    ensurePrinters = [
-      {
-        name = "M2020";
-        location = "Home";
-        deviceUri = "usb://Samsung/M2020%20Series?serial=08HUB8GH3B01QVP";
-        model = "Samsung_M2020_Series.ppd";
-        ppdOptions = {
-          PageSize = "A4";
-        };
-      }
-    ];
-    ensureDefaultPrinter = "M2020";
-  };
+  imports = [ inputs.self.modules.nixos.printing ];
 }

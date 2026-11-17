@@ -1,14 +1,5 @@
-{ config, pkgs, inputs, ... }:
+# modules/nixos/desktop.nix 로 옮겼다. 아직 dendritic 으로 전환하지 않은 호스트를 위한 shim.
+{ inputs, ... }:
 {
-  imports = [
-    ./helium.nix
-    ./input-method.nix
-  ];
-
-  environment.systemPackages = [
-    inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.mango
-    inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.kitty
-
-    pkgs.claude-code
-  ];
+  imports = [ inputs.self.modules.nixos.desktop ];
 }

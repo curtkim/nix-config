@@ -91,16 +91,19 @@
       url = "github:oxcl/nix-flake-helium-browser";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # modules/ 아래 모든 .nix 를 flake-parts 모듈로 import 한다. ("_" 로 시작하는 경로는 제외)
+    import-tree.url = "github:vic/import-tree";
   };
 
-  outputs = inputs@{ flake-parts, wrappers, ... }:
+  outputs = inputs@{ flake-parts, wrappers, import-tree, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" "aarch64-linux" ];
 
-      imports = [ 
-        wrappers.flakeModules.wrappers 
+      imports = [
+        wrappers.flakeModules.wrappers
         ./parts
-        ./wrapper
+        (import-tree ./modules)
       ];
     };
 }
