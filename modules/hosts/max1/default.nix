@@ -1,16 +1,12 @@
 { inputs, config, ... }:
 let
   nixos = config.flake.modules.nixos;
-  shared = import ../../../parts/shared.nix { inherit inputs; };
 in
 {
   flake.nixosConfigurations.max1 = inputs.nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
-      {
-        nixpkgs.config = shared.commonPkgsConfig;
-        nixpkgs.overlays = shared.overlays;
-      }
+      nixos.nixpkgs-common
       inputs.nix-amd-ai.nixosModules.default
       {
         hardware.amd-npu = {

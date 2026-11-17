@@ -1,16 +1,12 @@
 { inputs, config, ... }:
 let
   nixos = config.flake.modules.nixos;
-  shared = import ../../../parts/shared.nix { inherit inputs; };
 in
 {
   flake.nixosConfigurations.um790 = inputs.nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
-      {
-        nixpkgs.config = shared.commonPkgsConfig;
-        nixpkgs.overlays = shared.overlays;
-      }
+      nixos.nixpkgs-common
       (
         # Edit this configuration file to define what should be installed on
         # your system.  Help is available in the configuration.nix(5) man page

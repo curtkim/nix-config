@@ -49,7 +49,7 @@
       '';
 
       # kime 는 XDG_CONFIG_DIRS (/etc/xdg) 의 kime/layouts/ 에서도 레이아웃을 찾는다.
-      environment.etc."xdg/kime/layouts/my-dubeolsik.yaml".source = ../../user/kime-my-dubeolsik.yaml;
+      environment.etc."xdg/kime/layouts/my-dubeolsik.yaml".source = ./kime-my-dubeolsik.yaml;
       #    enabled = "fcitx5";
       #    fcitx5.addons = with pkgs; [
       #        fcitx5-hangul

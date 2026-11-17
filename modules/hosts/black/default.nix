@@ -1,16 +1,12 @@
 { inputs, config, ... }:
 let
   nixos = config.flake.modules.nixos;
-  shared = import ../../../parts/shared.nix { inherit inputs; };
 in
 {
   flake.nixosConfigurations.black = inputs.nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
-      {
-        nixpkgs.config = shared.commonPkgsConfig // shared.cudaPkgsConfig;
-        nixpkgs.overlays = shared.overlays;
-      }
+      nixos.nixpkgs-cuda
       (
         # Edit this configuration file to define what should be installed on
         # your system.  Help is available in the configuration.nix(5) man page
