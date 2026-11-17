@@ -40,6 +40,12 @@ in
       environment.systemPackages = with pkgs; [
         wget
         gcc
+
+        jq
+        tree
+        fd
+        tokei
+
         usbutils
         pciutils
         lshw
