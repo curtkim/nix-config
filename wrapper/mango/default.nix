@@ -57,7 +57,7 @@ in
 
         bind = [
           "${mod},Return,spawn,${lib.getExe kitty}"
-          "${mod},space,spawn,wofi --show drun"
+          "${mod},space,spawn,${lib.getExe pkgs.wofi} --show drun"
 
           "${mod},m,quit"
           "${mod},q,killclient"

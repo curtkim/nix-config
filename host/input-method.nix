@@ -1,3 +1,4 @@
+{ ... }:
 {
 
   # tail -f /run/user/1000/kime.err
@@ -29,7 +30,19 @@
           - Hangul
           - Latin
           result: Consume
+      hangul:
+        layout: my-dubeolsik
+        word_commit: false
+        preedit_johab: Needed
+        addons:
+          all:
+          - ComposeChoseongSsang
+          my-dubeolsik:
+          - TreatJongseongAsChoseong
   '';
+
+  # kime 는 XDG_CONFIG_DIRS (/etc/xdg) 의 kime/layouts/ 에서도 레이아웃을 찾는다.
+  environment.etc."xdg/kime/layouts/my-dubeolsik.yaml".source = ../user/kime-my-dubeolsik.yaml;
   #    enabled = "fcitx5";
   #    fcitx5.addons = with pkgs; [
   #        fcitx5-hangul
