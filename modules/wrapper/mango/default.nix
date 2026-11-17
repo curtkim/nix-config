@@ -15,6 +15,9 @@ in
 
       # flake 에 등록된 kitty wrapper (wrapper/kitty.nix)
       kitty = wrappers.kitty.wrap { inherit pkgs; };
+
+      # flake 에 등록된 hypridle wrapper (wrapper/hypridle.nix). 잠금은 wrapper hyprlock 을 쓴다.
+      hypridle = wrappers.hypridle.wrap { inherit pkgs; };
     in
     {
       imports = [ wlib.wrapperModules.mangowc ];
@@ -36,6 +39,7 @@ in
           # 이전 세션의 kime 가 pid 락을 쥐고 있으면 새 kime 가 뜨지 못하므로 먼저 죽인다.
           # 항목을 나누면 순서가 보장되지 않으니 한 줄로 묶는다.
           "${pkgs.callPackage ../../../pkgs/kime.nix { }}/bin/kime"
+          "${lib.getExe hypridle}"
         ];
 
         default_master_factor = 0.5;
