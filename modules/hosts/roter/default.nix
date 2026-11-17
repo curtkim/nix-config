@@ -21,6 +21,8 @@ in
               ./_disko-config.nix
               ./_hardware-configuration.nix
               nixos.common
+              # max1 에서 원격 빌드 + substitute
+              nixos.nix-distributed-build-client
               #../xserver.nix
               nixos.printing
             ];
