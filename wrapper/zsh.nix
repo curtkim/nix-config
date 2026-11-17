@@ -1,15 +1,30 @@
-{ ... }:
+{ config, ... }:
+let
+  inherit (config.flake) wrappers;
+in
 {
   # user/zsh.nix 의 wrapper 버전.
   # zoxide, yazi, starship, lazygit, direnv, fzf, kitty 연동과 hm-session-vars 는 넣지 않는다.
   flake.wrappers.zsh =
     {
+      config,
       wlib,
       pkgs,
       ...
     }:
     {
       imports = [ wlib.wrapperModules.zsh ];
+
+      # 이 셸 안에서 띄운 tmux, nvim :terminal 등이 wrapper zsh 를 쓰게 한다.
+      env.SHELL = config.wrapperPaths.placeholder;
+
+      # flake 에 등록된 tmux wrapper (wrapper/tmux.nix). ~/.nix-profile 의 tmux 보다 앞에 둔다.
+      runtimePkgs = [
+        {
+          data = wrappers.tmux.wrap { inherit pkgs; };
+          prefix = true;
+        }
+      ];
 
       # ~/.nix-profile/etc/profile.d/hm-session-vars.sh 를 읽지 않는다.
       hmSessionVariables = null;
