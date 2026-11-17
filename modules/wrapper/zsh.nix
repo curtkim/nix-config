@@ -26,6 +26,11 @@ in
         }
         # ls/l/la alias 가 쓰는 eza (NixOS 에는 programs.eza 가 없다)
         pkgs.eza
+        # flake 에 등록된 tealdeer wrapper (wrapper/tealdeer.nix). tldr 명령
+        {
+          data = wrappers.tealdeer.wrap { inherit pkgs; };
+          prefix = true;
+        }
       ];
 
       # ~/.nix-profile/etc/profile.d/hm-session-vars.sh 를 읽지 않는다.
