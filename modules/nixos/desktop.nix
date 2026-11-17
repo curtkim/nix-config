@@ -10,6 +10,7 @@ in
         nixos.helium
         nixos.input-method
         nixos.mime-apps
+        nixos.sdcv
       ];
 
       environment.systemPackages = [
