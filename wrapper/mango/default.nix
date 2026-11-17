@@ -24,6 +24,12 @@ in
     repeat_delay = 250;
     numlockon = 0;
 
+    default_mfact = 0.5;
+
+    monitorrule = [
+      "name:HDMI-A-1,scale:2.0"
+    ];
+
     #tag_num = 10;
 
     #tagrule = map (id: "id:${toString id},layout_name:tile") (lib.range 1 17);
@@ -45,6 +51,26 @@ in
       "${mod},l,focusdir,right"
       "${mod},k,focusdir,up"
       "${mod},j,focusdir,down"
+
+      "${mod}+SHIFT,k,exchange_client,up"
+      "${mod}+SHIFT,j,exchange_client,down"
+      "${mod}+SHIFT,h,exchange_client,left"
+      "${mod}+SHIFT,l,exchange_client,right"
+
+
+      "${mod},f,togglefullscreen"
+      "${mod}+SHIFT,f,togglefakefullscreen"
+
+      "${mod},1,view,1"
+      "${mod},2,view,2"
+      "${mod},3,view,3"
+      "${mod},4,view,4"
+      "${mod},5,view,5"
+      "${mod},6,view,6"
+      "${mod},7,view,7"
+      "${mod},8,view,8"
+      "${mod},9,view,9"
+      "${mod},0,view,10"
     ];
 
     axisbind = [
