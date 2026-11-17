@@ -76,6 +76,8 @@ in
   flake.nixosConfigurations."silver-installer" = inputs.nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
+      # common 을 쓰지 않으므로 unfree 허용 목록(broadcom-sta)을 직접 import 한다.
+      nixos.nixpkgs-common
       "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
       ./_broadcom-wifi.nix
     ];

@@ -7,6 +7,8 @@ in
     { config, pkgs, lib, ... }:
     {
       imports = [
+        # unfree 허용 목록과 overlays. common 을 쓰는 모든 호스트에 적용된다.
+        nixos.nixpkgs-common
         nixos.user-curt
         nixos.nix
         nixos.locale

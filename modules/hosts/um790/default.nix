@@ -6,7 +6,6 @@ in
   flake.nixosConfigurations.um790 = inputs.nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
-      nixos.nixpkgs-common
       (
         # Edit this configuration file to define what should be installed on
         # your system.  Help is available in the configuration.nix(5) man page

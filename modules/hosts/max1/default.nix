@@ -6,7 +6,6 @@ in
   flake.nixosConfigurations.max1 = inputs.nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
-      nixos.nixpkgs-common
       inputs.nix-amd-ai.nixosModules.default
       {
         hardware.amd-npu = {
