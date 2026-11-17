@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.modules.nixos.input-method =
+  flake.modules.nixos.kime =
     { ... }:
     {
       # i18n.inputMethod 는 pkgs.kime 를 쓰므로 overlay 로 고친 kime 로 바꾼다. (pkgs/kime.nix 참고)

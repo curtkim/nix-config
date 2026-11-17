@@ -8,7 +8,7 @@ in
     {
       imports = [
         nixos.helium-browser
-        nixos.input-method
+        nixos.kime
         nixos.mime-apps
         nixos.sdcv
         nixos.ui-theme
