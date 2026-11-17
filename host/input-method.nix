@@ -1,5 +1,9 @@
 { ... }:
 {
+  # i18n.inputMethod 는 pkgs.kime 를 쓰므로 overlay 로 고친 kime 로 바꾼다. (pkgs/kime.nix 참고)
+  nixpkgs.overlays = [
+    (final: prev: { kime = final.callPackage ../pkgs/kime.nix { inherit (prev) kime; }; })
+  ];
 
   # tail -f /run/user/1000/kime.err
   # cat /etc/xdg/kime/config.yaml

@@ -24,24 +24,23 @@ in
         #XCURSOR_SIZE = toString self.lib.cursor.size;
       };
 
-      autostart_sh = ''
-    
-      '';
+      #autostart_sh = ''
+      #'';
 
       settings = {
         repeat_rate = 40;
         repeat_delay = 250;
-        numlockon = 0;
+        numlock_on = 0;
 
-        exec-once = [
+        exec_once = [
           # 이전 세션의 kime 가 pid 락을 쥐고 있으면 새 kime 가 뜨지 못하므로 먼저 죽인다.
           # 항목을 나누면 순서가 보장되지 않으니 한 줄로 묶는다.
-          "${pkgs.kime}/bin/kime"
+          "${pkgs.callPackage ../../pkgs/kime.nix { }}/bin/kime"
         ];
 
-        default_mfact = 0.5;
+        default_master_factor = 0.5;
 
-        monitorrule = [
+        monitor_rule = [
           "name:HDMI-A-1,scale:2.0"
         ];
 
@@ -49,10 +48,10 @@ in
 
         #tagrule = map (id: "id:${toString id},layout_name:tile") (lib.range 1 17);
 
-        windowrule = [
+        window_rule = [
         ];
 
-        layerrule = [
+        layer_rule = [
         ];
 
         bind = [

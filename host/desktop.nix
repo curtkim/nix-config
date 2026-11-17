@@ -8,5 +8,7 @@
   environment.systemPackages = [
     inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.mango
     inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.kitty
+
+    pkgs.claude-code
   ];
 }

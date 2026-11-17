@@ -1,6 +1,3 @@
-## notes
-- unstable을 사용하는 이유는 google-chrome, nvim 때문
-
 ## howto
 
     nix flake update --update-input nixpkgs-unstable

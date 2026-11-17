@@ -2,7 +2,7 @@
 let
   shared = import ./shared.nix { inherit inputs; };
   inherit (shared) overlays commonPkgsConfig specialArgs;
-  inherit (inputs) nixpkgs nixpkgs-unstable home-manager hyprland yt-x;
+  inherit (inputs) nixpkgs home-manager hyprland yt-x;
 
   mkHome = { system, modules }:
     let
@@ -11,13 +11,7 @@ let
         config = commonPkgsConfig;
         overlays = overlays;
       };
-      pkgs-unstable = import nixpkgs-unstable {
-        system = system;
-        config = commonPkgsConfig;
-        overlays = [ ];
-      };
       extraSpecialArgs = specialArgs // {
-        pkgs-unstable = pkgs-unstable;
         hyprland = hyprland;
         yt-x = yt-x;
       };

@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  pkgs-unstable,
   beads,
   ...
 }:
@@ -191,12 +190,12 @@
 
       # AI
       #pkgs-unstable.aider-chat
-      pkgs-unstable.claude-code
+      pkgs.claude-code
       #(pkgs-unstable.claude-code.override {
       #  nodejs_20 = pkgs-unstable.nodejs_24;
       #})
       #codex
-      pkgs-unstable.opencode
+      pkgs.opencode
 
       #amp-cli
       #code2prompt
@@ -205,7 +204,7 @@
 
     ]
     ++ [
-      (pkgs-unstable.python3.withPackages (ps: [
+      (pkgs.python3.withPackages (ps: [
         ps.llm
         ps.llm-ollama
         ps.llm-deepseek
