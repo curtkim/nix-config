@@ -1,4 +1,7 @@
-{ ... }:
+{ config, ... }:
+let
+  inherit (config.flake) wrappers;
+in
 {
   flake.wrappers.kitty =
     {
@@ -20,6 +23,8 @@
       };
 
       settings = {
+        # flake 에 등록된 zsh wrapper (wrapper/zsh.nix)
+        shell = "${wrappers.zsh.wrap { inherit pkgs; }}/bin/zsh";
         scrollback_lines = 5000;
         paste_actions = "filter";
         #cursor_trail = 1;

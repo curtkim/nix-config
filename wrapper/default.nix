@@ -5,5 +5,6 @@
     ./kitty.nix
     ./mango
     ./neovim
+    ./zsh.nix
   ];
 }
