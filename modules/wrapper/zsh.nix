@@ -4,14 +4,20 @@ let
 in
 {
   # user/zsh.nix 의 wrapper 버전.
-  # zoxide, yazi, starship, lazygit, direnv, fzf, kitty 연동과 hm-session-vars 는 넣지 않는다.
+  # zoxide, yazi, lazygit, direnv, fzf, kitty 연동과 hm-session-vars 는 넣지 않는다.
+  # starship 은 wrapper/starship.nix 를 쓴다.
   flake.wrappers.zsh =
     {
       config,
       wlib,
       pkgs,
+      lib,
       ...
     }:
+    let
+      # flake 에 등록된 starship wrapper (wrapper/starship.nix)
+      starship = wrappers.starship.wrap { inherit pkgs; };
+    in
     {
       imports = [ wlib.wrapperModules.zsh ];
 
@@ -91,6 +97,13 @@ in
         unsetopt APPEND_HISTORY HIST_EXPIRE_DUPS_FIRST HIST_FIND_NO_DUPS HIST_IGNORE_ALL_DUPS HIST_SAVE_NO_DUPS
 
         setopt autocd
+
+        # starship 프롬프트. init 이 만드는 코드는 wrapper 가 아니라 실제 바이너리를
+        # 부르기 때문에, 설정 파일 경로를 셸에 export 해야 설정이 적용된다.
+        if [[ $TERM != "dumb" ]]; then
+          export STARSHIP_CONFIG="${starship}/starship.toml"
+          eval "$(${lib.getExe starship} init zsh)"
+        fi
       '';
     };
 }
