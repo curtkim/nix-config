@@ -36,6 +36,8 @@ in
             ./_hardware-configuration.nix
             nixos.amd
             nixos.common
+            # gen53 등이 원격 빌더로 쓴다 (nix-distributed-build-client)
+            nixos.nix-distributed-build-machine
           ];
 
 

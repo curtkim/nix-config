@@ -23,6 +23,8 @@ in
               nixos.amd
               nixos.common
               nixos.desktop
+              # max1 에서 원격 빌드
+              nixos.nix-distributed-build-client
               #../xserver.nix
               #../printing.nix
             ];
