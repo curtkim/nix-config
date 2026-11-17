@@ -24,7 +24,7 @@ in
     bind = [
       (bind "${mainMod} + return" ''hl.dsp.exec_cmd("kitty")'')
       (bind "${mainMod} + C" "hl.dsp.window.close()")
-      # (bind "${mainMod} + M" "hl.dsp.exit()")
+      (bind "${mainMod} + M" "hl.dsp.exit()")
       (bind "${mainMod} + E" ''hl.dsp.exec_cmd("dolphin")'')
       (bind "${mainMod} + V" ''hl.dsp.window.float({ action = "toggle" })'')
       (bind "${mainMod} + space" ''hl.dsp.exec_cmd("wofi --show drun")'')
