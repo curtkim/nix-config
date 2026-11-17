@@ -18,6 +18,7 @@
     ./hardware-configuration.nix
     ../amd.nix
     ../common.nix
+    ../desktop.nix
     ../minidlna.nix
     ../jellyfin.nix
     ../xserver.nix
