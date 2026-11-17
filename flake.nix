@@ -81,6 +81,11 @@
       url = "github:oxcl/nix-flake-helium-browser";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # home-manager 대신 ~ 아래 파일을 관리한다.
+    hjem = {
+      url = "github:feel-co/hjem";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # modules/ 아래 모든 .nix 를 flake-parts 모듈로 import 한다. ("_" 로 시작하는 경로는 제외)
     import-tree.url = "github:vic/import-tree";

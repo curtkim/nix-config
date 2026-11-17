@@ -9,6 +9,7 @@ in
       imports = [
         nixos.helium
         nixos.input-method
+        nixos.mime-apps
       ];
 
       environment.systemPackages = [
