@@ -77,7 +77,7 @@ in
 
 
           "${mod},f,togglefullscreen"
-          "${mod}+SHIFT,f,togglefakefullscreen"
+          "${mod}+SHIFT,f,togglemaximizescreen"
 
           "${mod},1,view,1"
           "${mod},2,view,2"
