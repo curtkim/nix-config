@@ -42,6 +42,11 @@ in
         repeat_delay = 250;
         numlock_on = 0;
 
+        # mango 는 cursor_size 가 없으면 XCURSOR_SIZE 를 24 로 덮어쓴다.
+        # 시스템 설정(nixos/theme/gtk.nix)과 맞춘다.
+        cursor_size = 32;
+        cursor_theme = "breeze_cursors";
+
         exec_once = [
           # 이전 세션의 kime 가 pid 락을 쥐고 있으면 새 kime 가 뜨지 못하므로 먼저 죽인다.
           # 항목을 나누면 순서가 보장되지 않으니 한 줄로 묶는다.
