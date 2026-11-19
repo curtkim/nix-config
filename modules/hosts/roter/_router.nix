@@ -2,7 +2,8 @@
 #
 #   enp1s0      WAN   ISP DHCP
 #   enp2s0      LAN   10.0.10.0/24  서버 스위치 (max1, spark1/2, black)
-#   enp3s0      WIFI  10.0.20.0/24  OpenWrt AP untagged (sanggyun5g / sanggyun2g)
+#   enp3s0      TRUNK -             OpenWrt AP 로 가는 트렁크. 주소 없음, VLAN 만 실린다
+#   enp3s0.20   WIFI  10.0.20.0/24  OpenWrt AP VLAN 20 tagged (sanggyun5g / sanggyun2g)
 #   enp3s0.30   IOT   10.0.30.0/24  OpenWrt AP VLAN 30 tagged (sanggyun2) - 인터넷 차단
 #   wg0         VPN   10.0.100.0/24 외부에서 노트북/패드/폰 접속
 #
@@ -11,7 +12,8 @@
 let
   wan = "enp1s0";
   lan = "enp2s0";
-  wifi = "enp3s0";
+  trunk = "enp3s0"; # AP 트렁크. 주소를 주지 않는다 - VLAN 둘만 올라탄다
+  wifi = "enp3s0.20";
   iot = "enp3s0.30";
   vpn = "wg0";
 
@@ -37,12 +39,26 @@ in
     enable = true;
     wait-online.anyInterface = true; # 랜선 하나 빠졌다고 부팅이 멈추지 않게
 
-    netdevs."20-iot" = {
-      netdevConfig = {
-        Kind = "vlan";
-        Name = iot;
+    # AP 로 가는 트렁크는 태그된 VLAN 둘만 나른다. 메인 LAN(20)도 태그인 것은
+    # 일부러 그렇게 한 것이다. AP 쪽이 untagged 네이티브 VLAN 을 쓰려면 브리지
+    # VLAN 필터링이 필요하고, 그러면 AP 의 관리 주소가 br-lan.20 위에 놓인다.
+    # 그게 올라오지 않으면 AP 에 접근할 길이 사라진다(두 번 겪었다). 둘 다
+    # 태그로 두면 AP 쪽은 평범한 브리지 두 개로 끝난다. openwrt-init.sh 참고.
+    netdevs = {
+      "20-wifi" = {
+        netdevConfig = {
+          Kind = "vlan";
+          Name = wifi;
+        };
+        vlanConfig.Id = 20;
       };
-      vlanConfig.Id = 30;
+      "20-iot" = {
+        netdevConfig = {
+          Kind = "vlan";
+          Name = iot;
+        };
+        vlanConfig.Id = 30;
+      };
     };
 
     networks = {
@@ -64,10 +80,18 @@ in
         networkConfig.IPv6AcceptRA = false;
         linkConfig.RequiredForOnline = "no";
       };
-      "20-wifi" = {
+      "20-trunk" = {
+        matchConfig.Name = trunk;
+        vlan = [
+          wifi
+          iot
+        ];
+        networkConfig.IPv6AcceptRA = false;
+        linkConfig.RequiredForOnline = "no";
+      };
+      "25-wifi" = {
         matchConfig.Name = wifi;
         address = [ "10.0.20.1/24" ];
-        vlan = [ iot ];
         networkConfig.IPv6AcceptRA = false;
         linkConfig.RequiredForOnline = "no";
       };
