@@ -15,7 +15,9 @@
       terminal = "tmux-256color";
       # default-shell 은 지정하지 않는다. tmux 는 $SHELL 을 쓰고, wrapper zsh 가
       # SHELL 을 자기 자신으로 export 한다. (zsh → tmux → zsh 순환 참조를 피하기 위함)
-      prefix = "C-u";
+      # kitty 가 ctrl+; 를 CSI u(\e[59;5u) 로 보낸다 (wrapper/kitty.nix).
+      # tmux.conf 에서 ; 는 명령 구분자라 따옴표로 감싸야 한다. (없으면 "bad key: C-")
+      prefix = "'C-;'";
       baseIndex = 1;
       paneBaseIndex = 1;
       escapeTime = 0;

@@ -37,6 +37,8 @@ in
         "ctrl+shift+equal" = "change_font_size all +1.0";
         "ctrl+shift+plus" = "change_font_size all +1.0";
         "ctrl+shift+minus" = "change_font_size all -1.0";
+        # tmux prefix 
+        "ctrl+semicolon" = "send_text all \\x1b[59;5u"; # 59:semicolon 5:ctrl pressed
         # bypass to tmux
         "ctrl+shift+h" = "launch --type=background tmux previous-window";
         "ctrl+shift+l" = "launch --type=background tmux next-window";

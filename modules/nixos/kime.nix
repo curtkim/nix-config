@@ -37,6 +37,10 @@
               - Hangul
               - Latin
               result: Consume
+            # tmux prefix(ctrl+;) 를 누르면 영어로 바꾸고, 키는 그대로 앱(kitty)에 넘긴다.
+            C-SemiColon:
+              behavior: !Switch Latin
+              result: Bypass
           hangul:
             layout: my-dubeolsik
             word_commit: false
