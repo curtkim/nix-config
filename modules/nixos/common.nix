@@ -9,12 +9,11 @@ in
       imports = [
         # unfree 허용 목록과 overlays. common 을 쓰는 모든 호스트에 적용된다.
         nixos.nixpkgs-common
-        nixos.user-curt
         nixos.nix
+        nixos.user-curt
         nixos.locale
         nixos.console
         nixos.font
-        nixos.network
         nixos.sound
         nixos.services
         nixos.security
@@ -45,6 +44,9 @@ in
         fd
         tokei
 
+        yazi
+        nix-search-cli
+
         usbutils
         pciutils
         lshw
@@ -53,12 +55,6 @@ in
         ethtool
         libnotify
 
-        # for incus
-        #    distrobuilder
-        #    cdrkit
-        #    hivex
-        #    wimlib
-
         home-manager
 
         inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.neovim
@@ -66,7 +62,6 @@ in
         # programs.zsh 의 zsh 와 bin/zsh 가 충돌한다. 로그인 셸
         # (/run/current-system/sw/bin/zsh) 이 확실히 wrapper zsh 를 가리키도록 우선순위를 올린다.
         (lib.hiPrio inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.zsh)
-
 
       ];
 

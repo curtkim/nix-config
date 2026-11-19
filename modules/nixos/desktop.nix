@@ -7,6 +7,7 @@ in
     { config, pkgs, ... }:
     {
       imports = [
+        nixos.network
         nixos.helium-browser
         nixos.kime
         nixos.mime-apps

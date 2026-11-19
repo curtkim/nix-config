@@ -11,8 +11,7 @@ in
         # your system.  Help is available in the configuration.nix(5) man page
         # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-        { xconfig, pkgs, ... }:
-
+        { pkgs, ... }:
         {
           imports =
             [
@@ -20,11 +19,12 @@ in
               inputs.disko.nixosModules.disko
               ./_disko-config.nix
               ./_hardware-configuration.nix
+              ./_router.nix
               nixos.common
               # max1 에서 원격 빌드 + substitute
-              nixos.nix-distributed-build-client
+              #nixos.nix-distributed-build-client
               #../xserver.nix
-              nixos.printing
+              ##nixos.printing
             ];
 
           networking.hostName = "roter"; # Define your hostname.
