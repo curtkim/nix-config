@@ -207,6 +207,19 @@ in
     allowInterfaces = [ lan wifi ];
   };
 
+  # ── Wake-on-LAN: wake-max1, wake-black, ... ──────────────────
+  # 매직 패킷은 서버망 브로드캐스트로 보낸다. -i 없이 보내면 255.255.255.255 가
+  # 기본 경로(WAN)로 나가서 서버가 깨지 않는다.
+  # 밖에서: ssh roter.lan wake-max1
+  environment.systemPackages =
+    [ pkgs.wireguard-tools ]
+    ++ lib.mapAttrsToList (
+      name: h:
+      pkgs.writeShellScriptBin "wake-${name}" ''
+        exec ${pkgs.wakeonlan}/bin/wakeonlan -i 10.0.10.255 ${h.mac}
+      ''
+    ) lanHosts;
+
   # ── WireGuard ────────────────────────────────────────────────
   # 첫 부팅 때 개인키를 만든다. 공개키 확인: sudo wg show wg0 public-key
   systemd.services.wg0-keygen = {
@@ -222,8 +235,6 @@ in
       wg genkey > ${wgKey}
     '';
   };
-
-  environment.systemPackages = [ pkgs.wireguard-tools ];
 
   networking.wireguard = {
     enable = true;
