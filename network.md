@@ -6,8 +6,8 @@ enp1s0은 isp에 연결하고
 enp2s0는 network switch에 연결하고
 enp3s0는 wifi ap(openwrt)에 연결하려고 해
 
-wifi 는 sanggyun5g, sanggyun2g, sangyun2(iot용) 3개로 하고 
-sangyun2는 인터넷을 못가게 하고 싶어
+wifi 는 sanggyun5g, sanggyun2g, sanggyun2(iot용) 3개로 하고 
+sanggyun2는 인터넷을 못가게 하고 싶어
 sanggyun5g, sanggyun2g는 주로 노트북, 패드, 핸드폰 에서 쓸거고
 
 max1에는 집안에서 쓰는 service들을 올릴고 jellyfin 같은
