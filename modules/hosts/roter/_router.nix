@@ -172,7 +172,10 @@ in
       local = "/lan/";
       expand-hosts = true;
       no-hosts = true; # /etc/hosts 의 roter → 127.0.0.2 가 새지 않게
-      interface-name = [ "roter.lan,${lan}/4" ];
+      # roter.lan 은 질의가 들어온 망의 라우터 주소로 답한다 (localise-queries).
+      # 한 인터페이스만 쓰면 그 랜선이 빠졌을 때(no-carrier → 주소 없음) 빈 응답이 된다.
+      interface-name = map (i: "roter.lan,${i}/4") [ lan wifi vpn ];
+      localise-queries = true;
 
       dhcp-authoritative = true;
       dhcp-range = [
