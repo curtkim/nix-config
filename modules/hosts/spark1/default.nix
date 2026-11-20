@@ -25,6 +25,9 @@ in
           boot.loader.efi.canTouchEfiVariables = true;
 
           networking.hostName = "spark1"; # Define your hostname.
+
+          # ds4-server (HTTP API)
+          networking.firewall.allowedTCPPorts = [ 8000 ];
         }
       )
     ];
