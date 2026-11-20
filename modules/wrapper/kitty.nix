@@ -34,9 +34,9 @@ in
       };
 
       keybindings = {
-        "ctrl+shift+equal" = "change_font_size all +1.0";
-        "ctrl+shift+plus" = "change_font_size all +1.0";
-        "ctrl+shift+minus" = "change_font_size all -1.0";
+        "ctrl+shift+equal" = "change_font_size all +0.5";
+        "ctrl+shift+plus" = "change_font_size all +0.5";
+        "ctrl+shift+minus" = "change_font_size all -0.5";
         # tmux prefix 
         "ctrl+semicolon" = "send_text all \\x1b[59;5u"; # 59:semicolon 5:ctrl pressed
         # bypass to tmux
