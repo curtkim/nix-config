@@ -70,8 +70,9 @@ in
             amdgpu_top
             rocmPackages.rocminfo
             rocmPackages.rocm-smi
-            ds4
+            #ds4
             #fastflowlm
+            llama-cpp-rocm
           ];
 
           security.pam.loginLimits = [
