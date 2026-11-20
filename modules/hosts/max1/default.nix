@@ -46,6 +46,9 @@ in
           # Wake-on-LAN (systemd .link 파일로 설정되므로 링크 재설정 후에도 유지된다)
           networking.interfaces.enp193s0.wakeOnLan.enable = true;
 
+          # llama-server (OpenAI 호환 API). 실행 시 --host 0.0.0.0 --port 8080
+          networking.firewall.allowedTCPPorts = [ 8080 ];
+
           boot.kernelParams = [ 
             "ttm.pages_limit=29360128" 
 
