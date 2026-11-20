@@ -19,6 +19,7 @@ in
         nixos.security
         nixos.dconf
         nixos.git
+        nixos.herdr
       ];
 
       # Enable touchpad support (enabled default in most desktopManager).
