@@ -54,6 +54,13 @@
       # dgx-spark 모듈이 mkDefault 없이 true로 켜므로 mkForce가 필요하다.
       # 끄는 이유: rank당 ~117.5 GiB / 121.7 GiB 예산에서 여유가 ~4 GiB뿐이다.
       services.dgx-dashboard.enable = lib.mkForce false;
+
+      # 서버망 NIC(Realtek r8127) Wake-on-LAN. 드라이버 기본값도 g 지만
+      # 업데이트로 바뀌어도 매번 magic packet(g)으로 맞춘다. roter 에서 wake-spark1/2.
+      networking.interfaces.enP7s7.wakeOnLan.enable = true;
+
+      # suspend(s2idle) 전후로 GPU 상태를 저장/복원한다.
+      hardware.nvidia.powerManagement.enable = true;
     }
     ;
 }
